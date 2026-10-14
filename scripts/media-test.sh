@@ -13,14 +13,17 @@ adb install -r "$APK"
 adb shell am start -W -n "$PKG/.MainActivity"
 sleep 12
 
-DEST="/sdcard/Android/data/$PKG/files/tv/Test Show/Season 1"
-adb shell mkdir -p "'$DEST'"
+# Copy samples into the app's own cache (debug build, so run-as works); the
+# app's FileProvider then hands out content:// URIs like the folder picker does.
+adb shell "run-as $PKG mkdir -p cache/tv"
 FILES=()
 for f in "$SAMPLES"/*; do
-  adb push "$f" "$DEST/" >/dev/null
-  FILES+=("tv/Test Show/Season 1/$(basename "$f")")
+  safe=$(basename "$f" | tr ' ' '_')
+  adb push "$f" "/data/local/tmp/$safe" >/dev/null
+  adb shell "cat /data/local/tmp/$safe | run-as $PKG sh -c 'cat > cache/tv/$safe'"
+  FILES+=("tv/$safe")
 done
-adb shell ls -l "'$DEST'"
+adb shell "run-as $PKG ls -l cache/tv"
 
 PID=$(adb shell pidof "$PKG" | tr -d '\r')
 adb forward tcp:9222 "localabstract:webview_devtools_remote_$PID"

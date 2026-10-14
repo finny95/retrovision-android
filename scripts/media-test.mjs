@@ -1,13 +1,13 @@
 // Drives the app's WebView over the DevTools protocol (debug builds only) to check
 // that linked media files stream, seek and play as channels.
 // Usage: node scripts/media-test.mjs <devtools-port> <out.json> <file>...
-// Each <file> is a path relative to the app's external files dir.
+// Each <file> is a path relative to the app's cache dir.
 import { writeFileSync } from "node:fs";
 
 const [port, outFile, ...files] = process.argv.slice(2);
 const PKG = "com.retrovision.player";
 const providerUri = (rel) =>
-  `content://${PKG}.fileprovider/my_images/Android/data/${PKG}/files/${rel.split("/").map(encodeURIComponent).join("/")}`;
+  `content://${PKG}.fileprovider/my_cache_images/${rel.split("/").map(encodeURIComponent).join("/")}`;
 
 async function target() {
   for (let i = 0; i < 30; i++) {
@@ -50,9 +50,13 @@ const streamTest = async (name, uri) => {
   const url = `${location.origin}/_rv_media/${encodeURIComponent(name)}?u=${encodeURIComponent(uri)}&n=${Date.now()}`;
   const out = { name };
   const head = async (range) => {
-    const r = await fetch(url + "&r=" + Math.random(), range ? { headers: { Range: range } } : {});
-    const body = await r.arrayBuffer();
-    return { status: r.status, type: r.headers.get("content-type"), range: r.headers.get("content-range"), length: r.headers.get("content-length"), got: body.byteLength };
+    try {
+      const r = await fetch(url + "&r=" + Math.random(), range ? { headers: { Range: range } } : {});
+      const body = await r.arrayBuffer();
+      return { status: r.status, type: r.headers.get("content-type"), range: r.headers.get("content-range"), length: r.headers.get("content-length"), got: body.byteLength };
+    } catch (e) {
+      return { error: String(e) };
+    }
   };
   out.rangeMid = await head("bytes=100-199");
   out.rangeTail = await head("bytes=-50");
