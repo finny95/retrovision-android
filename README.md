@@ -31,10 +31,11 @@ Only when the native shell changes (this repo). Push to `main` or run
 2. builds launcher icons, the Android TV banner and splash screens from the app's icon,
 3. builds and signs the APK (build number = run number),
 4. publishes it as a GitHub release,
-5. boots it in an emulator and saves screenshots and logs (artifact `smoke-test`).
+5. boots it in an emulator and saves screenshots and logs to the
+   [`smoke-results`](https://github.com/finny95/retrovision-android/tree/smoke-results) branch.
 
 **Actions > Smoke test latest APK** repeats step 5 on the current release, handy after a
-Base44 publish to watch an over-the-air update land (look for `[ota]` lines in `logcat-app.txt`).
+Base44 publish to watch an over-the-air update land (the `[ota]` lines show on the run's summary page).
 
 If you add a native feature the web app relies on, bump `minNativeBuild` in the Base44 app's
 `native.config.json` to this repo's new build number.
