@@ -22,9 +22,16 @@ import java.util.Map;
  * Serves files the user linked through the folder picker at
  * https://localhost/_rv_media/&lt;name&gt;?u=&lt;content uri&gt;
  *
- * Capacitor's own file route ignores the start of a Range request and caps sizes
- * at 2 GB, which breaks seeking and live-channel tuning. This answers Range
- * requests properly (206 Partial Content) using 64-bit offsets.
+ * How WebView treats intercepted responses (Chromium's InputStreamReader):
+ * it reads the Range header itself, uses InputStream.available() as the full
+ * size, skip()s to the range start and caps the length. So for normal files we
+ * hand back the whole file from byte 0 and let WebView cut the range out.
+ * Seeking ourselves as well made every jump land in the wrong place, and files
+ * with their index at the end never loaded.
+ *
+ * WebView's sizes are 32-bit, so files over 2 GB take a different route: we
+ * position the stream ourselves and make WebView's own size check and skip
+ * no-ops (see LargeRangeStream).
  */
 public class MediaWebViewClient extends BridgeWebViewClient {
 
@@ -73,12 +80,10 @@ public class MediaWebViewClient extends BridgeWebViewClient {
         headers.put("Accept-Ranges", "bytes");
         headers.put("Cache-Control", "no-store");
 
+        FileInputStream in = new ParcelFileDescriptor.AutoCloseInputStream(pfd);
         try {
-            FileInputStream in = new ParcelFileDescriptor.AutoCloseInputStream(pfd);
-
             if (range == null || total < 0) {
-                if (total >= 0) headers.put("Content-Length", String.valueOf(total));
-                Log.i(TAG, "200 " + mime + " size=" + total + " range=" + range);
+                Log.i(TAG, "200 " + mime + " size=" + total);
                 return new WebResourceResponse(mime, null, 200, "OK", headers, in);
             }
 
@@ -91,24 +96,28 @@ public class MediaWebViewClient extends BridgeWebViewClient {
             }
             long start = span[0];
             long end = span[1];
-            long length = end - start + 1;
+            headers.put("Content-Range", "bytes " + start + "-" + end + "/" + total);
+
+            if (total <= Integer.MAX_VALUE) {
+                // Whole file from byte 0: WebView skips to `start` and stops after `end`.
+                Log.i(TAG, "206 bytes " + start + "-" + end + "/" + total);
+                return new WebResourceResponse(mime, null, 206, "Partial Content", headers, in);
+            }
 
             seek(in, start);
-            Log.i(TAG, "206 bytes " + start + "-" + end + "/" + total + " (asked " + range + ")");
-            headers.put("Content-Range", "bytes " + start + "-" + end + "/" + total);
-            headers.put("Content-Length", String.valueOf(length));
-            return new WebResourceResponse(mime, null, 206, "Partial Content", headers, new BoundedInputStream(in, length));
+            Log.i(TAG, "206 large bytes " + start + "-" + end + "/" + total);
+            return new WebResourceResponse(mime, null, 206, "Partial Content", headers, new LargeRangeStream(in, end - start + 1));
         } catch (IOException e) {
             Log.w(TAG, "Failed to stream " + uri + ": " + e.getMessage());
             try {
-                pfd.close();
+                in.close();
             } catch (IOException ignored) {}
             return status(500, "Internal Server Error");
         }
     }
 
     /** Parses "bytes=start-end", "bytes=start-" or "bytes=-suffix". Returns null when unsatisfiable. */
-    private static long[] parseRange(String header, long total) {
+    static long[] parseRange(String header, long total) {
         String value = header.trim().toLowerCase(Locale.ROOT);
         if (!value.startsWith("bytes=")) return null;
         String spec = value.substring(6).split(",")[0].trim();
@@ -185,19 +194,25 @@ public class MediaWebViewClient extends BridgeWebViewClient {
         return new WebResourceResponse("text/plain", "utf-8", code, reason, new HashMap<>(), new ByteArrayInputStream(new byte[0]));
     }
 
-    /** Stops reading after {@code limit} bytes and closes the underlying stream when done. */
-    private static final class BoundedInputStream extends InputStream {
+    /**
+     * For files over 2 GB: already positioned at the range start and limited to the
+     * range length. Reports 0 available until the first read so WebView skips its
+     * 32-bit size check, and treats WebView's skip() as already done.
+     */
+    static final class LargeRangeStream extends InputStream {
 
         private final InputStream in;
         private long remaining;
+        private boolean started;
 
-        BoundedInputStream(InputStream in, long limit) {
+        LargeRangeStream(InputStream in, long length) {
             this.in = in;
-            this.remaining = limit;
+            this.remaining = length;
         }
 
         @Override
         public int read() throws IOException {
+            started = true;
             if (remaining <= 0) return -1;
             int b = in.read();
             if (b >= 0) remaining--;
@@ -206,6 +221,7 @@ public class MediaWebViewClient extends BridgeWebViewClient {
 
         @Override
         public int read(byte[] buffer, int off, int len) throws IOException {
+            started = true;
             if (remaining <= 0) return -1;
             int n = in.read(buffer, off, (int) Math.min(len, remaining));
             if (n > 0) remaining -= n;
@@ -213,8 +229,15 @@ public class MediaWebViewClient extends BridgeWebViewClient {
         }
 
         @Override
+        public long skip(long n) {
+            // The stream is already at the range start; report WebView's skip as done.
+            return Math.min(n, Integer.MAX_VALUE);
+        }
+
+        @Override
         public int available() throws IOException {
-            return (int) Math.min(in.available(), Math.min(remaining, Integer.MAX_VALUE));
+            if (!started) return 0;
+            return (int) Math.min(Math.min(in.available(), remaining), Integer.MAX_VALUE);
         }
 
         @Override

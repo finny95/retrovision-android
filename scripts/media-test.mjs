@@ -84,7 +84,7 @@ const streamTest = async (name, uri) => {
   out.duration = v.duration;
   if (out.firstFrame.ok) {
     const seeked = wait("seeked", 20000);
-    v.currentTime = Math.min(120, (v.duration || 60) * 0.66);
+    v.currentTime = (v.duration || 60) * 0.9;
     out.seek = await seeked;
     out.afterSeek = v.currentTime;
     await new Promise((r) => setTimeout(r, 1500));
@@ -124,7 +124,7 @@ if (okFiles.length) {
         seekOk = await new Promise((res) => {
           const timer = setTimeout(() => res(false), 20000);
           v.onseeked = () => { clearTimeout(timer); res(true); };
-          v.currentTime = 30 + i * 7;
+          v.currentTime = (v.duration || 60) * (0.2 + 0.09 * i);
         });
         await new Promise((r) => setTimeout(r, 800));
       }

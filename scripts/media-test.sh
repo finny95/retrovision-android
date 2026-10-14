@@ -21,6 +21,7 @@ for f in "$SAMPLES"/*; do
   safe=$(basename "$f" | tr ' ' '_')
   adb push "$f" "/data/local/tmp/$safe" >/dev/null
   adb shell "cat /data/local/tmp/$safe | run-as $PKG sh -c 'cat > cache/tv/$safe'"
+  adb shell rm -f "/data/local/tmp/$safe"
   FILES+=("tv/$safe")
 done
 adb shell "run-as $PKG ls -l cache/tv"

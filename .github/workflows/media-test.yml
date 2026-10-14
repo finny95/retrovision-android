@@ -71,6 +71,8 @@ jobs:
           ffmpeg -loglevel error $SRC -c:v libx264 -pix_fmt yuv420p -g 48 -c:a aac -movflags +faststart "samples/Episode 1.mp4"
           ffmpeg -loglevel error $SRC -c:v libx264 -pix_fmt yuv420p -g 48 -c:a aac "samples/Episode 2 moov-at-end.mp4"
           ffmpeg -loglevel error $SRC -c:v libx264 -pix_fmt yuv420p -g 240 -c:a aac -movflags +faststart "samples/Episode 3 sparse-keyframes.mp4"
+          # A 2.3 GB, 6-hour episode (index at the end) to test seeking past the 2 GB mark.
+          ffmpeg -loglevel error -stream_loop 90 -i "samples/Episode 1.mp4" -c copy "samples/Episode 4 big.mp4"
           ls -la samples
 
       - name: Enable KVM for the emulator
@@ -86,6 +88,7 @@ jobs:
           target: google_apis
           arch: x86_64
           disable-animations: true
+          disk-size: 8G
           emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
           script: bash scripts/media-test.sh android/app/build/outputs/apk/debug/app-debug.apk media samples
 
