@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   smoke-test:
@@ -37,6 +37,14 @@ jobs:
           disable-animations: true
           emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
           script: bash scripts/smoke-test.sh RetroVision.apk smoke
+
+      # Saves screenshots + logs on the smoke-results branch (easy to view on GitHub)
+      # and puts the key log lines on the run summary.
+      - name: Publish smoke-test results
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: bash scripts/publish-smoke-results.sh smoke "${{ github.run_number }}"
 
       - uses: actions/upload-artifact@v4
         if: always()
