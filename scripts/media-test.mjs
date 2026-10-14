@@ -1,0 +1,183 @@
+// Drives the app's WebView over the DevTools protocol (debug builds only) to check
+// that linked media files stream, seek and play as channels.
+// Usage: node scripts/media-test.mjs <devtools-port> <out.json> <file>...
+// Each <file> is a path relative to the app's external files dir.
+import { writeFileSync } from "node:fs";
+
+const [port, outFile, ...files] = process.argv.slice(2);
+const PKG = "com.retrovision.player";
+const providerUri = (rel) =>
+  `content://${PKG}.fileprovider/my_images/Android/data/${PKG}/files/${rel.split("/").map(encodeURIComponent).join("/")}`;
+
+async function target() {
+  for (let i = 0; i < 30; i++) {
+    try {
+      const list = await (await fetch(`http://127.0.0.1:${port}/json`)).json();
+      const page = list.find((t) => t.type === "page" && t.url.startsWith("https://localhost"));
+      if (page) return page.webSocketDebuggerUrl;
+    } catch {}
+    await new Promise((r) => setTimeout(r, 1000));
+  }
+  throw new Error("No WebView page to inspect");
+}
+
+const ws = new WebSocket(await target());
+await new Promise((r) => ws.addEventListener("open", r, { once: true }));
+let seq = 0;
+const pending = new Map();
+ws.addEventListener("message", (ev) => {
+  const msg = JSON.parse(ev.data);
+  if (msg.id && pending.has(msg.id)) {
+    pending.get(msg.id)(msg);
+    pending.delete(msg.id);
+  }
+});
+const send = (method, params = {}) =>
+  new Promise((resolve) => {
+    const id = ++seq;
+    pending.set(id, resolve);
+    ws.send(JSON.stringify({ id, method, params }));
+  });
+async function evaluate(fn, ...args) {
+  const expression = `(${fn})(...${JSON.stringify(args)})`;
+  const res = await send("Runtime.evaluate", { expression, awaitPromise: true, returnByValue: true, timeout: 120000 });
+  if (res.result?.exceptionDetails) return { exception: res.result.exceptionDetails.exception?.description || res.result.exceptionDetails.text };
+  return res.result?.result?.value;
+}
+
+// --- 1. Streaming + seeking for each file ---------------------------------
+const streamTest = async (name, uri) => {
+  const url = `${location.origin}/_rv_media/${encodeURIComponent(name)}?u=${encodeURIComponent(uri)}&n=${Date.now()}`;
+  const out = { name };
+  const head = async (range) => {
+    const r = await fetch(url + "&r=" + Math.random(), range ? { headers: { Range: range } } : {});
+    const body = await r.arrayBuffer();
+    return { status: r.status, type: r.headers.get("content-type"), range: r.headers.get("content-range"), length: r.headers.get("content-length"), got: body.byteLength };
+  };
+  out.rangeMid = await head("bytes=100-199");
+  out.rangeTail = await head("bytes=-50");
+  try {
+    out.probe = await window.Capacitor.Plugins.MediaFolder.probe({ uri });
+  } catch (e) {
+    out.probe = String(e);
+  }
+  const v = document.createElement("video");
+  v.muted = true;
+  v.playsInline = true;
+  document.body.appendChild(v);
+  const wait = (ev, ms) =>
+    new Promise((res) => {
+      const t0 = performance.now();
+      const done = (ok) => res({ ok, ms: Math.round(performance.now() - t0), err: v.error?.code, readyState: v.readyState });
+      const timer = setTimeout(() => done(false), ms);
+      v.addEventListener(ev, () => { clearTimeout(timer); done(true); }, { once: true });
+      v.addEventListener("error", () => { clearTimeout(timer); done(false); }, { once: true });
+    });
+  v.src = url;
+  const loaded = wait("loadeddata", 20000);
+  v.play().catch(() => {});
+  out.firstFrame = await loaded;
+  out.duration = v.duration;
+  if (out.firstFrame.ok) {
+    const seeked = wait("seeked", 20000);
+    v.currentTime = Math.min(120, (v.duration || 60) * 0.66);
+    out.seek = await seeked;
+    out.afterSeek = v.currentTime;
+    await new Promise((r) => setTimeout(r, 1500));
+    out.playingAfterSeek = !v.paused && v.currentTime > out.afterSeek;
+  }
+  v.remove();
+  return out;
+};
+
+const results = { files: [] };
+for (const rel of files) {
+  const name = rel.split("/").pop();
+  results.files.push(await evaluate(streamTest, name, providerUri(rel)));
+}
+
+// --- 1b. Play, switch and replay several times (the "works once" case) -----
+const okFiles = results.files.map((f, i) => (f.firstFrame?.ok ? files[i] : null)).filter(Boolean);
+if (okFiles.length) {
+  results.repeat = await evaluate(async (uris) => {
+    const v = document.createElement("video");
+    v.muted = true;
+    document.body.appendChild(v);
+    const runs = [];
+    for (let i = 0; i < 8; i++) {
+      const uri = uris[i % uris.length];
+      const url = `${location.origin}/_rv_media/x.mp4?u=${encodeURIComponent(uri)}&n=${Date.now()}-${i}`;
+      const t0 = performance.now();
+      const ok = await new Promise((res) => {
+        const timer = setTimeout(() => res(false), 20000);
+        v.onloadeddata = () => { clearTimeout(timer); res(true); };
+        v.onerror = () => { clearTimeout(timer); res(false); };
+        v.src = url;
+        v.play().catch(() => {});
+      });
+      let seekOk = null;
+      if (ok) {
+        seekOk = await new Promise((res) => {
+          const timer = setTimeout(() => res(false), 20000);
+          v.onseeked = () => { clearTimeout(timer); res(true); };
+          v.currentTime = 30 + i * 7;
+        });
+        await new Promise((r) => setTimeout(r, 800));
+      }
+      runs.push({ i, ok, seekOk, ms: Math.round(performance.now() - t0), err: v.error?.code });
+    }
+    v.remove();
+    return runs;
+  }, okFiles.map(providerUri));
+}
+
+// --- 2. The app's own channel flow -----------------------------------------
+const first = results.files.find((f) => f.firstFrame?.ok && f.probe?.duration > 30);
+if (first) {
+  const rel = files[results.files.indexOf(first)];
+  await evaluate(
+    async (record, channel) => {
+      const db = await new Promise((res, rej) => {
+        const r = indexedDB.open("crt-media-library", 2);
+        r.onsuccess = () => res(r.result);
+        r.onerror = () => rej(r.error);
+      });
+      const tx = db.transaction(["media", "channels"], "readwrite");
+      tx.objectStore("media").put(record);
+      tx.objectStore("channels").put(channel);
+      await new Promise((r) => (tx.oncomplete = r));
+      return true;
+    },
+    { id: 9001, name: first.name, type: "video/mp4", size: 1, added: Date.now(), duration: first.probe.duration, show: "Test Show", season: "Season 1", uri: providerUri(rel) },
+    // Epoch chosen so the live position is about 60% into the episode.
+    { id: 9101, number: 7, name: "Test Channel", shows: ["Test Show"], adShows: [], adsPerBreak: 0, blocks: [], lineup: [{ mediaId: 9001, kind: "show" }], epoch: Date.now() - first.probe.duration * 600 }
+  );
+  await send("Page.reload");
+  await new Promise((r) => setTimeout(r, 6000));
+  results.channel = [];
+  for (let attempt = 0; attempt < 3; attempt++) {
+  results.channel.push(await evaluate(async () => {
+    const btn = [...document.querySelectorAll("button")].find((b) => b.textContent.includes("Test Channel"));
+    if (!btn) return { error: "channel not listed" };
+    btn.click();
+    const t0 = performance.now();
+    const v = document.querySelector("video");
+    while (performance.now() - t0 < 30000) {
+      await new Promise((r) => setTimeout(r, 500));
+      const loading = document.body.textContent.includes("Loading signal");
+      if (!loading && v.currentTime > 1 && !v.paused) {
+        return { ok: true, ms: Math.round(performance.now() - t0), currentTime: v.currentTime, duration: v.duration };
+      }
+    }
+    return { ok: false, currentTime: v.currentTime, readyState: v.readyState, paused: v.paused, err: v.error?.code, src: v.currentSrc.slice(0, 80) };
+  }));
+  // Tune away (quick play nothing) by reloading the page, like reopening the app.
+  await send("Page.reload");
+  await new Promise((r) => setTimeout(r, 6000));
+  }
+}
+
+writeFileSync(outFile, JSON.stringify(results, null, 2));
+console.log(JSON.stringify(results, null, 2));
+ws.close();
+process.exit(0);

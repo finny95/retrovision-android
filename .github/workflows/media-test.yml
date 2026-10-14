@@ -1,0 +1,96 @@
+name: Media playback test
+
+# Builds a debug APK, pushes sample videos into the emulator, and checks that
+# linked files stream, seek, replay and play as a channel. Results land on the
+# media-results branch and on the run summary.
+
+on:
+  workflow_dispatch:
+    inputs:
+      bundle_branch:
+        description: Branch holding an unpublished web build in www/ (blank = use the live Base44 bundle)
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+jobs:
+  media-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Web bundle (live)
+        if: inputs.bundle_branch == ''
+        run: node scripts/fetch-bundle.mjs
+
+      - name: Web bundle (test branch)
+        if: inputs.bundle_branch != ''
+        run: |
+          git fetch --depth 1 origin "${{ inputs.bundle_branch }}"
+          rm -rf www && mkdir www
+          git archive FETCH_HEAD www | tar -x
+          ls www | head
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Icons and Android project
+        run: |
+          pip install --quiet pillow==11.3.0
+          python scripts/make-icons.py www/icon-512.png || true
+          npx cap sync android
+
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: "21"
+          cache: gradle
+
+      - name: Build debug APK
+        working-directory: android
+        run: |
+          chmod +x gradlew
+          ./gradlew --no-daemon assembleDebug
+
+      - name: Make sample videos
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
+          mkdir -p samples
+          SRC="-f lavfi -i testsrc2=size=640x360:rate=24 -f lavfi -i sine=frequency=440:sample_rate=44100 -t 240"
+          ffmpeg -loglevel error $SRC -c:v libx264 -pix_fmt yuv420p -g 48 -c:a aac -movflags +faststart "samples/Episode 1.mp4"
+          ffmpeg -loglevel error $SRC -c:v libx264 -pix_fmt yuv420p -g 48 -c:a aac "samples/Episode 2 moov-at-end.mp4"
+          ffmpeg -loglevel error $SRC -c:v libx264 -pix_fmt yuv420p -g 240 -c:a aac -movflags +faststart "samples/Episode 3 sparse-keyframes.mp4"
+          ls -la samples
+
+      - name: Enable KVM for the emulator
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+
+      - name: Run the media checks in an emulator
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          target: google_apis
+          arch: x86_64
+          disable-animations: true
+          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+          script: bash scripts/media-test.sh android/app/build/outputs/apk/debug/app-debug.apk media samples
+
+      - name: Publish results
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: bash scripts/publish-smoke-results.sh media "${{ github.run_number }}" media-results

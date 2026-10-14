@@ -78,6 +78,7 @@ public class MediaWebViewClient extends BridgeWebViewClient {
 
             if (range == null || total < 0) {
                 if (total >= 0) headers.put("Content-Length", String.valueOf(total));
+                Log.i(TAG, "200 " + mime + " size=" + total + " range=" + range);
                 return new WebResourceResponse(mime, null, 200, "OK", headers, in);
             }
 
@@ -93,6 +94,7 @@ public class MediaWebViewClient extends BridgeWebViewClient {
             long length = end - start + 1;
 
             seek(in, start);
+            Log.i(TAG, "206 bytes " + start + "-" + end + "/" + total + " (asked " + range + ")");
             headers.put("Content-Range", "bytes " + start + "-" + end + "/" + total);
             headers.put("Content-Length", String.valueOf(length));
             return new WebResourceResponse(mime, null, 206, "Partial Content", headers, new BoundedInputStream(in, length));
