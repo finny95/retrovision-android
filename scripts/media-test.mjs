@@ -191,6 +191,91 @@ if (first) {
   }
 }
 
+// --- 3. Audio: Web Audio routing of streamed files (per-show boost) ----------
+if (phase === "audio") {
+  const firstOk = results.files.find((f) => f.firstFrame?.ok && !/big/.test(f.name));
+  const rel = firstOk && files[results.files.indexOf(firstOk)];
+  if (rel) {
+    // a) Platform: does a context start without a tap, and does a streamed file
+    //    come through MediaElementSource with sound (not silenced as cross-origin)?
+    results.audioPlatform = await evaluate(async (uri) => {
+      const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+      const out = {};
+      const ctx = new AudioContext();
+      out.stateAtStart = ctx.state;
+      await sleep(400);
+      out.stateAfter = ctx.state;
+      const t0 = ctx.currentTime;
+      const v = document.createElement("video");
+      v.src = `${location.origin}/_rv_media/a.mp4?u=${encodeURIComponent(uri)}&n=${Date.now()}`;
+      document.body.appendChild(v);
+      const src = ctx.createMediaElementSource(v);
+      const an = ctx.createAnalyser();
+      an.fftSize = 2048;
+      src.connect(an);
+      an.connect(ctx.destination);
+      await v.play().catch((e) => (out.playError = String(e)));
+      await sleep(3000);
+      const buf = new Float32Array(an.fftSize);
+      an.getFloatTimeDomainData(buf);
+      out.rms = Math.sqrt(buf.reduce((s, x) => s + x * x, 0) / buf.length);
+      out.ctxAdvanced = ctx.currentTime - t0;
+      out.videoTime = v.currentTime;
+      out.paused = v.paused;
+      v.pause();
+      v.remove();
+      await ctx.close();
+      return out;
+    }, providerUri(rel));
+    save();
+
+    // b) The app itself: boost a show, tune its channel, and listen before and
+    //    after the boost chain (taps added next to the app's own nodes).
+    await send("Page.addScriptToEvaluateOnNewDocument", {
+      source: `(() => {
+        const AC = window.AudioContext;
+        const mes = AC.prototype.createMediaElementSource;
+        const tap = (ctx, node, key) => { const an = ctx.createAnalyser(); an.fftSize = 2048; node.connect(an); window.__tap = window.__tap || {}; window.__tap[key] = an; window.__tap.ctx = ctx; };
+        AC.prototype.createMediaElementSource = function (el) { const n = mes.call(this, el); tap(this, n, "pre"); return n; };
+        const cdc = AC.prototype.createDynamicsCompressor;
+        AC.prototype.createDynamicsCompressor = function () { const n = cdc.call(this); tap(this, n, "post"); return n; };
+      })();`,
+    });
+    await evaluate((rec) => {
+      localStorage.setItem("retrovision.prefs.v1", JSON.stringify({ boost: { [rec]: 9 }, volume: 1, muted: false, lastTab: "channels" }));
+      return true;
+    }, "Test Show");
+    await send("Page.reload");
+    await new Promise((r) => setTimeout(r, 7000));
+    results.audioApp = await evaluate(async () => {
+      const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+      const btn = [...document.querySelectorAll("button")].find((b) => b.textContent.includes("Test Channel"));
+      if (!btn) return { error: "channel not listed" };
+      btn.click();
+      const v = document.querySelector("video");
+      const t0 = performance.now();
+      while (performance.now() - t0 < 30000 && !(v.currentTime > 1 && !v.paused)) await sleep(500);
+      await sleep(3000);
+      const rms = (an) => {
+        if (!an) return null;
+        const buf = new Float32Array(an.fftSize);
+        an.getFloatTimeDomainData(buf);
+        return Math.sqrt(buf.reduce((s, x) => s + x * x, 0) / buf.length);
+      };
+      return {
+        playing: !v.paused && v.currentTime > 1,
+        ctxState: window.__tap?.ctx?.state || "no context routed",
+        pre: rms(window.__tap?.pre),
+        post: rms(window.__tap?.post),
+        volume: v.volume,
+        muted: v.muted,
+        text: document.body.innerText.slice(0, 300),
+      };
+    });
+    save();
+  }
+}
+
 save();
 console.log(JSON.stringify(results, null, 2));
 ws.close();

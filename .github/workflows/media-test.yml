@@ -89,7 +89,7 @@ jobs:
           arch: x86_64
           disable-animations: true
           disk-size: 8G
-          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+          emulator-options: -no-window -gpu swiftshader_indirect -no-boot-anim -camera-back none
           script: bash scripts/media-test.sh android/app/build/outputs/apk/debug/app-debug.apk media samples
 
       - name: Publish results

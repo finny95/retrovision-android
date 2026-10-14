@@ -40,6 +40,20 @@ run_phase() {
 run_phase files
 run_phase channel
 adb exec-out screencap -p > "$OUT/media-channel.png"
+run_phase audio
+adb exec-out screencap -p > "$OUT/ui-portrait.png"
+# Sideways, like a handheld: the full-screen TV layout.
+adb shell settings put system accelerometer_rotation 0
+adb shell settings put system user_rotation 1
+sleep 4
+adb exec-out screencap -p > "$OUT/ui-landscape.png"
+adb shell input keyevent KEYCODE_MENU
+sleep 2
+adb exec-out screencap -p > "$OUT/ui-landscape-menu.png"
+adb shell input keyevent KEYCODE_DPAD_RIGHT
+adb shell input keyevent KEYCODE_DPAD_RIGHT
+sleep 1
+adb exec-out screencap -p > "$OUT/ui-landscape-menu2.png"
 adb logcat -d > "$OUT/logcat-full.txt"
 grep -E "RetroVisionMedia|\[ota\]|\[native\]|FATAL|chromium.*(Media|media)" "$OUT/logcat-full.txt" | tail -60 > "$OUT/logcat-app.txt" || true
 cp "$OUT/media-results.json" "$OUT/results.json" 2>/dev/null || true
