@@ -9,9 +9,16 @@ SAMPLES="$3"
 PKG=com.retrovision.player
 mkdir -p "$OUT"
 
-adb install -r "$APK"
+adb install -r "$APK" 2>&1 | tail -2 | tee "$OUT/install.txt"
 adb shell am start -W -n "$PKG/.MainActivity"
 sleep 12
+# Early diagnostics, in case a later step hangs.
+adb shell getprop sys.boot_completed > "$OUT/boot.txt" 2>&1
+adb shell pidof "$PKG" >> "$OUT/boot.txt" 2>&1
+adb exec-out screencap -p > "$OUT/0-start.png"
+adb shell top -b -n 1 -m 15 > "$OUT/top-start.txt" 2>&1
+adb logcat -d -t 400 > "$OUT/logcat-start.txt" 2>&1
+git -C . status >/dev/null 2>&1 || true
 
 # Copy samples into the app's own cache (debug build, so run-as works); the
 # app's FileProvider then hands out content:// URIs like the folder picker does.
@@ -34,8 +41,9 @@ run_phase() {
   adb forward --remove-all
   adb forward tcp:9222 "localabstract:webview_devtools_remote_$PID"
   echo "== phase $1 (pid $PID)" >> "$OUT/node.log"
-  timeout 600 node scripts/media-test.mjs 9222 "$OUT/media-results.json" "$1" "${FILES[@]}" >> "$OUT/node.log" 2>&1
+  timeout 240 node scripts/media-test.mjs 9222 "$OUT/media-results.json" "$1" "${FILES[@]}" >> "$OUT/node.log" 2>&1
   echo "== exit $?" >> "$OUT/node.log"
+  adb shell top -b -n 1 -m 8 > "$OUT/top-$1.txt" 2>&1
 }
 run_phase files
 run_phase channel
