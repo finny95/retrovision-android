@@ -66,12 +66,20 @@ jobs:
       # the ANDROID_KEYSTORE_PASSWORD repository secret.
       - name: Check signing secret
         env:
-          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          RAW_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
         run: |
-          if [ -z "$ANDROID_KEYSTORE_PASSWORD" ]; then
+          # Tolerate a pasted secret that picked up spaces or an extra line on the way.
+          PW=$(printf '%s\n' "$RAW_PASSWORD" | tr -d ' \t\r' | grep -v '^$' | head -1)
+          if [ -z "$PW" ]; then
             echo "::error::Add the ANDROID_KEYSTORE_PASSWORD secret (Settings > Secrets and variables > Actions) so the APK can be signed."
             exit 1
           fi
+          if ! keytool -list -keystore android/keystore/release.p12 -storepass "$PW" -alias retrovision >/dev/null 2>&1; then
+            echo "::error title=Signing password doesn't match::The ANDROID_KEYSTORE_PASSWORD secret (${#PW} characters after trimming) doesn't open android/keystore/release.p12. Re-enter it exactly."
+            exit 1
+          fi
+          echo "::add-mask::$PW"
+          echo "SIGNING_PASSWORD=$PW" >> "$GITHUB_ENV"
 
       - name: Build signed release APK
         working-directory: android
@@ -79,10 +87,9 @@ jobs:
           APP_VERSION_CODE: ${{ github.run_number }}
           APP_VERSION_NAME: 1.0.${{ github.run_number }}
           ANDROID_KEYSTORE_PATH: ${{ github.workspace }}/android/keystore/release.p12
-          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
           ANDROID_KEY_ALIAS: retrovision
-          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
         run: |
+          export ANDROID_KEYSTORE_PASSWORD="$SIGNING_PASSWORD" ANDROID_KEY_PASSWORD="$SIGNING_PASSWORD"
           chmod +x gradlew
           set -o pipefail
           ./gradlew --no-daemon --stacktrace assembleRelease 2>&1 | tee "$RUNNER_TEMP/gradle.log"
