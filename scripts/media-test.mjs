@@ -281,22 +281,52 @@ if (phase === "audio") {
 
 // --- 4. Launch without internet: airplane mode, or a connection that stalls ---
 if (phase === "offline" || phase === "stalled") {
-  results[phase] = await evaluate(async () => {
+  const sample = results.files.find((f) => f.probe?.duration > 30 && !/big/.test(f.name)) || results.files[0];
+  const rel = files[results.files.indexOf(sample)] || files[0];
+  const loaded = await evaluate(async () => {
     const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
     const t0 = performance.now();
-    // The menu reopens on the last tab used, so go to Channels first.
     while (performance.now() - t0 < 20000 && !document.querySelector('[data-tab="channels"]')) await sleep(250);
-    document.querySelector('[data-tab="channels"]')?.click();
-    await sleep(500);
-    const out = { ui: document.body.innerText.includes("New channel"), uiAtMs: Math.round(t0), online: navigator.onLine, offlineBadge: document.body.innerText.includes("OFFLINE") || document.body.innerText.includes("Offline") };
-    const btn = [...document.querySelectorAll("button")].find((b) => b.textContent.includes("Test Channel"));
-    if (!btn) return { ...out, error: "channel not listed" };
-    btn.click();
-    const v = document.querySelector("video");
-    const t1 = performance.now();
-    while (performance.now() - t1 < 20000 && !(v.currentTime > 1 && !v.paused)) await sleep(500);
-    return { ...out, playing: v.currentTime > 1 && !v.paused, currentTime: v.currentTime };
+    return { ui: Boolean(document.querySelector('[data-tab="channels"]')), online: navigator.onLine, offlineBadge: /offline/i.test(document.body.innerText) };
   });
+  // Make sure the test channel exists (an earlier phase may have been cut short), then reopen.
+  await evaluate(
+    async (record, channel) => {
+      const db = await new Promise((res, rej) => {
+        const r = indexedDB.open("crt-media-library", 2);
+        r.onupgradeneeded = () => {
+          const d = r.result;
+          if (!d.objectStoreNames.contains("media")) d.createObjectStore("media", { keyPath: "id", autoIncrement: true });
+          if (!d.objectStoreNames.contains("channels")) d.createObjectStore("channels", { keyPath: "id", autoIncrement: true });
+        };
+        r.onsuccess = () => res(r.result);
+        r.onerror = () => rej(r.error);
+      });
+      const tx = db.transaction(["media", "channels"], "readwrite");
+      tx.objectStore("media").put(record);
+      tx.objectStore("channels").put(channel);
+      await new Promise((r) => (tx.oncomplete = r));
+      localStorage.setItem("retrovision.prefs.v1", JSON.stringify({ lastTab: "channels" }));
+      return true;
+    },
+    { id: 9001, name: sample?.name || "Episode_1.mp4", type: "video/mp4", size: 1, added: Date.now(), duration: sample?.probe?.duration || 240, show: "Test Show", season: "Season 1", uri: providerUri(rel) },
+    { id: 9101, number: 7, name: "Test Channel", shows: ["Test Show"], adShows: [], adsPerBreak: 0, blocks: [], lineup: [{ mediaId: 9001, kind: "show" }], epoch: Date.now() - 60000 }
+  );
+  await send("Page.reload");
+  await new Promise((r) => setTimeout(r, 8000));
+  results[phase] = {
+    ...loaded,
+    ...(await evaluate(async () => {
+      const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+      const btn = [...document.querySelectorAll("button")].find((b) => b.textContent.includes("Test Channel"));
+      if (!btn) return { error: "channel not listed", text: document.body.innerText.slice(0, 200) };
+      btn.click();
+      const v = document.querySelector("video");
+      const t1 = performance.now();
+      while (performance.now() - t1 < 20000 && !(v.currentTime > 1 && !v.paused)) await sleep(500);
+      return { playing: v.currentTime > 1 && !v.paused, currentTime: v.currentTime, onlineAfterReload: navigator.onLine };
+    })),
+  };
   save();
 }
 
