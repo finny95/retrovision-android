@@ -47,9 +47,12 @@ adb shell settings put system accelerometer_rotation 0
 adb shell settings put system user_rotation 1
 sleep 4
 adb exec-out screencap -p > "$OUT/ui-landscape.png"
-adb shell input keyevent KEYCODE_MENU
+# TV remote: OK opens the menu, d-pad moves, RB-less tab change via the tab bar.
+adb shell input keyevent KEYCODE_DPAD_CENTER
 sleep 2
 adb exec-out screencap -p > "$OUT/ui-landscape-menu.png"
+adb shell input keyevent KEYCODE_DPAD_UP
+adb shell input keyevent KEYCODE_DPAD_UP
 adb shell input keyevent KEYCODE_DPAD_RIGHT
 adb shell input keyevent KEYCODE_DPAD_RIGHT
 sleep 1

@@ -231,6 +231,7 @@ if (phase === "audio") {
 
     // b) The app itself: boost a show, tune its channel, and listen before and
     //    after the boost chain (taps added next to the app's own nodes).
+    await send("Page.enable");
     await send("Page.addScriptToEvaluateOnNewDocument", {
       source: `(() => {
         const AC = window.AudioContext;
