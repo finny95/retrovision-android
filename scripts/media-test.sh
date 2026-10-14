@@ -26,9 +26,19 @@ for f in "$SAMPLES"/*; do
 done
 adb shell "run-as $PKG ls -l cache/tv"
 
-PID=$(adb shell pidof "$PKG" | tr -d '\r')
-adb forward tcp:9222 "localabstract:webview_devtools_remote_$PID"
-node scripts/media-test.mjs 9222 "$OUT/media-results.json" "${FILES[@]}"
+run_phase() {
+  # (Re)open the app if the emulator closed it, then attach to its WebView.
+  adb shell am start -W -n "$PKG/.MainActivity" >/dev/null
+  sleep 8
+  PID=$(adb shell pidof "$PKG" | tr -d '\r')
+  adb forward --remove-all
+  adb forward tcp:9222 "localabstract:webview_devtools_remote_$PID"
+  echo "== phase $1 (pid $PID)" >> "$OUT/node.log"
+  timeout 600 node scripts/media-test.mjs 9222 "$OUT/media-results.json" "$1" "${FILES[@]}" >> "$OUT/node.log" 2>&1
+  echo "== exit $?" >> "$OUT/node.log"
+}
+run_phase files
+run_phase channel
 adb exec-out screencap -p > "$OUT/media-channel.png"
 adb logcat -d > "$OUT/logcat-full.txt"
 grep -E "RetroVisionMedia|\[ota\]|\[native\]|FATAL|chromium.*(Media|media)" "$OUT/logcat-full.txt" | tail -60 > "$OUT/logcat-app.txt" || true

@@ -4,7 +4,9 @@
 // Each <file> is a path relative to the app's cache dir.
 import { writeFileSync } from "node:fs";
 
-const [port, outFile, ...files] = process.argv.slice(2);
+const [port, outFile, phase, ...files] = process.argv.slice(2);
+import { existsSync, readFileSync } from "node:fs";
+process.on("unhandledRejection", (e) => { console.error("unhandled", e); });
 const PKG = "com.retrovision.player";
 const providerUri = (rel) =>
   `content://${PKG}.fileprovider/my_cache_images/${rel.split("/").map(encodeURIComponent).join("/")}`;
@@ -94,10 +96,15 @@ const streamTest = async (name, uri) => {
   return out;
 };
 
-const results = { files: [] };
+const results = existsSync(outFile) ? JSON.parse(readFileSync(outFile, "utf8")) : { files: [] };
+const save = () => writeFileSync(outFile, JSON.stringify(results, null, 2));
+if (phase === "files") {
+results.files = [];
 for (const rel of files) {
   const name = rel.split("/").pop();
   results.files.push(await evaluate(streamTest, name, providerUri(rel)));
+  save();
+  console.log("file done", name);
 }
 
 // --- 1b. Play, switch and replay several times (the "works once" case) -----
@@ -133,10 +140,12 @@ if (okFiles.length) {
     v.remove();
     return runs;
   }, okFiles.map(providerUri));
+  save();
+}
 }
 
 // --- 2. The app's own channel flow -----------------------------------------
-const first = results.files.find((f) => f.firstFrame?.ok && f.probe?.duration > 30);
+const first = phase === "channel" && results.files.find((f) => f.firstFrame?.ok && f.probe?.duration > 30);
 if (first) {
   const rel = files[results.files.indexOf(first)];
   await evaluate(
@@ -176,12 +185,13 @@ if (first) {
     return { ok: false, currentTime: v.currentTime, readyState: v.readyState, paused: v.paused, err: v.error?.code, src: v.currentSrc.slice(0, 80) };
   }));
   // Tune away (quick play nothing) by reloading the page, like reopening the app.
+  save();
   await send("Page.reload");
   await new Promise((r) => setTimeout(r, 6000));
   }
 }
 
-writeFileSync(outFile, JSON.stringify(results, null, 2));
+save();
 console.log(JSON.stringify(results, null, 2));
 ws.close();
 process.exit(0);
