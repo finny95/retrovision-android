@@ -1,0 +1,144 @@
+name: Build APK
+
+# Builds a signed RetroVision APK with the latest published Base44 version inside,
+# then publishes it as a GitHub release (Releases > latest > RetroVision.apk).
+#
+# You only need a new APK when the native shell changes. Everyday app changes
+# reach installed apps over the air whenever you publish in Base44.
+
+on:
+  push:
+    branches: [main]
+    paths-ignore: ["README.md"]
+  workflow_dispatch:
+    inputs:
+      smoke_test:
+        description: Boot the APK in an Android emulator and save screenshots + logs
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-apk
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    outputs:
+      bundle_version: ${{ steps.bundle.outputs.version }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Download the live web bundle from Base44
+        id: bundle
+        run: node scripts/fetch-bundle.mjs
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Generate icons, TV banner and splash screens
+        run: |
+          pip install --quiet pillow==11.3.0
+          python scripts/make-icons.py www/icon-512.png
+
+      - name: Copy web bundle and plugins into the Android project
+        run: npx cap sync android
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+          cache: gradle
+
+      # The keystore in android/keystore/ is AES-256 encrypted; its password lives only in
+      # the ANDROID_KEYSTORE_PASSWORD repository secret.
+      - name: Check signing secret
+        env:
+          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+        run: |
+          if [ -z "$ANDROID_KEYSTORE_PASSWORD" ]; then
+            echo "::error::Add the ANDROID_KEYSTORE_PASSWORD secret (Settings > Secrets and variables > Actions) so the APK can be signed."
+            exit 1
+          fi
+
+      - name: Build signed release APK
+        working-directory: android
+        env:
+          APP_VERSION_CODE: ${{ github.run_number }}
+          APP_VERSION_NAME: 1.0.${{ github.run_number }}
+          ANDROID_KEYSTORE_PATH: ${{ github.workspace }}/android/keystore/release.p12
+          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          ANDROID_KEY_ALIAS: retrovision
+          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+        run: |
+          chmod +x gradlew
+          ./gradlew --no-daemon --stacktrace assembleRelease
+
+      - name: Check the signature
+        run: |
+          cp android/app/build/outputs/apk/release/app-release.apk RetroVision.apk
+          BT="$ANDROID_HOME/build-tools/$(ls "$ANDROID_HOME/build-tools" | sort -V | tail -1)"
+          "$BT/apksigner" verify --print-certs RetroVision.apk | tee signature.txt
+          "$BT/aapt2" dump badging RetroVision.apk | head -5
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: RetroVision-apk
+          path: RetroVision.apk
+          retention-days: 30
+
+      - name: Publish GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "v1.0.${{ github.run_number }}" RetroVision.apk \
+            --title "RetroVision 1.0.${{ github.run_number }}" \
+            --notes "App build ${{ github.run_number }}, starts with web version ${{ steps.bundle.outputs.version }} (published ${{ steps.bundle.outputs.built_at }}). Later Base44 publishes arrive over the air." \
+            --latest
+
+  smoke-test:
+    needs: build
+    if: github.event_name == 'push' || inputs.smoke_test
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: RetroVision-apk
+
+      - name: Enable KVM for the emulator
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+
+      - name: Install, launch and screenshot in an emulator
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          target: google_apis
+          arch: x86_64
+          disable-animations: true
+          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+          script: bash scripts/smoke-test.sh RetroVision.apk smoke
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: smoke-test
+          path: smoke/
+          retention-days: 14

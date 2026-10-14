@@ -1,0 +1,22 @@
+{
+  "name": "retrovision-android",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Android shell for the RetroVision (Cathode Tube) Base44 app, with over-the-air web updates",
+  "scripts": {
+    "fetch-bundle": "node scripts/fetch-bundle.mjs",
+    "icons": "python3 scripts/make-icons.py www/icon-512.png",
+    "sync": "cap sync android",
+    "prepare-android": "npm run fetch-bundle && npm run icons && npm run sync"
+  },
+  "dependencies": {
+    "@capacitor/android": "8.5.2",
+    "@capacitor/app": "8.1.2",
+    "@capacitor/core": "8.5.2",
+    "@capgo/capacitor-updater": "8.52.1"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "8.5.2",
+    "fflate": "0.8.2"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "appId": "com.retrovision.player",
+  "appName": "RetroVision",
+  "webDir": "www",
+  "loggingBehavior": "production",
+  "appendUserAgent": "RetroVisionApp",
+  "android": {
+    "backgroundColor": "#0a0a0a",
+    "allowMixedContent": false,
+    "captureInput": false,
+    "webContentsDebuggingEnabled": false
+  },
+  "plugins": {
+    "CapacitorUpdater": {
+      "autoUpdate": false,
+      "appReadyTimeout": 15000,
+      "responseTimeout": 30,
+      "autoDeleteFailed": false,
+      "autoDeletePrevious": true,
+      "resetWhenUpdate": true,
+      "statsUrl": "",
+      "channelUrl": "",
+      "updateUrl": ""
+    }
+  }
+}

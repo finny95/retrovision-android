@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">RetroVision</string>
+    <string name="title_activity_main">RetroVision</string>
+    <string name="package_name">com.retrovision.player</string>
+    <string name="custom_url_scheme">com.retrovision.player</string>
+</resources>
