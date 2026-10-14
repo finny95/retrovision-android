@@ -284,8 +284,11 @@ if (phase === "offline" || phase === "stalled") {
   results[phase] = await evaluate(async () => {
     const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
     const t0 = performance.now();
-    while (performance.now() - t0 < 20000 && !document.body.innerText.includes("New channel")) await sleep(250);
-    const out = { ui: document.body.innerText.includes("New channel"), sinceLoadMs: Math.round(performance.now()), online: navigator.onLine };
+    // The menu reopens on the last tab used, so go to Channels first.
+    while (performance.now() - t0 < 20000 && !document.querySelector('[data-tab="channels"]')) await sleep(250);
+    document.querySelector('[data-tab="channels"]')?.click();
+    await sleep(500);
+    const out = { ui: document.body.innerText.includes("New channel"), uiAtMs: Math.round(t0), online: navigator.onLine, offlineBadge: document.body.innerText.includes("OFFLINE") || document.body.innerText.includes("Offline") };
     const btn = [...document.querySelectorAll("button")].find((b) => b.textContent.includes("Test Channel"));
     if (!btn) return { ...out, error: "channel not listed" };
     btn.click();
