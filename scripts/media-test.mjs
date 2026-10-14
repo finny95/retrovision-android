@@ -265,6 +265,8 @@ if (phase === "audio") {
       return {
         playing: !v.paused && v.currentTime > 1,
         ctxState: window.__tap?.ctx?.state || "no context routed",
+        diag: window.__rvAudio?.(),
+        tapInstalled: String(AudioContext.prototype.createMediaElementSource).includes("tap"),
         pre: rms(window.__tap?.pre),
         post: rms(window.__tap?.post),
         volume: v.volume,
