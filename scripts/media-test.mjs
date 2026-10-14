@@ -279,6 +279,24 @@ if (phase === "audio") {
   }
 }
 
+// --- 4. Launch without internet: airplane mode, or a connection that stalls ---
+if (phase === "offline" || phase === "stalled") {
+  results[phase] = await evaluate(async () => {
+    const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+    const t0 = performance.now();
+    while (performance.now() - t0 < 20000 && !document.body.innerText.includes("New channel")) await sleep(250);
+    const out = { ui: document.body.innerText.includes("New channel"), sinceLoadMs: Math.round(performance.now()), online: navigator.onLine };
+    const btn = [...document.querySelectorAll("button")].find((b) => b.textContent.includes("Test Channel"));
+    if (!btn) return { ...out, error: "channel not listed" };
+    btn.click();
+    const v = document.querySelector("video");
+    const t1 = performance.now();
+    while (performance.now() - t1 < 20000 && !(v.currentTime > 1 && !v.paused)) await sleep(500);
+    return { ...out, playing: v.currentTime > 1 && !v.paused, currentTime: v.currentTime };
+  });
+  save();
+}
+
 save();
 console.log(JSON.stringify(results, null, 2));
 ws.close();
