@@ -1,0 +1,197 @@
+{
+  "files": [
+    {
+      "name": "Episode_1.mp4",
+      "rangeMid": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 100-199/25327495",
+        "length": "100",
+        "got": 25327395
+      },
+      "rangeTail": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 25327445-25327494/25327495",
+        "length": "50",
+        "got": 50
+      },
+      "probe": {
+        "duration": 240.023
+      },
+      "firstFrame": {
+        "ok": true,
+        "ms": 935,
+        "readyState": 4
+      },
+      "duration": 240,
+      "seek": {
+        "ok": true,
+        "ms": 680,
+        "readyState": 4
+      },
+      "afterSeek": 216.001162,
+      "playingAfterSeek": true
+    },
+    {
+      "name": "Episode_2_moov-at-end.mp4",
+      "rangeMid": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 100-199/25327495",
+        "length": "100",
+        "got": 25327395
+      },
+      "rangeTail": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 25327445-25327494/25327495",
+        "length": "50",
+        "got": 50
+      },
+      "probe": {
+        "duration": 240.023
+      },
+      "firstFrame": {
+        "ok": true,
+        "ms": 792,
+        "readyState": 4
+      },
+      "duration": 240,
+      "seek": {
+        "ok": true,
+        "ms": 955,
+        "readyState": 4
+      },
+      "afterSeek": 216.0059,
+      "playingAfterSeek": true
+    },
+    {
+      "name": "Episode_3_sparse-keyframes.mp4",
+      "rangeMid": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 100-199/24707050",
+        "length": "100",
+        "got": 24706950
+      },
+      "rangeTail": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 24707000-24707049/24707050",
+        "length": "50",
+        "got": 50
+      },
+      "probe": {
+        "duration": 240.023
+      },
+      "firstFrame": {
+        "ok": true,
+        "ms": 379,
+        "readyState": 4
+      },
+      "duration": 240,
+      "seek": {
+        "ok": true,
+        "ms": 1317,
+        "readyState": 4
+      },
+      "afterSeek": 216.000619,
+      "playingAfterSeek": true
+    },
+    {
+      "name": "Episode_4_big.mp4",
+      "rangeMid": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 100-199/2304674875",
+        "length": "0",
+        "got": 100
+      },
+      "rangeTail": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 2304674825-2304674874/2304674875",
+        "length": "0",
+        "got": 50
+      },
+      "probe": {
+        "duration": 21840.156
+      },
+      "firstFrame": {
+        "ok": true,
+        "ms": 851,
+        "readyState": 4
+      },
+      "duration": 21840.13265,
+      "seek": {
+        "ok": true,
+        "ms": 745,
+        "readyState": 4
+      },
+      "afterSeek": 19656.12062,
+      "playingAfterSeek": true
+    }
+  ],
+  "channel": [
+    {
+      "ok": true,
+      "ms": 1021,
+      "currentTime": 143.9698,
+      "duration": 240
+    },
+    {
+      "ok": true,
+      "ms": 571,
+      "currentTime": 151.2778,
+      "duration": 240
+    },
+    {
+      "ok": true,
+      "ms": 518,
+      "currentTime": 158.0938,
+      "duration": 240
+    }
+  ],
+  "audioPlatform": {
+    "stateAtStart": "running",
+    "stateAfter": "running",
+    "rms": 0.08833720410191509,
+    "ctxAdvanced": 3.088,
+    "videoTime": 2.818322,
+    "paused": false
+  },
+  "audioApp": {
+    "playing": true,
+    "ctxState": "running",
+    "diag": {
+      "state": "running",
+      "routed": true,
+      "boostDb": 9,
+      "gain": 2.818382978439331,
+      "issue": ""
+    },
+    "tapInstalled": true,
+    "pre": 0.08849628729387843,
+    "post": 0.2904631162209099,
+    "volume": 1,
+    "muted": false,
+    "text": "CATHODETUBE\n\nDIGITAL\n\nCH 07\nTEST CHANNEL\n07\n\nTest Show\n\nTEST CHANNEL · 0:53 LEFT · BOOST +9 DB\n\n3:07 / 4:00\n● LIVE\nMAIN MENU\nTHU, OCT 15\n12:45am\nGuide\nChannels\nLibrary\nPicture\nSound\nBroadcast\nNew channel\n07\nTest Channel\nON NOW\n12:42am Test Show\n12:46am Test Show"
+  },
+  "offline": {
+    "ui": true,
+    "online": false,
+    "offlineBadge": true,
+    "playing": true,
+    "currentTime": 60.824,
+    "onlineAfterReload": false
+  },
+  "stalled": {
+    "ui": true,
+    "online": true,
+    "offlineBadge": false,
+    "playing": true,
+    "currentTime": 60.836,
+    "onlineAfterReload": true
+  }
+}

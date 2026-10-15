@@ -1,0 +1,13 @@
+Tasks: 327 total,   1 running, 326 sleeping,   0 stopped,   0 zombie
+  Mem:  2534548K total,  2404268K used,   130280K free,    11436K buffers
+ Swap:  1900904K total,   579328K used,  1321576K free,  1056684K cached
+200%cpu  56%user  15%nice  85%sys  33%idle   0%iow   0%irq   4%sirq   7%host
+  PID USER         PR  NI VIRT  RES  SHR S[%CPU] %MEM     TIME+ ARGS
+ 5559 u0_a192      10 -10  29G 229M 150M S 55.5   9.2   0:18.98 com.retrovision.player
+ 5514 u0_a129      20   0  14G 305M 252M S 25.9  12.3   0:04.32 com.google.android.gms
+  351 media        20   0  11G  21M 8.3M S 22.2   0.8   0:14.79 android.hardware.media.c2@1.0-service-goldfish
+ 5440 u0_a129      20   0  13G 233M 157M S 14.8   9.4   0:19.10 com.google.android.gms.persistent
+ 3410 u0_a129      20   0  13G 136M 107M S 14.8   5.4   0:05.23 com.google.android.gms.unstable
+  521 system       18  -2  15G 298M 203M S 14.8  12.0   0:53.28 system_server
+ 5648 u0_i9001     10 -10 231G 188M 121M S  7.4   7.6   0:04.11 com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0
+  387 system       -3  -8  11G 5.9M 5.1M S  7.4   0.2   0:07.48 android.hardware.graphics.composer3-service.ranchu

@@ -1,0 +1,13 @@
+Tasks: 327 total,   2 running, 325 sleeping,   0 stopped,   0 zombie
+  Mem:  2534548K total,  2450636K used,    83912K free,    16328K buffers
+ Swap:  1900904K total,   544768K used,  1356136K free,  1062956K cached
+200%cpu  78%user  22%nice  59%sys  37%idle   0%iow   0%irq   0%sirq   4%host
+  PID USER         PR  NI VIRT  RES  SHR S[%CPU] %MEM     TIME+ ARGS
+ 5440 u0_a129      20   0  13G 245M 157M R 48.1   9.8   0:17.79 com.google.android.gms.persistent
+  521 system       18  -2  15G 250M 163M S 40.7  10.1   0:51.75 system_server
+ 5514 u0_a129      20   0  13G 206M 155M S 22.2   8.3   0:03.74 com.google.android.gms
+ 5559 u0_a192      10 -10  29G 226M 149M S 14.8   9.1   0:12.44 com.retrovision.player
+  847 u0_a184      20   0  13G 111M  79M S 11.1   4.4   0:03.08 com.google.android.permissioncontroller
+  450 logd         30  10  10G 2.8M 2.7M S 11.1   0.1   0:06.75 logcat -f /dev/hvc1 *:V
+  131 logd         30  10  10G 5.9M 3.7M S  7.4   0.2   0:02.05 logd
+ 6229 shell        20   0  10G 4.9M 3.8M R  3.7   0.1   0:00.02 top -b -n 1 -m 8

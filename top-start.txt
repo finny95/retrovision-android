@@ -1,0 +1,20 @@
+Tasks: 315 total,   3 running, 312 sleeping,   0 stopped,   0 zombie
+  Mem:  2534548K total,  2459568K used,    74980K free,    15692K buffers
+ Swap:  1900904K total,   252672K used,  1648232K free,  1182772K cached
+200%cpu 107%user  13%nice  60%sys  20%idle   0%iow   0%irq   0%sirq   0%host
+  PID USER         PR  NI VIRT  RES  SHR S[%CPU] %MEM     TIME+ ARGS
+  521 system       18  -2  15G 284M 186M S 43.3  11.4   0:26.07 system_server
+ 4063 u0_a144      20   0  14G  62M  35M D 13.3   2.4   0:00.00 com.google.android.gm
+ 2592 u0_a192      10 -10  29G 215M 142M S 13.3   8.7   0:04.28 com.retrovision.player
+ 3410 u0_a129      20   0  13G 146M 110M S 10.0   5.9   0:00.30 com.google.android.gms.unstable
+ 1731 u0_a138      20   0  14G 157M 125M D 10.0   6.3   0:01.25 com.google.android.youtube
+ 1569 u0_a143      10 -10  13G 144M  99M S 10.0   5.8   0:01.88 com.google.android.inputmethod.latin
+ 1718 u0_a156      20   0  14G 168M 127M S  6.6   6.7   0:00.92 com.google.android.apps.youtube.music
+ 1476 u0_a129      20   0  13G 182M 130M D  6.6   7.3   0:01.99 com.google.android.gms
+ 1423 u0_a129      20   0  13G 179M 132M D  6.6   7.2   0:03.13 com.google.android.gms.persistent
+  847 u0_a184      20   0  13G 124M  88M S  6.6   5.0   0:00.91 com.google.android.permissioncontroller
+  841 u0_a168      20   0  13G 200M 127M R  6.6   8.0   0:02.95 com.android.systemui
+ 1725 u0_a132      20   0  30G 263M 203M S  3.3  10.6   0:01.48 com.google.android.googlequicksearchbox:search
+ 1720 u0_a129      20   0  13G  76M  49M S  3.3   3.0   0:00.21 com.google.process.gservices
+ 1662 u0_a126      20   0  14G 195M 144M D  3.3   7.8   0:01.19 com.google.android.as
+ 1055 radio        20   0  13G 112M  77M S  3.3   4.5   0:01.12 com.android.phone

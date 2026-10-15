@@ -1,0 +1,60 @@
+10-15 00:44:06.801  2592  3021 I RetroVisionMedia: 206 large bytes 2288975872-2304674874/2304674875
+10-15 00:44:07.144  2592  2994 I RetroVisionMedia: 206 large bytes 32768-2304674874/2304674875
+10-15 00:44:07.684  2592  2994 I RetroVisionMedia: 206 large bytes 2058944512-2304674874/2304674875
+10-15 00:44:09.862  2592  2997 I RetroVisionMedia: 206 bytes 0-25327494/25327495
+10-15 00:44:10.408  2592  2994 I RetroVisionMedia: 206 bytes 4980736-25327494/25327495
+10-15 00:44:12.278  2592  2994 I RetroVisionMedia: 206 bytes 0-25327494/25327495
+10-15 00:44:12.454  2592  2994 I RetroVisionMedia: 206 bytes 25133056-25327494/25327495
+10-15 00:44:13.338  2592  2994 I RetroVisionMedia: 206 bytes 7110656-25327494/25327495
+10-15 00:44:15.485  2592  2994 I RetroVisionMedia: 206 bytes 0-24707049/24707050
+10-15 00:44:16.064  2592  2997 I RetroVisionMedia: 206 bytes 9371648-24707049/24707050
+10-15 00:44:17.762  2592  2994 I RetroVisionMedia: 206 large bytes 0-2304674874/2304674875
+10-15 00:44:17.856  2592  3021 I RetroVisionMedia: 206 large bytes 2287927296-2304674874/2304674875
+10-15 00:44:18.793  2592  2994 I RetroVisionMedia: 206 large bytes 0-2304674874/2304674875
+10-15 00:44:19.526  2592  3021 I RetroVisionMedia: 206 large bytes 1075249152-2304674874/2304674875
+10-15 00:44:20.953  2592  2994 I RetroVisionMedia: 206 bytes 0-25327494/25327495
+10-15 00:44:21.518  2592  2997 I RetroVisionMedia: 206 bytes 14188544-25327494/25327495
+10-15 00:44:22.907  2592  2997 I RetroVisionMedia: 206 bytes 0-25327494/25327495
+10-15 00:44:22.938  2592  3021 I RetroVisionMedia: 206 bytes 25133056-25327494/25327495
+10-15 00:44:23.515  2592  2994 I RetroVisionMedia: 206 bytes 16121856-25327494/25327495
+10-15 00:44:25.486  2592  2994 I RetroVisionMedia: 206 bytes 0-24707049/24707050
+10-15 00:44:26.618  2592  2997 I RetroVisionMedia: 206 bytes 17530880-24707049/24707050
+10-15 00:44:34.107  5559  5559 I Capacitor/Console: File: https://localhost/assets/boot-BntG_Ky-.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-15 00:44:34.180  5559  5559 I Capacitor/Console: File: https://localhost/assets/boot-BntG_Ky-.js - Line 2 - Msg: [ota] running bundle 1.0.1792024658
+10-15 00:44:40.219  5559  5559 I Capacitor/Console: File: https://localhost/assets/boot-BntG_Ky-.js - Line 2 - Msg: [ota] up to date (1.0.1792024658)
+10-15 00:44:41.166  5559  5559 I Capacitor/Console: File: https://localhost/assets/boot-BntG_Ky-.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-15 00:44:41.179  5559  5559 I Capacitor/Console: File: https://localhost/assets/boot-BntG_Ky-.js - Line 2 - Msg: [ota] running bundle 1.0.1792024658
+10-15 00:44:41.832  5559  5559 I Capacitor/Console: File: https://localhost/assets/boot-BntG_Ky-.js - Line 2 - Msg: [ota] up to date (1.0.1792024658)
+10-15 00:44:47.280  5559  5650 I RetroVisionMedia: 206 bytes 0-25327494/25327495
+10-15 00:44:47.336  5559  5650 I RetroVisionMedia: 206 bytes 0-25327494/25327495
+10-15 00:44:47.605  5559  5651 I RetroVisionMedia: 206 bytes 15040512-25327494/25327495
+10-15 00:44:48.777  5559  5559 I Capacitor/Console: File: https://localhost/assets/boot-BntG_Ky-.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-15 00:44:48.793  5559  5559 I Capacitor/Console: File: https://localhost/assets/boot-BntG_Ky-.js - Line 2 - Msg: [ota] running bundle 1.0.1792024658
+10-15 00:44:49.036  5559  5559 I Capacitor/Console: File: https://localhost/assets/boot-BntG_Ky-.js - Line 2 - Msg: [ota] up to date (1.0.1792024658)
+10-15 00:44:54.447  5559  5651 I RetroVisionMedia: 206 bytes 15859712-25327494/25327495
+10-15 00:44:55.747  5559  5559 I Capacitor/Console: File: https://localhost/assets/boot-BntG_Ky-.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-15 00:44:55.780  5559  5559 I Capacitor/Console: File: https://localhost/assets/boot-BntG_Ky-.js - Line 2 - Msg: [ota] running bundle 1.0.1792024658
+10-15 00:44:56.060  5559  5559 I Capacitor/Console: File: https://localhost/assets/boot-BntG_Ky-.js - Line 2 - Msg: [ota] up to date (1.0.1792024658)
+10-15 00:45:01.267  5559  5651 I RetroVisionMedia: 206 bytes 16908288-25327494/25327495
+10-15 00:45:03.366  5559  5559 I Capacitor/Console: File: https://localhost/assets/boot-BntG_Ky-.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-15 00:45:03.383  5559  5559 I Capacitor/Console: File: https://localhost/assets/boot-BntG_Ky-.js - Line 2 - Msg: [ota] running bundle 1.0.1792024658
+10-15 00:45:03.661  5559  5559 I Capacitor/Console: File: https://localhost/assets/boot-BntG_Ky-.js - Line 2 - Msg: [ota] up to date (1.0.1792024658)
+10-15 00:45:17.841  5559  5650 I RetroVisionMedia: 206 bytes 0-25327494/25327495
+10-15 00:45:21.549  5559  5559 I Capacitor/Console: File: https://localhost/assets/boot-BntG_Ky-.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-15 00:45:21.558  5559  5559 I Capacitor/Console: File: https://localhost/assets/boot-BntG_Ky-.js - Line 2 - Msg: [ota] running bundle 1.0.1792024658
+10-15 00:45:21.793  5559  5559 I Capacitor/Console: File: https://localhost/assets/boot-BntG_Ky-.js - Line 2 - Msg: [ota] up to date (1.0.1792024658)
+10-15 00:45:28.460  5559  5650 I RetroVisionMedia: 206 bytes 19464192-25327494/25327495
+10-15 00:45:46.769  6507  6507 I Capacitor/Console: File: https://localhost/assets/boot-BntG_Ky-.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-15 00:45:46.831  6507  6507 I Capacitor/Console: File: https://localhost/assets/boot-BntG_Ky-.js - Line 2 - Msg: [ota] running bundle 1.0.1792024658
+10-15 00:45:49.913  6507  6507 W Capacitor/Console: File: https://localhost/assets/boot-BntG_Ky-.js - Line 2 - Msg: [ota] update check failed: Unable to resolve host "gorgeous-retro.base44.app": No address associated with hostname
+10-15 00:45:55.002  6507  6507 I Capacitor/Console: File: https://localhost/assets/boot-BntG_Ky-.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-15 00:45:55.018  6507  6507 I Capacitor/Console: File: https://localhost/assets/boot-BntG_Ky-.js - Line 2 - Msg: [ota] running bundle 1.0.1792024658
+10-15 00:45:55.374  6507  6507 W Capacitor/Console: File: https://localhost/assets/boot-BntG_Ky-.js - Line 2 - Msg: [ota] update check failed: Unable to resolve host "gorgeous-retro.base44.app": No address associated with hostname
+10-15 00:46:02.907  6507  6545 I RetroVisionMedia: 206 bytes 0-25327494/25327495
+10-15 00:46:03.152  6507  6545 I RetroVisionMedia: 206 bytes 6455296-25327494/25327495
+10-15 00:46:11.521  6873  6873 I Capacitor/Console: File: https://localhost/assets/boot-BntG_Ky-.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-15 00:46:11.537  6873  6873 I Capacitor/Console: File: https://localhost/assets/boot-BntG_Ky-.js - Line 2 - Msg: [ota] running bundle 1.0.1792024658
+10-15 00:46:19.483  6873  6873 I Capacitor/Console: File: https://localhost/assets/boot-BntG_Ky-.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-15 00:46:19.492  6873  6873 I Capacitor/Console: File: https://localhost/assets/boot-BntG_Ky-.js - Line 2 - Msg: [ota] running bundle 1.0.1792024658
+10-15 00:46:27.517  6873  6911 I RetroVisionMedia: 206 bytes 0-25327494/25327495
+10-15 00:46:27.711  6873  6911 I RetroVisionMedia: 206 bytes 6455296-25327494/25327495
