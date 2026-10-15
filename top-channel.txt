@@ -1,0 +1,13 @@
+Tasks: 324 total,   5 running, 319 sleeping,   0 stopped,   0 zombie
+  Mem:  2534548K total,  2216176K used,   318372K free,    11896K buffers
+ Swap:  1900904K total,   541184K used,  1359720K free,  1022256K cached
+200%cpu  53%user  19%nice  75%sys  19%idle   0%iow   3%irq   9%sirq  22%host
+  PID USER         PR  NI VIRT  RES  SHR S[%CPU] %MEM     TIME+ ARGS
+ 1098 u0_a168      10 -10  13G 147M 105M S 28.1   5.9   0:02.70 com.google.android.apps.nexuslauncher
+  523 system       18  -2  16G 309M 201M S 28.1  12.4   0:52.05 system_server
+ 1704 u0_a132      10 -10  31G 275M 206M R 25.0  11.1   0:06.90 com.google.android.googlequicksearchbox:search
+ 1946 u0_a85       20   0  13G  83M  59M S 18.7   3.3   0:01.61 android.process.media
+   54 root         20   0    0    0    0 R 12.5   0.0   0:04.88 [kworker/1:2-events]
+  321 root         20   0  10G 2.5M 2.4M S  9.3   0.1   0:01.10 dhcpclient -i wlan0 --no-gateway
+ 5646 shell        20   0  10G 4.7M 3.9M R  6.2   0.1   0:00.03 top -b -n 1 -m 8
+  847 u0_a183      20   0  13G 109M  78M S  6.2   4.3   0:02.29 com.google.android.permissioncontroller

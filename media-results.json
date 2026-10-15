@@ -1,0 +1,194 @@
+{
+  "files": [
+    {
+      "name": "Episode_1.mp4",
+      "rangeMid": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 100-199/25328174",
+        "length": "100",
+        "got": 25328074
+      },
+      "rangeTail": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 25328124-25328173/25328174",
+        "length": "50",
+        "got": 50
+      },
+      "probe": {
+        "duration": 240.023
+      },
+      "firstFrame": {
+        "ok": true,
+        "ms": 1235,
+        "readyState": 4
+      },
+      "duration": 240,
+      "seek": {
+        "ok": true,
+        "ms": 401,
+        "readyState": 4
+      },
+      "afterSeek": 216.000956,
+      "playingAfterSeek": true
+    },
+    {
+      "name": "Episode_2_moov-at-end.mp4",
+      "rangeMid": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 100-199/25328174",
+        "length": "100",
+        "got": 25328074
+      },
+      "rangeTail": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 25328124-25328173/25328174",
+        "length": "50",
+        "got": 50
+      },
+      "probe": {
+        "duration": 240.023
+      },
+      "firstFrame": {
+        "ok": true,
+        "ms": 675,
+        "readyState": 4
+      },
+      "duration": 240,
+      "seek": {
+        "ok": true,
+        "ms": 913,
+        "readyState": 4
+      },
+      "afterSeek": 216.041994,
+      "playingAfterSeek": true
+    },
+    {
+      "name": "Episode_3_sparse-keyframes.mp4",
+      "rangeMid": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 100-199/24707050",
+        "length": "100",
+        "got": 24706950
+      },
+      "rangeTail": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 24707000-24707049/24707050",
+        "length": "50",
+        "got": 50
+      },
+      "probe": {
+        "duration": 240.023
+      },
+      "firstFrame": {
+        "ok": true,
+        "ms": 529,
+        "readyState": 4
+      },
+      "duration": 240,
+      "seek": {
+        "ok": true,
+        "ms": 949,
+        "readyState": 4
+      },
+      "afterSeek": 216.001001,
+      "playingAfterSeek": true
+    },
+    {
+      "name": "Episode_4_big.mp4",
+      "rangeMid": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 100-199/2304736664",
+        "length": "0",
+        "got": 100
+      },
+      "rangeTail": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 2304736614-2304736663/2304736664",
+        "length": "0",
+        "got": 50
+      },
+      "probe": {
+        "duration": 21840.156
+      },
+      "firstFrame": {
+        "ok": true,
+        "ms": 2409,
+        "readyState": 4
+      },
+      "duration": 21840.13265,
+      "seek": {
+        "ok": true,
+        "ms": 1154,
+        "readyState": 4
+      },
+      "afterSeek": 19656.125858,
+      "playingAfterSeek": true
+    }
+  ],
+  "repeat": [
+    {
+      "i": 0,
+      "ok": true,
+      "seekOk": true,
+      "ms": 3048
+    },
+    {
+      "i": 1,
+      "ok": true,
+      "seekOk": true,
+      "ms": 2443
+    },
+    {
+      "i": 2,
+      "ok": true,
+      "seekOk": true,
+      "ms": 2288
+    },
+    {
+      "i": 3,
+      "ok": true,
+      "seekOk": true,
+      "ms": 3807
+    },
+    {
+      "i": 4,
+      "ok": true,
+      "seekOk": true,
+      "ms": 2258
+    },
+    {
+      "i": 5,
+      "ok": true,
+      "seekOk": true,
+      "ms": 3229
+    },
+    {
+      "i": 6,
+      "ok": true,
+      "seekOk": true,
+      "ms": 4454
+    },
+    {
+      "i": 7,
+      "ok": true,
+      "seekOk": true,
+      "ms": 3481
+    }
+  ],
+  "audioPlatform": {
+    "stateAtStart": "running",
+    "stateAfter": "running",
+    "rms": 0.08852765288412792,
+    "ctxAdvanced": 3.4506666666666668,
+    "videoTime": 2.81542,
+    "paused": false
+  }
+}
