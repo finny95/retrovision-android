@@ -327,7 +327,16 @@ if (phase === "offline" || phase === "stalled") {
       return { playing: v.currentTime > 1 && !v.paused, currentTime: v.currentTime, onlineAfterReload: navigator.onLine };
     })),
   };
-  save();
+  if (!results[phase].playing) {
+    // Still stuck: is the page alive (timers firing), and what is it showing?
+    await new Promise((r) => setTimeout(r, 10000));
+    results[phase].later = await evaluate(async () => {
+      const t0 = performance.now();
+      const timer = await Promise.race([new Promise((r) => setTimeout(() => r(Math.round(performance.now() - t0)), 100)), new Promise((r) => setTimeout(() => r("timeout"), 3000))]);
+      return { timer, uptime: Math.round(performance.now()), spinner: Boolean(document.querySelector(".animate-spin")), tabs: document.querySelectorAll("[data-tab]").length, html: document.body.innerHTML.slice(0, 200) };
+    });
+    save();
+  }
 }
 
 // --- 5. A "coming up next" bumper (canvas graphics through the CRT shader) ----
