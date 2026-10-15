@@ -1,6 +1,10 @@
 package com.retrovision.player;
 
+import android.app.PictureInPictureParams;
+import android.content.res.Configuration;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Rational;
 import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
@@ -26,6 +30,27 @@ public class MainActivity extends BridgeActivity {
         super.onWindowFocusChanged(hasFocus);
         if (hasFocus) {
             enterImmersiveMode();
+        }
+    }
+
+    /** Leaving the app (Home button) while a channel plays: keep watching in a small window. */
+    @Override
+    public void onUserLeaveHint() {
+        super.onUserLeaveHint();
+        if (MediaFolderPlugin.pipEnabled && MediaFolderPlugin.playing && Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            try {
+                enterPictureInPictureMode(new PictureInPictureParams.Builder().setAspectRatio(new Rational(16, 9)).build());
+            } catch (Exception ignored) {
+                // Not allowed on this device right now.
+            }
+        }
+    }
+
+    @Override
+    public void onPictureInPictureModeChanged(boolean isInPictureInPictureMode, Configuration newConfig) {
+        super.onPictureInPictureModeChanged(isInPictureInPictureMode, newConfig);
+        if (bridge != null) {
+            bridge.triggerWindowJSEvent("rv-pip", "{ \"active\": " + isInPictureInPictureMode + " }");
         }
     }
 

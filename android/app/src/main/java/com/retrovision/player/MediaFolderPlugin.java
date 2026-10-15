@@ -3,6 +3,9 @@ package com.retrovision.player;
 import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.database.Cursor;
 import android.media.MediaMetadataRetriever;
 import android.net.Uri;
@@ -18,6 +21,8 @@ import com.getcapacitor.PluginCall;
 import com.getcapacitor.PluginMethod;
 import com.getcapacitor.annotation.ActivityCallback;
 import com.getcapacitor.annotation.CapacitorPlugin;
+import java.io.OutputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -37,10 +42,115 @@ public class MediaFolderPlugin extends Plugin {
         "\\.(mp4|m4v|mkv|webm|mov|avi|ogv|mpg|mpeg|ts|mp3|m4a|aac|flac|ogg|oga|wav|opus)$",
         Pattern.CASE_INSENSITIVE
     );
+    private static final Pattern SUB_NAME = Pattern.compile("\\.(srt|vtt)$", Pattern.CASE_INSENSITIVE);
     private static final Pattern AUDIO_NAME = Pattern.compile("\\.(mp3|m4a|aac|flac|ogg|oga|wav|opus)$", Pattern.CASE_INSENSITIVE);
     private static final int MAX_DEPTH = 12;
 
+    /** Read by MainActivity: go picture-in-picture when leaving the app while something plays. */
+    static volatile boolean pipEnabled = false;
+    static volatile boolean playing = false;
+
     private final ExecutorService walker = Executors.newSingleThreadExecutor();
+
+    @Override
+    public void load() {
+        pipEnabled = prefs().getBoolean("pip", false);
+    }
+
+    private SharedPreferences prefs() {
+        return getContext().getSharedPreferences("retrovision", android.content.Context.MODE_PRIVATE);
+    }
+
+    /** Lets the web app check which native features this build has. */
+    @PluginMethod
+    public void capabilities(PluginCall call) {
+        JSArray list = new JSArray();
+        list.put("saveFile");
+        list.put("rescanFolder");
+        list.put("subtitles");
+        boolean pip = Build.VERSION.SDK_INT >= Build.VERSION_CODES.O
+            && getContext().getPackageManager().hasSystemFeature(PackageManager.FEATURE_PICTURE_IN_PICTURE);
+        if (pip) list.put("pip");
+        JSObject ret = new JSObject();
+        ret.put("features", list);
+        ret.put("pipEnabled", pipEnabled);
+        call.resolve(ret);
+    }
+
+    /** Turns picture-in-picture (when leaving the app during playback) on or off. */
+    @PluginMethod
+    public void setPip(PluginCall call) {
+        pipEnabled = Boolean.TRUE.equals(call.getBoolean("enabled", false));
+        prefs().edit().putBoolean("pip", pipEnabled).apply();
+        call.resolve();
+    }
+
+    /** Asks where to save a text file (a backup) and writes it there. */
+    @PluginMethod
+    public void saveFile(PluginCall call) {
+        String name = call.getString("name", "retrovision-backup.json");
+        String mime = call.getString("mime", "application/json");
+        if (call.getString("data") == null) {
+            call.reject("Nothing to save");
+            return;
+        }
+        Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        intent.setType(mime);
+        intent.putExtra(Intent.EXTRA_TITLE, name);
+        startActivityForResult(call, intent, "onSaveFile");
+    }
+
+    @ActivityCallback
+    private void onSaveFile(PluginCall call, ActivityResult result) {
+        if (call == null) return;
+        Intent data = result.getData();
+        if (result.getResultCode() != Activity.RESULT_OK || data == null || data.getData() == null) {
+            call.reject("Save cancelled", "CANCELLED");
+            return;
+        }
+        Uri uri = data.getData();
+        try (OutputStream out = getContext().getContentResolver().openOutputStream(uri, "wt")) {
+            if (out == null) throw new IllegalStateException("Could not open the file");
+            out.write(call.getString("data", "").getBytes(StandardCharsets.UTF_8));
+            JSObject ret = new JSObject();
+            ret.put("uri", uri.toString());
+            ret.put("name", displayName(getContext().getContentResolver(), uri));
+            call.resolve(ret);
+        } catch (Exception e) {
+            call.reject("Could not save the file", e);
+        }
+    }
+
+    /** Walks an already-linked folder again (new episodes, subtitle files) without the picker. */
+    @PluginMethod
+    public void rescanFolder(PluginCall call) {
+        String treeUri = call.getString("treeUri");
+        if (treeUri == null) {
+            call.reject("No folder");
+            return;
+        }
+        final Uri tree = Uri.parse(treeUri);
+        final ContentResolver resolver = getContext().getContentResolver();
+        walker.execute(() -> {
+            try {
+                String rootId = DocumentsContract.getTreeDocumentId(tree);
+                JSArray files = new JSArray();
+                JSArray subs = new JSArray();
+                walk(resolver, tree, rootId, new ArrayList<>(), files, subs, 0);
+                JSObject ret = new JSObject();
+                ret.put("rootName", displayName(resolver, DocumentsContract.buildDocumentUriUsingTree(tree, rootId)));
+                ret.put("treeUri", tree.toString());
+                ret.put("files", files);
+                ret.put("subtitles", subs);
+                call.resolve(ret);
+            } catch (SecurityException e) {
+                call.reject("No access to that folder any more. Link it again.", "NO_ACCESS", e);
+            } catch (Exception e) {
+                call.reject("Could not read that folder", e);
+            }
+        });
+    }
     private final ExecutorService probes = Executors.newFixedThreadPool(4);
 
     /** Opens the system folder picker and returns every media file found inside (recursively). */
@@ -71,11 +181,13 @@ public class MediaFolderPlugin extends Plugin {
             try {
                 String rootId = DocumentsContract.getTreeDocumentId(tree);
                 JSArray files = new JSArray();
-                walk(resolver, tree, rootId, new ArrayList<>(), files, 0);
+                JSArray subs = new JSArray();
+                walk(resolver, tree, rootId, new ArrayList<>(), files, subs, 0);
                 JSObject ret = new JSObject();
                 ret.put("rootName", displayName(resolver, DocumentsContract.buildDocumentUriUsingTree(tree, rootId)));
                 ret.put("treeUri", tree.toString());
                 ret.put("files", files);
+                ret.put("subtitles", subs);
                 call.resolve(ret);
             } catch (Exception e) {
                 call.reject("Could not read that folder", e);
@@ -83,7 +195,7 @@ public class MediaFolderPlugin extends Plugin {
         });
     }
 
-    private void walk(ContentResolver resolver, Uri tree, String docId, List<String> parts, JSArray out, int depth) {
+    private void walk(ContentResolver resolver, Uri tree, String docId, List<String> parts, JSArray out, JSArray subs, int depth) {
         if (depth > MAX_DEPTH) return;
         Uri children = DocumentsContract.buildChildDocumentsUriUsingTree(tree, docId);
         String[] columns = {
@@ -104,7 +216,7 @@ public class MediaFolderPlugin extends Plugin {
                 if (Document.MIME_TYPE_DIR.equals(mime)) {
                     List<String> next = new ArrayList<>(parts);
                     next.add(name);
-                    walk(resolver, tree, id, next, out, depth + 1);
+                    walk(resolver, tree, id, next, out, subs, depth + 1);
                 } else if (isMedia(name, mime)) {
                     JSArray folderParts = new JSArray();
                     for (String p : parts) folderParts.put(p);
@@ -115,6 +227,14 @@ public class MediaFolderPlugin extends Plugin {
                     file.put("type", mediaType(name, mime));
                     file.put("parts", folderParts);
                     out.put(file);
+                } else if (SUB_NAME.matcher(name).find()) {
+                    JSArray folderParts = new JSArray();
+                    for (String p : parts) folderParts.put(p);
+                    JSObject sub = new JSObject();
+                    sub.put("uri", DocumentsContract.buildDocumentUriUsingTree(tree, id).toString());
+                    sub.put("name", name);
+                    sub.put("parts", folderParts);
+                    subs.put(sub);
                 }
             }
         }
@@ -167,6 +287,7 @@ public class MediaFolderPlugin extends Plugin {
     @PluginMethod
     public void setKeepAwake(PluginCall call) {
         boolean enabled = Boolean.TRUE.equals(call.getBoolean("enabled", false));
+        playing = enabled;
         getActivity()
             .runOnUiThread(() -> {
                 if (enabled) {
