@@ -1,0 +1,60 @@
+10-15 01:25:51.927  3038  3247 I RetroVisionMedia: 206 large bytes 0-2304674874/2304674875
+10-15 01:25:51.962  3038  3247 I RetroVisionMedia: 206 large bytes 2287927296-2304674874/2304674875
+10-15 01:25:51.985  3038  3248 I RetroVisionMedia: 206 large bytes 32768-2304674874/2304674875
+10-15 01:25:52.056  3038  3247 I RetroVisionMedia: 206 large bytes 2288451584-2304674874/2304674875
+10-15 01:25:53.236  3038  3247 I RetroVisionMedia: 206 large bytes 196608-2304674874/2304674875
+10-15 01:25:54.568  3038  3248 I RetroVisionMedia: 206 large bytes 2058944512-2304674874/2304674875
+10-15 01:25:57.332  3038  3247 I RetroVisionMedia: 206 bytes 0-25327494/25327495
+10-15 01:25:58.460  3038  3247 I RetroVisionMedia: 206 bytes 4980736-25327494/25327495
+10-15 01:26:01.081  3038  3247 I RetroVisionMedia: 206 bytes 0-25327494/25327495
+10-15 01:26:01.173  3038  3247 I RetroVisionMedia: 206 bytes 25133056-25327494/25327495
+10-15 01:26:02.157  3038  3247 I RetroVisionMedia: 206 bytes 7110656-25327494/25327495
+10-15 01:26:03.929  3038  3247 I RetroVisionMedia: 206 bytes 0-24707049/24707050
+10-15 01:26:05.363  3038  3247 I RetroVisionMedia: 206 bytes 9371648-24707049/24707050
+10-15 01:26:07.026  3038  3247 I RetroVisionMedia: 206 large bytes 0-2304674874/2304674875
+10-15 01:26:07.069  3038  3247 I RetroVisionMedia: 206 large bytes 2287927296-2304674874/2304674875
+10-15 01:26:07.798  3038  3247 I RetroVisionMedia: 206 large bytes 0-2304674874/2304674875
+10-15 01:26:08.475  3038  3248 I RetroVisionMedia: 206 large bytes 1075249152-2304674874/2304674875
+10-15 01:26:09.854  3038  3247 I RetroVisionMedia: 206 bytes 0-25327494/25327495
+10-15 01:26:13.849  5649  5649 I Capacitor/Console: File: https://localhost/assets/boot-ce-B2mVF.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-15 01:26:14.034  5649  5649 I Capacitor/Console: File: https://localhost/assets/boot-ce-B2mVF.js - Line 2 - Msg: [ota] running bundle 1.0.1792027212
+10-15 01:26:19.328  5649  5649 I Capacitor/Console: File: https://localhost/assets/boot-ce-B2mVF.js - Line 2 - Msg: [ota] up to date (1.0.1792027212)
+10-15 01:26:21.458  5649  5649 I Capacitor/Console: File: https://localhost/assets/boot-ce-B2mVF.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-15 01:26:21.471  5649  5649 I Capacitor/Console: File: https://localhost/assets/boot-ce-B2mVF.js - Line 2 - Msg: [ota] running bundle 1.0.1792027212
+10-15 01:26:21.631  5649  5649 I Capacitor/Console: File: https://localhost/assets/boot-ce-B2mVF.js - Line 2 - Msg: [ota] up to date (1.0.1792027212)
+10-15 01:26:27.254  5649  5753 I RetroVisionMedia: 206 bytes 0-25327494/25327495
+10-15 01:26:27.578  5649  5754 I RetroVisionMedia: 206 bytes 15040512-25327494/25327495
+10-15 01:26:28.569  5649  5649 I Capacitor/Console: File: https://localhost/assets/boot-ce-B2mVF.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-15 01:26:28.598  5649  5649 I Capacitor/Console: File: https://localhost/assets/boot-ce-B2mVF.js - Line 2 - Msg: [ota] running bundle 1.0.1792027212
+10-15 01:26:28.738  5649  5649 I Capacitor/Console: File: https://localhost/assets/boot-ce-B2mVF.js - Line 2 - Msg: [ota] up to date (1.0.1792027212)
+10-15 01:26:34.286  5649  5753 I RetroVisionMedia: 206 bytes 15695872-25327494/25327495
+10-15 01:26:35.374  5649  5649 I Capacitor/Console: File: https://localhost/assets/boot-ce-B2mVF.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-15 01:26:35.400  5649  5649 I Capacitor/Console: File: https://localhost/assets/boot-ce-B2mVF.js - Line 2 - Msg: [ota] running bundle 1.0.1792027212
+10-15 01:26:35.803  5649  5649 I Capacitor/Console: File: https://localhost/assets/boot-ce-B2mVF.js - Line 2 - Msg: [ota] up to date (1.0.1792027212)
+10-15 01:26:41.087  5649  5754 I RetroVisionMedia: 206 bytes 16515072-25327494/25327495
+10-15 01:26:42.064  5649  5649 I Capacitor/Console: File: https://localhost/assets/boot-ce-B2mVF.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-15 01:26:42.082  5649  5649 I Capacitor/Console: File: https://localhost/assets/boot-ce-B2mVF.js - Line 2 - Msg: [ota] running bundle 1.0.1792027212
+10-15 01:26:42.328  5649  5649 I Capacitor/Console: File: https://localhost/assets/boot-ce-B2mVF.js - Line 2 - Msg: [ota] up to date (1.0.1792027212)
+10-15 01:26:56.853  5649  5753 I RetroVisionMedia: 206 bytes 0-25327494/25327495
+10-15 01:27:00.608  5649  5649 I Capacitor/Console: File: https://localhost/assets/boot-ce-B2mVF.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-15 01:27:00.617  5649  5649 I Capacitor/Console: File: https://localhost/assets/boot-ce-B2mVF.js - Line 2 - Msg: [ota] running bundle 1.0.1792027212
+10-15 01:27:00.881  5649  5649 I Capacitor/Console: File: https://localhost/assets/boot-ce-B2mVF.js - Line 2 - Msg: [ota] up to date (1.0.1792027212)
+10-15 01:27:07.523  5649  5753 I RetroVisionMedia: 206 bytes 19234816-25327494/25327495
+10-15 01:27:19.819  5649  5649 I Capacitor/Console: File: https://localhost/assets/boot-ce-B2mVF.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-15 01:27:19.829  5649  5649 I Capacitor/Console: File: https://localhost/assets/boot-ce-B2mVF.js - Line 2 - Msg: [ota] running bundle 1.0.1792027212
+10-15 01:27:20.107  5649  5649 I Capacitor/Console: File: https://localhost/assets/boot-ce-B2mVF.js - Line 2 - Msg: [ota] up to date (1.0.1792027212)
+10-15 01:27:40.834  5649  5753 I RetroVisionMedia: 206 bytes 1114112-25327494/25327495
+10-15 01:27:48.006  6492  6492 I Capacitor/Console: File: https://localhost/assets/boot-ce-B2mVF.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-15 01:27:48.045  6492  6492 I Capacitor/Console: File: https://localhost/assets/boot-ce-B2mVF.js - Line 2 - Msg: [ota] running bundle 1.0.1792027212
+10-15 01:27:51.640  6492  6492 W Capacitor/Console: File: https://localhost/assets/boot-ce-B2mVF.js - Line 2 - Msg: [ota] update check failed: Unable to resolve host "gorgeous-retro.base44.app": No address associated with hostname
+10-15 01:27:55.974  6492  6492 I Capacitor/Console: File: https://localhost/assets/boot-ce-B2mVF.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-15 01:27:55.990  6492  6492 I Capacitor/Console: File: https://localhost/assets/boot-ce-B2mVF.js - Line 2 - Msg: [ota] running bundle 1.0.1792027212
+10-15 01:27:56.142  6492  6492 W Capacitor/Console: File: https://localhost/assets/boot-ce-B2mVF.js - Line 2 - Msg: [ota] update check failed: Unable to resolve host "gorgeous-retro.base44.app": No address associated with hostname
+10-15 01:28:03.905  6492  6538 I RetroVisionMedia: 206 bytes 0-25327494/25327495
+10-15 01:28:04.146  6492  6538 I RetroVisionMedia: 206 bytes 6455296-25327494/25327495
+10-15 01:28:12.593  6833  6833 I Capacitor/Console: File: https://localhost/assets/boot-ce-B2mVF.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-15 01:28:12.609  6833  6833 I Capacitor/Console: File: https://localhost/assets/boot-ce-B2mVF.js - Line 2 - Msg: [ota] running bundle 1.0.1792027212
+10-15 01:28:21.222  6833  6833 I Capacitor/Console: File: https://localhost/assets/boot-ce-B2mVF.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-15 01:28:21.232  6833  6833 I Capacitor/Console: File: https://localhost/assets/boot-ce-B2mVF.js - Line 2 - Msg: [ota] running bundle 1.0.1792027212
+10-15 01:28:29.157  6833  6881 I RetroVisionMedia: 206 bytes 0-25327494/25327495
+10-15 01:28:29.366  6833  6881 I RetroVisionMedia: 206 bytes 6455296-25327494/25327495

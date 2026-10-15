@@ -1,0 +1,13 @@
+Tasks: 325 total,   4 running, 321 sleeping,   0 stopped,   0 zombie
+  Mem:  2534548K total,  2248376K used,   286172K free,    11056K buffers
+ Swap:  1900904K total,   575744K used,  1325160K free,  1093428K cached
+200%cpu  61%user   7%nice 125%sys   7%idle   0%iow   0%irq   0%sirq   0%host
+  PID USER         PR  NI VIRT  RES  SHR S[%CPU] %MEM     TIME+ ARGS
+ 1092 u0_a169      10 -10  13G 126M  86M S 60.7   5.1   0:02.43 com.google.android.apps.nexuslauncher
+ 1794 u0_a132      10 -10  31G 264M 214M S 46.4  10.6   0:04.70 com.google.android.googlequicksearchbox:search
+ 5562 u0_a131      20   0  14G  45M  23M R 25.0   1.8   0:00.00 com.google.android.gms.persistent
+  519 system       18  -2  15G 291M 201M S 17.8  11.7   0:42.05 system_server
+ 5561 shell        20   0  10G 4.9M 3.9M R 10.7   0.1   0:00.01 top -b -n 1 -m 8
+  332 statsd       20   0  10G 2.9M 2.8M S  7.1   0.1   0:00.91 statsd
+ 3321 u0_a131      20   0  14G 136M 110M S  3.5   5.5   0:04.67 com.google.android.gms.unstable
+ 2080 u0_a154      20   0  13G  98M  73M S  3.5   3.9   0:00.47 com.google.android.contacts
