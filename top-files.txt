@@ -1,0 +1,13 @@
+Tasks: 326 total,   3 running, 323 sleeping,   0 stopped,   0 zombie
+  Mem:  2534552K total,  2438468K used,    96084K free,    13676K buffers
+ Swap:  1900908K total,   531968K used,  1368940K free,   994460K cached
+200%cpu  45%user  48%nice  79%sys  15%idle   0%iow   3%irq   3%sirq   6%host
+  PID USER         PR  NI VIRT  RES  SHR S[%CPU] %MEM     TIME+ ARGS
+ 1747 u0_a132      20   0  30G 266M 203M R 54.5  10.7   0:05.02 com.google.android.googlequicksearchbox:search
+  518 system       18  -2  15G 280M 173M S 33.3  11.3   0:48.08 system_server
+ 2828 u0_a192      10 -10  29G 159M 108M S 21.2   6.4   0:27.30 com.retrovision.player
+ 5493 shell        20   0  10G 5.0M 4.0M R  9.0   0.2   0:00.03 top -b -n 1 -m 8
+ 3067 u0_i9000     10 -10 231G 213M  81M S  6.0   8.6   0:06.85 com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0
+ 2186 u0_a87       20   0  13G  89M  60M S  6.0   3.6   0:01.15 android.process.media
+  335 statsd       20   0  10G 3.2M 3.0M S  6.0   0.1   0:01.16 statsd
+    1 root         20   0  10G 3.8M 2.9M D  6.0   0.1   0:07.28 init second_stage

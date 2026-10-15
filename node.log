@@ -1,0 +1,1120 @@
+== phase files (pid 2828)
+file done Episode_1.mp4
+file done Episode_2_moov-at-end.mp4
+file done Episode_3_sparse-keyframes.mp4
+file done Episode_4_big.mp4
+{
+  "files": [
+    {
+      "name": "Episode_1.mp4",
+      "rangeMid": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 100-199/25328174",
+        "length": "100",
+        "got": 25328074
+      },
+      "rangeTail": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 25328124-25328173/25328174",
+        "length": "50",
+        "got": 50
+      },
+      "probe": {
+        "duration": 240.023
+      },
+      "firstFrame": {
+        "ok": true,
+        "ms": 1272,
+        "readyState": 4
+      },
+      "duration": 240,
+      "seek": {
+        "ok": true,
+        "ms": 1220,
+        "readyState": 4
+      },
+      "afterSeek": 216.009884,
+      "playingAfterSeek": true
+    },
+    {
+      "name": "Episode_2_moov-at-end.mp4",
+      "rangeMid": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 100-199/25328174",
+        "length": "100",
+        "got": 25328074
+      },
+      "rangeTail": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 25328124-25328173/25328174",
+        "length": "50",
+        "got": 50
+      },
+      "probe": {
+        "duration": 240.023
+      },
+      "firstFrame": {
+        "ok": true,
+        "ms": 843,
+        "readyState": 4
+      },
+      "duration": 240,
+      "seek": {
+        "ok": true,
+        "ms": 646,
+        "readyState": 4
+      },
+      "afterSeek": 216.000798,
+      "playingAfterSeek": true
+    },
+    {
+      "name": "Episode_3_sparse-keyframes.mp4",
+      "rangeMid": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 100-199/24707050",
+        "length": "100",
+        "got": 24706950
+      },
+      "rangeTail": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 24707000-24707049/24707050",
+        "length": "50",
+        "got": 50
+      },
+      "probe": {
+        "duration": 240.023
+      },
+      "firstFrame": {
+        "ok": true,
+        "ms": 316,
+        "readyState": 4
+      },
+      "duration": 240,
+      "seek": {
+        "ok": true,
+        "ms": 1330,
+        "readyState": 4
+      },
+      "afterSeek": 216.01034,
+      "playingAfterSeek": true
+    },
+    {
+      "name": "Episode_4_big.mp4",
+      "rangeMid": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 100-199/2304736664",
+        "length": "0",
+        "got": 100
+      },
+      "rangeTail": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 2304736614-2304736663/2304736664",
+        "length": "0",
+        "got": 50
+      },
+      "probe": {
+        "duration": 21840.156
+      },
+      "firstFrame": {
+        "ok": true,
+        "ms": 1184,
+        "readyState": 4
+      },
+      "duration": 21840.13265,
+      "seek": {
+        "ok": true,
+        "ms": 973,
+        "readyState": 4
+      },
+      "afterSeek": 19656.123343,
+      "playingAfterSeek": true
+    }
+  ],
+  "repeat": [
+    {
+      "i": 0,
+      "ok": true,
+      "seekOk": true,
+      "ms": 2469
+    },
+    {
+      "i": 1,
+      "ok": true,
+      "seekOk": true,
+      "ms": 2800
+    },
+    {
+      "i": 2,
+      "ok": true,
+      "seekOk": true,
+      "ms": 3906
+    },
+    {
+      "i": 3,
+      "ok": true,
+      "seekOk": true,
+      "ms": 4210
+    },
+    {
+      "i": 4,
+      "ok": true,
+      "seekOk": true,
+      "ms": 2745
+    },
+    {
+      "i": 5,
+      "ok": true,
+      "seekOk": true,
+      "ms": 2675
+    },
+    {
+      "i": 6,
+      "ok": true,
+      "seekOk": true,
+      "ms": 4256
+    },
+    {
+      "i": 7,
+      "ok": true,
+      "seekOk": true,
+      "ms": 4371
+    }
+  ]
+}
+== exit 0
+== phase channel (pid 2828)
+Warning: Detected unsettled top-level await at file:///home/runner/work/retrovision-android/retrovision-android/scripts/media-test.mjs:172
+  results.channel.push(await evaluate(async () => {
+                       ^
+
+
+
+== exit 13
+== phase audio (pid 5955)
+{
+  "files": [
+    {
+      "name": "Episode_1.mp4",
+      "rangeMid": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 100-199/25328174",
+        "length": "100",
+        "got": 25328074
+      },
+      "rangeTail": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 25328124-25328173/25328174",
+        "length": "50",
+        "got": 50
+      },
+      "probe": {
+        "duration": 240.023
+      },
+      "firstFrame": {
+        "ok": true,
+        "ms": 1272,
+        "readyState": 4
+      },
+      "duration": 240,
+      "seek": {
+        "ok": true,
+        "ms": 1220,
+        "readyState": 4
+      },
+      "afterSeek": 216.009884,
+      "playingAfterSeek": true
+    },
+    {
+      "name": "Episode_2_moov-at-end.mp4",
+      "rangeMid": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 100-199/25328174",
+        "length": "100",
+        "got": 25328074
+      },
+      "rangeTail": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 25328124-25328173/25328174",
+        "length": "50",
+        "got": 50
+      },
+      "probe": {
+        "duration": 240.023
+      },
+      "firstFrame": {
+        "ok": true,
+        "ms": 843,
+        "readyState": 4
+      },
+      "duration": 240,
+      "seek": {
+        "ok": true,
+        "ms": 646,
+        "readyState": 4
+      },
+      "afterSeek": 216.000798,
+      "playingAfterSeek": true
+    },
+    {
+      "name": "Episode_3_sparse-keyframes.mp4",
+      "rangeMid": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 100-199/24707050",
+        "length": "100",
+        "got": 24706950
+      },
+      "rangeTail": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 24707000-24707049/24707050",
+        "length": "50",
+        "got": 50
+      },
+      "probe": {
+        "duration": 240.023
+      },
+      "firstFrame": {
+        "ok": true,
+        "ms": 316,
+        "readyState": 4
+      },
+      "duration": 240,
+      "seek": {
+        "ok": true,
+        "ms": 1330,
+        "readyState": 4
+      },
+      "afterSeek": 216.01034,
+      "playingAfterSeek": true
+    },
+    {
+      "name": "Episode_4_big.mp4",
+      "rangeMid": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 100-199/2304736664",
+        "length": "0",
+        "got": 100
+      },
+      "rangeTail": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 2304736614-2304736663/2304736664",
+        "length": "0",
+        "got": 50
+      },
+      "probe": {
+        "duration": 21840.156
+      },
+      "firstFrame": {
+        "ok": true,
+        "ms": 1184,
+        "readyState": 4
+      },
+      "duration": 21840.13265,
+      "seek": {
+        "ok": true,
+        "ms": 973,
+        "readyState": 4
+      },
+      "afterSeek": 19656.123343,
+      "playingAfterSeek": true
+    }
+  ],
+  "repeat": [
+    {
+      "i": 0,
+      "ok": true,
+      "seekOk": true,
+      "ms": 2469
+    },
+    {
+      "i": 1,
+      "ok": true,
+      "seekOk": true,
+      "ms": 2800
+    },
+    {
+      "i": 2,
+      "ok": true,
+      "seekOk": true,
+      "ms": 3906
+    },
+    {
+      "i": 3,
+      "ok": true,
+      "seekOk": true,
+      "ms": 4210
+    },
+    {
+      "i": 4,
+      "ok": true,
+      "seekOk": true,
+      "ms": 2745
+    },
+    {
+      "i": 5,
+      "ok": true,
+      "seekOk": true,
+      "ms": 2675
+    },
+    {
+      "i": 6,
+      "ok": true,
+      "seekOk": true,
+      "ms": 4256
+    },
+    {
+      "i": 7,
+      "ok": true,
+      "seekOk": true,
+      "ms": 4371
+    }
+  ],
+  "channel": [
+    {
+      "ok": true,
+      "ms": 514,
+      "currentTime": 142.5548,
+      "duration": 240
+    }
+  ],
+  "audioPlatform": {
+    "stateAtStart": "running",
+    "stateAfter": "running",
+    "rms": 0.08891456306128395,
+    "ctxAdvanced": 3.5413333333333337,
+    "videoTime": 2.995374,
+    "paused": false
+  },
+  "audioApp": {
+    "playing": true,
+    "ctxState": "running",
+    "diag": {
+      "state": "running",
+      "routed": true,
+      "boostDb": 9,
+      "gain": 2.818382978439331,
+      "issue": ""
+    },
+    "tapInstalled": true,
+    "pre": 0.08800216821900197,
+    "post": 0.29240467968536665,
+    "volume": 1,
+    "muted": false,
+    "text": "CATHODETUBE\n\nDIGITAL\n\nCH 07\nTEST CHANNEL\n07\n\nTest Show\n\nTEST CHANNEL · 1:07 LEFT · BOOST +9 DB\n\n2:53 / 4:00\n● LIVE\nMAIN MENU\nTHU, OCT 15\n1:27am\nGuide\nChannels\nLibrary\nPicture\nSound\nBroadcast\nNew channel\n07\nTest Channel\nON NOW\n1:25am Test Show\n1:29am Test Show"
+  }
+}
+== exit 0
+== phase bumper (pid 5955)
+{
+  "files": [
+    {
+      "name": "Episode_1.mp4",
+      "rangeMid": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 100-199/25328174",
+        "length": "100",
+        "got": 25328074
+      },
+      "rangeTail": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 25328124-25328173/25328174",
+        "length": "50",
+        "got": 50
+      },
+      "probe": {
+        "duration": 240.023
+      },
+      "firstFrame": {
+        "ok": true,
+        "ms": 1272,
+        "readyState": 4
+      },
+      "duration": 240,
+      "seek": {
+        "ok": true,
+        "ms": 1220,
+        "readyState": 4
+      },
+      "afterSeek": 216.009884,
+      "playingAfterSeek": true
+    },
+    {
+      "name": "Episode_2_moov-at-end.mp4",
+      "rangeMid": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 100-199/25328174",
+        "length": "100",
+        "got": 25328074
+      },
+      "rangeTail": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 25328124-25328173/25328174",
+        "length": "50",
+        "got": 50
+      },
+      "probe": {
+        "duration": 240.023
+      },
+      "firstFrame": {
+        "ok": true,
+        "ms": 843,
+        "readyState": 4
+      },
+      "duration": 240,
+      "seek": {
+        "ok": true,
+        "ms": 646,
+        "readyState": 4
+      },
+      "afterSeek": 216.000798,
+      "playingAfterSeek": true
+    },
+    {
+      "name": "Episode_3_sparse-keyframes.mp4",
+      "rangeMid": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 100-199/24707050",
+        "length": "100",
+        "got": 24706950
+      },
+      "rangeTail": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 24707000-24707049/24707050",
+        "length": "50",
+        "got": 50
+      },
+      "probe": {
+        "duration": 240.023
+      },
+      "firstFrame": {
+        "ok": true,
+        "ms": 316,
+        "readyState": 4
+      },
+      "duration": 240,
+      "seek": {
+        "ok": true,
+        "ms": 1330,
+        "readyState": 4
+      },
+      "afterSeek": 216.01034,
+      "playingAfterSeek": true
+    },
+    {
+      "name": "Episode_4_big.mp4",
+      "rangeMid": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 100-199/2304736664",
+        "length": "0",
+        "got": 100
+      },
+      "rangeTail": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 2304736614-2304736663/2304736664",
+        "length": "0",
+        "got": 50
+      },
+      "probe": {
+        "duration": 21840.156
+      },
+      "firstFrame": {
+        "ok": true,
+        "ms": 1184,
+        "readyState": 4
+      },
+      "duration": 21840.13265,
+      "seek": {
+        "ok": true,
+        "ms": 973,
+        "readyState": 4
+      },
+      "afterSeek": 19656.123343,
+      "playingAfterSeek": true
+    }
+  ],
+  "repeat": [
+    {
+      "i": 0,
+      "ok": true,
+      "seekOk": true,
+      "ms": 2469
+    },
+    {
+      "i": 1,
+      "ok": true,
+      "seekOk": true,
+      "ms": 2800
+    },
+    {
+      "i": 2,
+      "ok": true,
+      "seekOk": true,
+      "ms": 3906
+    },
+    {
+      "i": 3,
+      "ok": true,
+      "seekOk": true,
+      "ms": 4210
+    },
+    {
+      "i": 4,
+      "ok": true,
+      "seekOk": true,
+      "ms": 2745
+    },
+    {
+      "i": 5,
+      "ok": true,
+      "seekOk": true,
+      "ms": 2675
+    },
+    {
+      "i": 6,
+      "ok": true,
+      "seekOk": true,
+      "ms": 4256
+    },
+    {
+      "i": 7,
+      "ok": true,
+      "seekOk": true,
+      "ms": 4371
+    }
+  ],
+  "channel": [
+    {
+      "ok": true,
+      "ms": 514,
+      "currentTime": 142.5548,
+      "duration": 240
+    }
+  ],
+  "audioPlatform": {
+    "stateAtStart": "running",
+    "stateAfter": "running",
+    "rms": 0.08891456306128395,
+    "ctxAdvanced": 3.5413333333333337,
+    "videoTime": 2.995374,
+    "paused": false
+  },
+  "audioApp": {
+    "playing": true,
+    "ctxState": "running",
+    "diag": {
+      "state": "running",
+      "routed": true,
+      "boostDb": 9,
+      "gain": 2.818382978439331,
+      "issue": ""
+    },
+    "tapInstalled": true,
+    "pre": 0.08800216821900197,
+    "post": 0.29240467968536665,
+    "volume": 1,
+    "muted": false,
+    "text": "CATHODETUBE\n\nDIGITAL\n\nCH 07\nTEST CHANNEL\n07\n\nTest Show\n\nTEST CHANNEL · 1:07 LEFT · BOOST +9 DB\n\n2:53 / 4:00\n● LIVE\nMAIN MENU\nTHU, OCT 15\n1:27am\nGuide\nChannels\nLibrary\nPicture\nSound\nBroadcast\nNew channel\n07\nTest Channel\nON NOW\n1:25am Test Show\n1:29am Test Show"
+  },
+  "bumper": {
+    "bumper": "next",
+    "item": "bumper"
+  }
+}
+== exit 0
+== phase offline (pid 6352)
+{
+  "files": [
+    {
+      "name": "Episode_1.mp4",
+      "rangeMid": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 100-199/25328174",
+        "length": "100",
+        "got": 25328074
+      },
+      "rangeTail": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 25328124-25328173/25328174",
+        "length": "50",
+        "got": 50
+      },
+      "probe": {
+        "duration": 240.023
+      },
+      "firstFrame": {
+        "ok": true,
+        "ms": 1272,
+        "readyState": 4
+      },
+      "duration": 240,
+      "seek": {
+        "ok": true,
+        "ms": 1220,
+        "readyState": 4
+      },
+      "afterSeek": 216.009884,
+      "playingAfterSeek": true
+    },
+    {
+      "name": "Episode_2_moov-at-end.mp4",
+      "rangeMid": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 100-199/25328174",
+        "length": "100",
+        "got": 25328074
+      },
+      "rangeTail": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 25328124-25328173/25328174",
+        "length": "50",
+        "got": 50
+      },
+      "probe": {
+        "duration": 240.023
+      },
+      "firstFrame": {
+        "ok": true,
+        "ms": 843,
+        "readyState": 4
+      },
+      "duration": 240,
+      "seek": {
+        "ok": true,
+        "ms": 646,
+        "readyState": 4
+      },
+      "afterSeek": 216.000798,
+      "playingAfterSeek": true
+    },
+    {
+      "name": "Episode_3_sparse-keyframes.mp4",
+      "rangeMid": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 100-199/24707050",
+        "length": "100",
+        "got": 24706950
+      },
+      "rangeTail": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 24707000-24707049/24707050",
+        "length": "50",
+        "got": 50
+      },
+      "probe": {
+        "duration": 240.023
+      },
+      "firstFrame": {
+        "ok": true,
+        "ms": 316,
+        "readyState": 4
+      },
+      "duration": 240,
+      "seek": {
+        "ok": true,
+        "ms": 1330,
+        "readyState": 4
+      },
+      "afterSeek": 216.01034,
+      "playingAfterSeek": true
+    },
+    {
+      "name": "Episode_4_big.mp4",
+      "rangeMid": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 100-199/2304736664",
+        "length": "0",
+        "got": 100
+      },
+      "rangeTail": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 2304736614-2304736663/2304736664",
+        "length": "0",
+        "got": 50
+      },
+      "probe": {
+        "duration": 21840.156
+      },
+      "firstFrame": {
+        "ok": true,
+        "ms": 1184,
+        "readyState": 4
+      },
+      "duration": 21840.13265,
+      "seek": {
+        "ok": true,
+        "ms": 973,
+        "readyState": 4
+      },
+      "afterSeek": 19656.123343,
+      "playingAfterSeek": true
+    }
+  ],
+  "repeat": [
+    {
+      "i": 0,
+      "ok": true,
+      "seekOk": true,
+      "ms": 2469
+    },
+    {
+      "i": 1,
+      "ok": true,
+      "seekOk": true,
+      "ms": 2800
+    },
+    {
+      "i": 2,
+      "ok": true,
+      "seekOk": true,
+      "ms": 3906
+    },
+    {
+      "i": 3,
+      "ok": true,
+      "seekOk": true,
+      "ms": 4210
+    },
+    {
+      "i": 4,
+      "ok": true,
+      "seekOk": true,
+      "ms": 2745
+    },
+    {
+      "i": 5,
+      "ok": true,
+      "seekOk": true,
+      "ms": 2675
+    },
+    {
+      "i": 6,
+      "ok": true,
+      "seekOk": true,
+      "ms": 4256
+    },
+    {
+      "i": 7,
+      "ok": true,
+      "seekOk": true,
+      "ms": 4371
+    }
+  ],
+  "channel": [
+    {
+      "ok": true,
+      "ms": 514,
+      "currentTime": 142.5548,
+      "duration": 240
+    }
+  ],
+  "audioPlatform": {
+    "stateAtStart": "running",
+    "stateAfter": "running",
+    "rms": 0.08891456306128395,
+    "ctxAdvanced": 3.5413333333333337,
+    "videoTime": 2.995374,
+    "paused": false
+  },
+  "audioApp": {
+    "playing": true,
+    "ctxState": "running",
+    "diag": {
+      "state": "running",
+      "routed": true,
+      "boostDb": 9,
+      "gain": 2.818382978439331,
+      "issue": ""
+    },
+    "tapInstalled": true,
+    "pre": 0.08800216821900197,
+    "post": 0.29240467968536665,
+    "volume": 1,
+    "muted": false,
+    "text": "CATHODETUBE\n\nDIGITAL\n\nCH 07\nTEST CHANNEL\n07\n\nTest Show\n\nTEST CHANNEL · 1:07 LEFT · BOOST +9 DB\n\n2:53 / 4:00\n● LIVE\nMAIN MENU\nTHU, OCT 15\n1:27am\nGuide\nChannels\nLibrary\nPicture\nSound\nBroadcast\nNew channel\n07\nTest Channel\nON NOW\n1:25am Test Show\n1:29am Test Show"
+  },
+  "bumper": {
+    "bumper": "next",
+    "item": "bumper"
+  },
+  "offline": {
+    "ui": true,
+    "online": false,
+    "offlineBadge": true,
+    "playing": true,
+    "currentTime": 60.474,
+    "onlineAfterReload": false
+  }
+}
+== exit 0
+== phase stalled (pid 6773)
+{
+  "files": [
+    {
+      "name": "Episode_1.mp4",
+      "rangeMid": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 100-199/25328174",
+        "length": "100",
+        "got": 25328074
+      },
+      "rangeTail": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 25328124-25328173/25328174",
+        "length": "50",
+        "got": 50
+      },
+      "probe": {
+        "duration": 240.023
+      },
+      "firstFrame": {
+        "ok": true,
+        "ms": 1272,
+        "readyState": 4
+      },
+      "duration": 240,
+      "seek": {
+        "ok": true,
+        "ms": 1220,
+        "readyState": 4
+      },
+      "afterSeek": 216.009884,
+      "playingAfterSeek": true
+    },
+    {
+      "name": "Episode_2_moov-at-end.mp4",
+      "rangeMid": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 100-199/25328174",
+        "length": "100",
+        "got": 25328074
+      },
+      "rangeTail": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 25328124-25328173/25328174",
+        "length": "50",
+        "got": 50
+      },
+      "probe": {
+        "duration": 240.023
+      },
+      "firstFrame": {
+        "ok": true,
+        "ms": 843,
+        "readyState": 4
+      },
+      "duration": 240,
+      "seek": {
+        "ok": true,
+        "ms": 646,
+        "readyState": 4
+      },
+      "afterSeek": 216.000798,
+      "playingAfterSeek": true
+    },
+    {
+      "name": "Episode_3_sparse-keyframes.mp4",
+      "rangeMid": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 100-199/24707050",
+        "length": "100",
+        "got": 24706950
+      },
+      "rangeTail": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 24707000-24707049/24707050",
+        "length": "50",
+        "got": 50
+      },
+      "probe": {
+        "duration": 240.023
+      },
+      "firstFrame": {
+        "ok": true,
+        "ms": 316,
+        "readyState": 4
+      },
+      "duration": 240,
+      "seek": {
+        "ok": true,
+        "ms": 1330,
+        "readyState": 4
+      },
+      "afterSeek": 216.01034,
+      "playingAfterSeek": true
+    },
+    {
+      "name": "Episode_4_big.mp4",
+      "rangeMid": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 100-199/2304736664",
+        "length": "0",
+        "got": 100
+      },
+      "rangeTail": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 2304736614-2304736663/2304736664",
+        "length": "0",
+        "got": 50
+      },
+      "probe": {
+        "duration": 21840.156
+      },
+      "firstFrame": {
+        "ok": true,
+        "ms": 1184,
+        "readyState": 4
+      },
+      "duration": 21840.13265,
+      "seek": {
+        "ok": true,
+        "ms": 973,
+        "readyState": 4
+      },
+      "afterSeek": 19656.123343,
+      "playingAfterSeek": true
+    }
+  ],
+  "repeat": [
+    {
+      "i": 0,
+      "ok": true,
+      "seekOk": true,
+      "ms": 2469
+    },
+    {
+      "i": 1,
+      "ok": true,
+      "seekOk": true,
+      "ms": 2800
+    },
+    {
+      "i": 2,
+      "ok": true,
+      "seekOk": true,
+      "ms": 3906
+    },
+    {
+      "i": 3,
+      "ok": true,
+      "seekOk": true,
+      "ms": 4210
+    },
+    {
+      "i": 4,
+      "ok": true,
+      "seekOk": true,
+      "ms": 2745
+    },
+    {
+      "i": 5,
+      "ok": true,
+      "seekOk": true,
+      "ms": 2675
+    },
+    {
+      "i": 6,
+      "ok": true,
+      "seekOk": true,
+      "ms": 4256
+    },
+    {
+      "i": 7,
+      "ok": true,
+      "seekOk": true,
+      "ms": 4371
+    }
+  ],
+  "channel": [
+    {
+      "ok": true,
+      "ms": 514,
+      "currentTime": 142.5548,
+      "duration": 240
+    }
+  ],
+  "audioPlatform": {
+    "stateAtStart": "running",
+    "stateAfter": "running",
+    "rms": 0.08891456306128395,
+    "ctxAdvanced": 3.5413333333333337,
+    "videoTime": 2.995374,
+    "paused": false
+  },
+  "audioApp": {
+    "playing": true,
+    "ctxState": "running",
+    "diag": {
+      "state": "running",
+      "routed": true,
+      "boostDb": 9,
+      "gain": 2.818382978439331,
+      "issue": ""
+    },
+    "tapInstalled": true,
+    "pre": 0.08800216821900197,
+    "post": 0.29240467968536665,
+    "volume": 1,
+    "muted": false,
+    "text": "CATHODETUBE\n\nDIGITAL\n\nCH 07\nTEST CHANNEL\n07\n\nTest Show\n\nTEST CHANNEL · 1:07 LEFT · BOOST +9 DB\n\n2:53 / 4:00\n● LIVE\nMAIN MENU\nTHU, OCT 15\n1:27am\nGuide\nChannels\nLibrary\nPicture\nSound\nBroadcast\nNew channel\n07\nTest Channel\nON NOW\n1:25am Test Show\n1:29am Test Show"
+  },
+  "bumper": {
+    "bumper": "next",
+    "item": "bumper"
+  },
+  "offline": {
+    "ui": true,
+    "online": false,
+    "offlineBadge": true,
+    "playing": true,
+    "currentTime": 60.474,
+    "onlineAfterReload": false
+  },
+  "stalled": {
+    "ui": true,
+    "online": true,
+    "offlineBadge": false,
+    "playing": true,
+    "currentTime": 61.795,
+    "onlineAfterReload": true
+  }
+}
+== exit 0

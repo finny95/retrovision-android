@@ -1,0 +1,20 @@
+Tasks: 319 total,   3 running, 316 sleeping,   0 stopped,   0 zombie
+  Mem:  2534552K total,  2430840K used,   103712K free,     6856K buffers
+ Swap:  1900908K total,   266496K used,  1634412K free,  1104864K cached
+200%cpu 100%user  14%nice  72%sys  10%idle   0%iow   3%irq   0%sirq   0%host
+  PID USER         PR  NI VIRT  RES  SHR S[%CPU] %MEM     TIME+ ARGS
+  518 system       18  -2  15G 334M 244M S 48.2  13.5   0:28.00 system_server
+ 2828 u0_a192      10 -10  29G 219M 142M S 20.6   8.8   0:05.21 com.retrovision.player
+ 3959 u0_a142      20   0  14G 132M  98M S 13.7   5.3   0:00.22 com.google.android.gm
+ 3067 u0_i9000     10 -10 231G 166M 114M S 13.7   6.7   0:00.70 com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0
+ 1525 u0_a140      10 -10  13G 140M 100M S  6.8   5.6   0:01.99 com.google.android.inputmethod.latin
+ 1469 u0_a131      20   0  13G 224M 169M S  6.8   9.0   0:02.45 com.google.android.gms
+ 1406 u0_a131      20   0  13G 206M 144M S  6.8   8.3   0:03.10 com.google.android.gms.persistent
+ 1092 u0_a169      20   0  13G 237M 189M S  6.8   9.5   0:02.01 com.google.android.apps.nexuslauncher
+  335 statsd       20   0  10G 3.9M 3.6M S  6.8   0.1   0:00.40 statsd
+ 4143 shell        20   0  10G 5.1M 4.2M R  3.4   0.2   0:00.03 top -b -n 1 -m 15
+ 3883 u0_a177      20   0  13G  88M  57M S  3.4   3.5   0:00.12 com.google.android.rkpdapp
+ 2727 u0_a131      20   0  13G 147M 107M S  3.4   5.9   0:00.30 com.google.android.gms.unstable
+ 2197 u0_a120      20   0  13G  80M  52M S  3.4   3.2   0:00.08 com.google.android.as.oss
+ 1695 u0_a132      20   0  14G 155M 120M S  3.4   6.2   0:00.44 com.google.android.googlequicksearchbox:interactor
+ 1658 u0_a124      20   0  13G 157M 109M S  3.4   6.3   0:01.01 com.google.android.as
