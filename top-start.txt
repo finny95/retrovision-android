@@ -1,0 +1,20 @@
+Tasks: 323 total,  11 running, 312 sleeping,   0 stopped,   0 zombie
+  Mem:  2534552K total,  2432928K used,   101624K free,     4132K buffers
+ Swap:  1900908K total,   313600K used,  1587308K free,  1096012K cached
+200%cpu  93%user  36%nice  79%sys  11%idle   0%iow   0%irq   4%sirq   0%host
+  PID USER         PR  NI VIRT  RES  SHR S[%CPU] %MEM     TIME+ ARGS
+  519 system       18  -2  15G 345M 244M R 39.2  13.9   0:18.44 system_server
+   41 root         20   0    0    0    0 S 25.0   0.0   0:01.47 [kswapd0]
+ 1527 u0_a127      20   0  14G 146M  84M R 17.8   5.9   0:01.11 com.google.android.as
+ 1429 u0_a128      20   0  14G 213M 145M S 17.8   8.5   0:03.11 com.google.android.gms.persistent
+ 4281 u0_a131      20   0  14G  83M  35M R 14.2   3.3   0:00.01 com.google.android.apps.messaging
+ 2905 u0_a192      10 -10  29G 232M 143M S 14.2   9.3   0:04.24 com.retrovision.player
+ 4300 u0_a128      20   0  14G  84M  36M R  7.1   3.3   0:00.00 com.google.android.gms.ui
+ 4296 u0_a183      20   0  14G  83M  35M R  7.1   3.3   0:00.00 com.google.android.healthconnect.controller
+ 1683 u0_a128      20   0  14G 239M 168M R  7.1   9.6   0:01.79 com.google.android.gms
+  826 u0_a168      20   0  14G 233M 141M S  7.1   9.4   0:02.50 com.android.systemui
+ 4345 shell        20   0  10G 5.0M 4.1M R  3.5   0.2   0:00.01 top -b -n 1 -m 15
+ 4106 u0_a118      20   0  14G 186M 132M S  3.5   7.4   0:00.08 com.google.android.settings.intelligence
+ 4096 root          0 -20    0    0    0 R  3.5   0.0   0:00.04 [kworker/1:8H+kverityd]
+ 3142 u0_i9000     10 -10 231G 179M 111M S  3.5   7.2   0:00.60 com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0
+ 1587 u0_a156      20   0  15G 181M 121M S  3.5   7.3   0:00.64 com.google.android.apps.youtube.music
