@@ -1,0 +1,52 @@
+== phase files (pid 3150)
+Warning: Detected unsettled top-level await at file:///home/runner/work/retrovision-android/retrovision-android/scripts/media-test.mjs:105
+  results.files.push(await evaluate(streamTest, name, providerUri(rel)));
+                     ^
+
+
+
+== exit 13
+== phase channel (pid )
+file:///home/runner/work/retrovision-android/retrovision-android/scripts/media-test.mjs:23
+  throw new Error("No WebView page to inspect");
+        ^
+
+Error: No WebView page to inspect
+    at target (file:///home/runner/work/retrovision-android/retrovision-android/scripts/media-test.mjs:23:9)
+    at async file:///home/runner/work/retrovision-android/retrovision-android/scripts/media-test.mjs:26:26
+
+Node.js v22.23.3
+== exit 1
+== phase audio (pid )
+file:///home/runner/work/retrovision-android/retrovision-android/scripts/media-test.mjs:23
+  throw new Error("No WebView page to inspect");
+        ^
+
+Error: No WebView page to inspect
+    at target (file:///home/runner/work/retrovision-android/retrovision-android/scripts/media-test.mjs:23:9)
+    at async file:///home/runner/work/retrovision-android/retrovision-android/scripts/media-test.mjs:26:26
+
+Node.js v22.23.3
+== exit 1
+== phase offline (pid )
+file:///home/runner/work/retrovision-android/retrovision-android/scripts/media-test.mjs:23
+  throw new Error("No WebView page to inspect");
+        ^
+
+Error: No WebView page to inspect
+    at target (file:///home/runner/work/retrovision-android/retrovision-android/scripts/media-test.mjs:23:9)
+    at async file:///home/runner/work/retrovision-android/retrovision-android/scripts/media-test.mjs:26:26
+
+Node.js v22.23.3
+== exit 1
+== phase stalled (pid )
+file:///home/runner/work/retrovision-android/retrovision-android/scripts/media-test.mjs:23
+  throw new Error("No WebView page to inspect");
+        ^
+
+Error: No WebView page to inspect
+    at target (file:///home/runner/work/retrovision-android/retrovision-android/scripts/media-test.mjs:23:9)
+    at async file:///home/runner/work/retrovision-android/retrovision-android/scripts/media-test.mjs:26:26
+
+Node.js v22.23.3
+== exit 1
