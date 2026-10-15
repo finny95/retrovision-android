@@ -1,0 +1,13 @@
+Tasks: 329 total,   1 running, 328 sleeping,   0 stopped,   0 zombie
+  Mem:  2534552K total,  2430996K used,   103556K free,     8488K buffers
+ Swap:  1900908K total,   518656K used,  1382252K free,  1056188K cached
+200%cpu  23%user   0%nice  46%sys 123%idle   0%iow   0%irq   4%sirq   4%host
+  PID USER         PR  NI VIRT  RES  SHR S[%CPU] %MEM     TIME+ ARGS
+ 6811 u0_a192      10 -10  29G 219M 146M S 92.3   8.8   0:09.23 com.retrovision.player
+  353 media        20   0  11G  17M 8.0M S 84.6   0.6   0:14.49 android.hardware.media.c2@1.0-service-goldfish
+ 6941 shell        20   0  10G 4.9M 4.0M R  7.6   0.1   0:00.01 top -b -n 1 -m 8
+ 6850 u0_i9003     10 -10 231G 179M 119M S  3.8   7.2   0:01.09 com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0
+  387 system       -3 -10  10G 6.1M 5.2M S  3.8   0.2   0:09.45 android.hardware.graphics.composer3-service.ranchu
+  351 system       20   0  10G 5.6M 4.9M S  3.8   0.2   0:00.77 android.hardware.graphics.allocator@3.0-service.ranchu
+   24 root         20   0    0    0    0 I  3.8   0.0   0:02.17 [kworker/1:0-events]
+ 6621 wifi         20   0  10G  10M 8.6M S  0.0   0.3   0:00.02 wpa_supplicant -Dnl80211 -iwlan0 -c/vendor/etc/wifi/wpa_supplicant.conf -g@android:wpa_wlan0

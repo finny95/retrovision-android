@@ -1,0 +1,20 @@
+Tasks: 318 total,   2 running, 316 sleeping,   0 stopped,   0 zombie
+  Mem:  2534552K total,  2404256K used,   130296K free,    13164K buffers
+ Swap:  1900908K total,   330240K used,  1570668K free,  1156032K cached
+200%cpu  76%user  38%nice  72%sys   0%idle   0%iow   0%irq   7%sirq   7%host
+  PID USER         PR  NI VIRT  RES  SHR S[%CPU] %MEM     TIME+ ARGS
+  518 system       18  -2  16G 329M 220M S 37.9  13.2   0:25.64 system_server
+ 1536 u0_a140      10 -10  13G 147M 100M S 20.6   5.9   0:02.24 com.google.android.inputmethod.latin
+ 1430 u0_a131      20   0  14G 208M 153M S 17.2   8.3   0:03.36 com.google.android.gms.persistent
+ 2564 u0_a192      10 -10  29G 215M 142M S 13.7   8.6   0:05.12 com.retrovision.player
+ 3097 u0_a131      20   0  13G 162M 118M S  6.8   6.5   0:01.17 com.google.android.gms.unstable
+ 1541 u0_a122      20   0  13G 136M  96M S  6.8   5.4   0:00.91 com.google.android.apps.wellbeing
+ 1463 u0_a131      20   0  14G 194M 143M S  6.8   7.8   0:02.38 com.google.android.gms
+   36 root         20   0    0    0    0 I  6.8   0.0   0:00.41 [kworker/1:1-virtio_vsock]
+ 4126 u0_a118      20   0  13G  85M  55M S  3.4   3.4   0:00.05 com.google.android.settings.intelligence
+ 3661 u0_a148      20   0  14G 134M  98M S  3.4   5.4   0:00.28 com.google.android.gm
+ 2922 u0_i9000     10 -10 231G 161M 114M S  3.4   6.5   0:00.60 com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0
+ 1941 u0_a120      20   0  13G  83M  52M S  3.4   3.3   0:00.16 com.google.android.as.oss
+ 1670 u0_a131      20   0  13G  78M  50M S  3.4   3.1   0:00.27 com.google.process.gservices
+ 1643 u0_a124      20   0  14G 187M 139M S  3.4   7.5   0:01.20 com.google.android.as
+ 1045 system       20   0  13G 118M  88M S  3.4   4.7   0:00.27 com.android.settings

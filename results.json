@@ -1,0 +1,213 @@
+{
+  "files": [
+    {
+      "name": "Episode_1.mp4",
+      "rangeMid": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 100-199/25327495",
+        "length": "100",
+        "got": 25327395
+      },
+      "rangeTail": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 25327445-25327494/25327495",
+        "length": "50",
+        "got": 50
+      },
+      "probe": {
+        "duration": 240.023
+      },
+      "firstFrame": {
+        "ok": true,
+        "ms": 906,
+        "readyState": 4
+      },
+      "duration": 240,
+      "seek": {
+        "ok": true,
+        "ms": 934,
+        "readyState": 4
+      },
+      "afterSeek": 216.000824,
+      "playingAfterSeek": true
+    },
+    {
+      "name": "Episode_2_moov-at-end.mp4",
+      "rangeMid": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 100-199/25327495",
+        "length": "100",
+        "got": 25327395
+      },
+      "rangeTail": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 25327445-25327494/25327495",
+        "length": "50",
+        "got": 50
+      },
+      "probe": {
+        "duration": 240.023
+      },
+      "firstFrame": {
+        "ok": true,
+        "ms": 552,
+        "readyState": 4
+      },
+      "duration": 240,
+      "seek": {
+        "ok": true,
+        "ms": 1113,
+        "readyState": 4
+      },
+      "afterSeek": 216.01063,
+      "playingAfterSeek": true
+    },
+    {
+      "name": "Episode_3_sparse-keyframes.mp4",
+      "rangeMid": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 100-199/24707050",
+        "length": "100",
+        "got": 24706950
+      },
+      "rangeTail": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 24707000-24707049/24707050",
+        "length": "50",
+        "got": 50
+      },
+      "probe": {
+        "duration": 240.023
+      },
+      "firstFrame": {
+        "ok": true,
+        "ms": 826,
+        "readyState": 4
+      },
+      "duration": 240,
+      "seek": {
+        "ok": true,
+        "ms": 1877,
+        "readyState": 4
+      },
+      "afterSeek": 216.005017,
+      "playingAfterSeek": true
+    },
+    {
+      "name": "Episode_4_big.mp4",
+      "rangeMid": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 100-199/2304674875",
+        "length": "0",
+        "got": 100
+      },
+      "rangeTail": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 2304674825-2304674874/2304674875",
+        "length": "0",
+        "got": 50
+      },
+      "probe": {
+        "duration": 21840.156
+      },
+      "firstFrame": {
+        "ok": true,
+        "ms": 1852,
+        "readyState": 4
+      },
+      "duration": 21840.13265,
+      "seek": {
+        "ok": true,
+        "ms": 902,
+        "readyState": 4
+      },
+      "afterSeek": 19656.120936,
+      "playingAfterSeek": true
+    }
+  ],
+  "repeat": [
+    {
+      "i": 0,
+      "ok": true,
+      "seekOk": true,
+      "ms": 4541
+    },
+    {
+      "i": 1,
+      "ok": true,
+      "seekOk": true,
+      "ms": 4623
+    },
+    {
+      "i": 2,
+      "ok": true,
+      "seekOk": true,
+      "ms": 2364
+    },
+    {
+      "i": 3,
+      "ok": true,
+      "seekOk": true,
+      "ms": 3505
+    },
+    {
+      "i": 4,
+      "ok": true,
+      "seekOk": true,
+      "ms": 1998
+    },
+    {
+      "i": 5,
+      "ok": true,
+      "seekOk": true,
+      "ms": 2851
+    },
+    {
+      "i": 6,
+      "ok": true,
+      "seekOk": true,
+      "ms": 5300
+    },
+    {
+      "i": 7,
+      "ok": true,
+      "seekOk": true,
+      "ms": 3953
+    }
+  ],
+  "audioPlatform": {
+    "stateAtStart": "running",
+    "stateAfter": "running",
+    "rms": 0.0891063670666496,
+    "ctxAdvanced": 3.4506666666666668,
+    "videoTime": 2.905397,
+    "paused": false
+  },
+  "audioApp": {
+    "error": "channel not listed"
+  },
+  "offline": {
+    "ui": true,
+    "online": false,
+    "offlineBadge": true,
+    "playing": true,
+    "currentTime": 60.825999,
+    "onlineAfterReload": false
+  },
+  "stalled": {
+    "ui": true,
+    "online": true,
+    "offlineBadge": false,
+    "playing": true,
+    "currentTime": 60.819999,
+    "onlineAfterReload": true
+  }
+}
