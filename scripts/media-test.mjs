@@ -371,6 +371,159 @@ if (phase === "bumper") {
   save();
 }
 
+// --- 6. New features on a device: capabilities, captions, auto volume,
+//         closedown test card, picture-in-picture, sleep timer -----------------
+const seedChannel = async (record, channel, prefs) =>
+  evaluate(
+    async (record, channel, prefs) => {
+      const db = await new Promise((res, rej) => {
+        const r = indexedDB.open("crt-media-library", 2);
+        r.onupgradeneeded = () => {
+          const d = r.result;
+          if (!d.objectStoreNames.contains("media")) d.createObjectStore("media", { keyPath: "id", autoIncrement: true });
+          if (!d.objectStoreNames.contains("channels")) d.createObjectStore("channels", { keyPath: "id", autoIncrement: true });
+        };
+        r.onsuccess = () => res(r.result);
+        r.onerror = () => rej(r.error);
+      });
+      const tx = db.transaction(["media", "channels"], "readwrite");
+      tx.objectStore("media").put(record);
+      tx.objectStore("channels").put(channel);
+      await new Promise((r) => (tx.oncomplete = r));
+      localStorage.setItem("retrovision.prefs.v1", JSON.stringify({ lastTab: "channels", episodeInfo: false, ...prefs }));
+      return true;
+    },
+    record,
+    channel,
+    prefs
+  );
+const tuneTo = (name, waitMs) =>
+  evaluate(
+    async (name, waitMs) => {
+      const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+      document.querySelector('[data-tab="channels"]')?.click();
+      await sleep(500);
+      const btn = [...document.querySelectorAll("button")].find((b) => b.textContent.includes(name));
+      if (!btn) return { error: "channel not listed" };
+      btn.click();
+      const v = document.querySelector("video");
+      const t0 = performance.now();
+      while (performance.now() - t0 < waitMs) await sleep(500);
+      const stage = document.querySelector("[data-bumper], [data-item]") || document.querySelector("[data-captions]");
+      return {
+        playing: Boolean(v && v.currentTime > 1 && !v.paused),
+        bumper: document.querySelector("[data-bumper]")?.dataset.bumper || null,
+        item: document.querySelector("[data-item]")?.dataset.item || null,
+        captions: document.querySelector("[data-captions]")?.dataset.captions || null,
+        audio: window.__rvAudio?.(),
+        hasStage: Boolean(stage),
+      };
+    },
+    name,
+    waitMs
+  );
+const sampleFor = () => {
+  const sample = results.files.find((f) => f.probe?.duration > 30 && /Episode_1/.test(f.name)) || results.files.find((f) => f.probe?.duration > 30) || results.files[0];
+  return { sample, rel: files[results.files.indexOf(sample)] || files[0] };
+};
+const testRecord = (sample, rel, extra = {}) => ({
+  id: 9001, name: sample?.name || "Episode_1.mp4", type: "video/mp4", size: 1, added: Date.now(), duration: sample?.probe?.duration || 240,
+  show: "Test Show", season: "Season 1", uri: providerUri(rel), ...extra,
+});
+
+if (phase === "captions") {
+  const { sample, rel } = sampleFor();
+  const srt = providerUri("tv/Episode_1.srt");
+  results.features = results.features || {};
+  results.features.capabilities = await evaluate(async () => {
+    try {
+      return await window.Capacitor.Plugins.MediaFolder.capabilities();
+    } catch (e) {
+      return { error: String(e) };
+    }
+  });
+  results.features.srtFetch = await evaluate(async (uri) => {
+    try {
+      const r = await fetch(`${location.origin}/_rv_media/captions.srt?u=${encodeURIComponent(uri)}&n=${Date.now()}`);
+      const t = await r.text();
+      return { status: r.status, type: r.headers.get("content-type"), start: t.slice(0, 60) };
+    } catch (e) {
+      return { error: String(e) };
+    }
+  }, srt);
+  await seedChannel(
+    testRecord(sample, rel, { subtitleUri: srt }),
+    { id: 9301, number: 11, name: "Captions Test", shows: ["Test Show"], adShows: [], adsPerBreak: 0, blocks: [], lineup: [{ mediaId: 9001, kind: "show" }], epoch: Date.now() - 20000 },
+    { captions: true, autoLevel: true, broadcast: { upNext: false, ident: false, ratingCard: "off" } }
+  );
+  await send("Page.reload");
+  await new Promise((r) => setTimeout(r, 7000));
+  results.features.captions = await tuneTo("Captions Test", 12000);
+  save();
+}
+
+if (phase === "closedown") {
+  const { sample, rel } = sampleFor();
+  const h = new Date().getHours();
+  await seedChannel(
+    testRecord(sample, rel),
+    { id: 9401, number: 12, name: "Night Test", shows: ["Test Show"], adShows: [], adsPerBreak: 0, blocks: [], lineup: [{ mediaId: 9001, kind: "show" }], epoch: Date.now() - 20000 },
+    { broadcast: { closedown: true, closedownFrom: h, closedownTo: (h + 1) % 24, closedownTone: true } }
+  );
+  await send("Page.reload");
+  await new Promise((r) => setTimeout(r, 7000));
+  results.features = results.features || {};
+  results.features.closedown = await tuneTo("Night Test", 3000);
+  // Close the menu so the screenshot shows the test card.
+  await evaluate(() => {
+    window.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape", bubbles: true }));
+    return true;
+  });
+  save();
+}
+
+if (phase === "pip" || phase === "sleep") {
+  const { sample, rel } = sampleFor();
+  await seedChannel(
+    testRecord(sample, rel),
+    { id: 9501, number: 13, name: "Bedtime Test", shows: ["Test Show"], adShows: [], adsPerBreak: 0, blocks: [], lineup: [{ mediaId: 9001, kind: "show" }], epoch: Date.now() - 20000 },
+    { broadcast: { upNext: false, ident: false, ratingCard: "off" } }
+  );
+  await send("Page.reload");
+  await new Promise((r) => setTimeout(r, 7000));
+  results.features = results.features || {};
+  if (phase === "pip") {
+    results.features.pipSet = await evaluate(async () => {
+      try {
+        await window.Capacitor.Plugins.MediaFolder.setPip({ enabled: true });
+        return await window.Capacitor.Plugins.MediaFolder.capabilities();
+      } catch (e) {
+        return { error: String(e) };
+      }
+    });
+    await evaluate(() => {
+      window.__pipEvents = [];
+      window.addEventListener("rv-pip", (e) => window.__pipEvents.push(e.active));
+      return true;
+    });
+  }
+  results.features[phase] = await tuneTo("Bedtime Test", 8000);
+  if (phase === "sleep") {
+    results.features.sleepStarted = await evaluate(() => {
+      if (!window.__rvSleepIn) return "no hook";
+      window.__rvSleepIn(4);
+      return "sleeping in 4 s";
+    });
+  }
+  save();
+}
+
+if (phase === "pip-check") {
+  results.features = results.features || {};
+  results.features.pipEvents = await evaluate(() => window.__pipEvents || null);
+  save();
+}
+
 save();
 console.log(JSON.stringify(results, null, 2));
 ws.close();

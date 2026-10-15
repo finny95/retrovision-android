@@ -57,6 +57,35 @@ adb exec-out screencap -p > "$OUT/media-channel.png"
 run_phase audio
 run_phase bumper
 timeout 30 adb exec-out screencap -p > "$OUT/bumper.png"
+
+# New features: captions (an .srt next to Episode 1), auto volume, closedown
+# test card, picture-in-picture, sleep timer closing the app.
+printf '1\n00:00:01,000 --> 00:02:00,000\nHello from the captions test\n\n2\n00:02:00,000 --> 00:06:00,000\nSecond caption line\n' > /tmp/rv-cc.srt
+adb push /tmp/rv-cc.srt /data/local/tmp/rv-cc.srt >/dev/null
+adb shell "cat /data/local/tmp/rv-cc.srt | run-as $PKG sh -c 'cat > cache/tv/Episode_1.srt'"
+adb shell rm -f /data/local/tmp/rv-cc.srt
+run_phase captions
+timeout 30 adb exec-out screencap -p > "$OUT/captions.png"
+run_phase closedown
+sleep 11
+timeout 30 adb exec-out screencap -p > "$OUT/testcard.png"
+run_phase pip
+adb shell input keyevent KEYCODE_HOME
+sleep 4
+timeout 30 adb exec-out screencap -p > "$OUT/pip.png"
+timeout 20 adb shell dumpsys activity activities > "$OUT/pip-activities.txt" 2>&1
+grep -iE "pinned|windowingMode=2|pip" "$OUT/pip-activities.txt" | head -20 > "$OUT/pip-summary.txt" || true
+PID=$(adb shell pidof "$PKG" | tr -d '\r')
+adb forward tcp:9222 "localabstract:webview_devtools_remote_$PID"
+timeout 60 node scripts/media-test.mjs 9222 "$OUT/media-results.json" pip-check "${FILES[@]}" >> "$OUT/node.log" 2>&1
+adb shell am force-stop "$PKG"
+run_phase sleep
+sleep 16
+timeout 30 adb exec-out screencap -p > "$OUT/after-sleep.png"
+timeout 20 adb shell dumpsys activity activities | grep -E "ResumedActivity|topResumedActivity" > "$OUT/after-sleep.txt" 2>&1
+echo "pid after sleep: $(adb shell pidof "$PKG" | tr -d '\r')" >> "$OUT/after-sleep.txt"
+adb shell am start -W -n "$PKG/.MainActivity" >/dev/null
+sleep 8
 adb exec-out screencap -p > "$OUT/ui-portrait.png"
 # Sideways, like a handheld: the full-screen TV layout.
 adb shell settings put system accelerometer_rotation 0
