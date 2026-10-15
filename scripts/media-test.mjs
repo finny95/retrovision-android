@@ -330,6 +330,47 @@ if (phase === "offline" || phase === "stalled") {
   save();
 }
 
+// --- 5. A "coming up next" bumper (canvas graphics through the CRT shader) ----
+if (phase === "bumper") {
+  const sample = results.files.find((f) => f.probe?.duration > 30 && !/big/.test(f.name)) || results.files[0];
+  const rel = files[results.files.indexOf(sample)] || files[0];
+  await evaluate(
+    async (record, channel) => {
+      const db = await new Promise((res, rej) => {
+        const r = indexedDB.open("crt-media-library", 2);
+        r.onupgradeneeded = () => {
+          const d = r.result;
+          if (!d.objectStoreNames.contains("media")) d.createObjectStore("media", { keyPath: "id", autoIncrement: true });
+          if (!d.objectStoreNames.contains("channels")) d.createObjectStore("channels", { keyPath: "id", autoIncrement: true });
+        };
+        r.onsuccess = () => res(r.result);
+        r.onerror = () => rej(r.error);
+      });
+      const tx = db.transaction(["media", "channels"], "readwrite");
+      tx.objectStore("media").put(record);
+      tx.objectStore("channels").put(channel);
+      await new Promise((r) => (tx.oncomplete = r));
+      localStorage.setItem("retrovision.prefs.v1", JSON.stringify({ lastTab: "channels", broadcast: { upNext: true, upNextSecs: 15 } }));
+      return true;
+    },
+    { id: 9001, name: sample?.name || "Episode_1.mp4", type: "video/mp4", size: 1, added: Date.now(), duration: sample?.probe?.duration || 240, show: "Test Show", season: "Season 1", uri: providerUri(rel) },
+    { id: 9201, number: 8, name: "Bumper Test", shows: ["Test Show"], adShows: [], adsPerBreak: 0, blocks: [], lineup: [{ mediaId: 9001, kind: "show" }], epoch: Date.now() + 5000 }
+  );
+  await send("Page.reload");
+  await new Promise((r) => setTimeout(r, 7000));
+  results.bumper = await evaluate(async () => {
+    const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+    document.querySelector('[data-tab="channels"]')?.click();
+    await sleep(500);
+    const btn = [...document.querySelectorAll("button")].find((b) => b.textContent.includes("Bumper Test"));
+    if (!btn) return { error: "channel not listed" };
+    btn.click();
+    await sleep(5000);
+    return { bumper: document.querySelector("[data-bumper]")?.dataset.bumper || null, item: document.querySelector("[data-item]")?.dataset.item || null };
+  });
+  save();
+}
+
 save();
 console.log(JSON.stringify(results, null, 2));
 ws.close();

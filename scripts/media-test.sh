@@ -55,6 +55,8 @@ run_phase files
 run_phase channel
 adb exec-out screencap -p > "$OUT/media-channel.png"
 run_phase audio
+run_phase bumper
+timeout 30 adb exec-out screencap -p > "$OUT/bumper.png"
 adb exec-out screencap -p > "$OUT/ui-portrait.png"
 # Sideways, like a handheld: the full-screen TV layout.
 adb shell settings put system accelerometer_rotation 0
