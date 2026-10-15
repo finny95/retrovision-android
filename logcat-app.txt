@@ -1,0 +1,60 @@
+10-15 05:31:15.546  5596  5596 I Capacitor/Console: File: https://localhost/assets/boot-ewb7vw_1.js - Line 2 - Msg: [ota] up to date (1.0.1792040782)
+10-15 05:31:22.425  5596  5596 I Capacitor/Console: File: https://localhost/assets/boot-ewb7vw_1.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-15 05:31:22.440  5596  5596 I Capacitor/Console: File: https://localhost/assets/boot-ewb7vw_1.js - Line 2 - Msg: [ota] running bundle 1.0.1792040782
+10-15 05:31:22.727  5596  5596 I Capacitor/Console: File: https://localhost/assets/boot-ewb7vw_1.js - Line 2 - Msg: [ota] up to date (1.0.1792040782)
+10-15 05:31:28.041  5596  5711 I RetroVisionMedia: 206 bytes 16711680-25327494/25327495
+10-15 05:31:29.471  5596  5596 I Capacitor/Console: File: https://localhost/assets/boot-ewb7vw_1.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-15 05:31:29.481  5596  5596 I Capacitor/Console: File: https://localhost/assets/boot-ewb7vw_1.js - Line 2 - Msg: [ota] running bundle 1.0.1792040782
+10-15 05:31:29.772  5596  5596 I Capacitor/Console: File: https://localhost/assets/boot-ewb7vw_1.js - Line 2 - Msg: [ota] up to date (1.0.1792040782)
+10-15 05:31:44.296  5596  5711 I RetroVisionMedia: 206 bytes 0-25327494/25327495
+10-15 05:31:47.830  5596  5596 I Capacitor/Console: File: https://localhost/assets/boot-ewb7vw_1.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-15 05:31:47.838  5596  5596 I Capacitor/Console: File: https://localhost/assets/boot-ewb7vw_1.js - Line 2 - Msg: [ota] running bundle 1.0.1792040782
+10-15 05:31:48.044  5596  5596 I Capacitor/Console: File: https://localhost/assets/boot-ewb7vw_1.js - Line 2 - Msg: [ota] up to date (1.0.1792040782)
+10-15 05:31:54.739  5596  5711 I RetroVisionMedia: 206 bytes 19464192-25327494/25327495
+10-15 05:31:55.692  5596  5711 I RetroVisionMedia: 206 bytes 20512768-25327494/25327495
+10-15 05:32:07.147  5596  5596 I Capacitor/Console: File: https://localhost/assets/boot-ewb7vw_1.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-15 05:32:07.156  5596  5596 I Capacitor/Console: File: https://localhost/assets/boot-ewb7vw_1.js - Line 2 - Msg: [ota] running bundle 1.0.1792040782
+10-15 05:32:07.258  5596  5596 I Capacitor/Console: File: https://localhost/assets/boot-ewb7vw_1.js - Line 2 - Msg: [ota] up to date (1.0.1792040782)
+10-15 05:32:27.616  5596  5711 I RetroVisionMedia: 206 bytes 1310720-25327494/25327495
+10-15 05:32:29.605  5596  5711 I RetroVisionMedia: 200 application/x-subrip size=114
+10-15 05:32:29.890  5596  5596 I Capacitor/Console: File: https://localhost/assets/boot-ewb7vw_1.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-15 05:32:29.900  5596  5596 I Capacitor/Console: File: https://localhost/assets/boot-ewb7vw_1.js - Line 2 - Msg: [ota] running bundle 1.0.1792040782
+10-15 05:32:30.112  5596  5596 I Capacitor/Console: File: https://localhost/assets/boot-ewb7vw_1.js - Line 2 - Msg: [ota] up to date (1.0.1792040782)
+10-15 05:32:37.280  5596  5711 I RetroVisionMedia: 200 application/x-subrip size=114
+10-15 05:32:38.386  5596  5711 I RetroVisionMedia: 206 bytes 4521984-25327494/25327495
+10-15 05:32:58.559  5596  5596 I Capacitor/Console: File: https://localhost/assets/boot-ewb7vw_1.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-15 05:32:58.567  5596  5596 I Capacitor/Console: File: https://localhost/assets/boot-ewb7vw_1.js - Line 2 - Msg: [ota] running bundle 1.0.1792040782
+10-15 05:32:58.777  5596  5596 I Capacitor/Console: File: https://localhost/assets/boot-ewb7vw_1.js - Line 2 - Msg: [ota] up to date (1.0.1792040782)
+10-15 05:33:28.704  5596  5596 I Capacitor/Console: File: https://localhost/assets/boot-ewb7vw_1.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-15 05:33:28.712  5596  5596 I Capacitor/Console: File: https://localhost/assets/boot-ewb7vw_1.js - Line 2 - Msg: [ota] running bundle 1.0.1792040782
+10-15 05:33:28.865  5596  5596 I Capacitor/Console: File: https://localhost/assets/boot-ewb7vw_1.js - Line 2 - Msg: [ota] up to date (1.0.1792040782)
+10-15 05:33:50.481  6554  6554 I Capacitor/Console: File: https://localhost/assets/boot-ewb7vw_1.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-15 05:33:50.500  6554  6554 I Capacitor/Console: File: https://localhost/assets/boot-ewb7vw_1.js - Line 2 - Msg: [ota] running bundle 1.0.1792040782
+10-15 05:33:55.189  6554  6554 I Capacitor/Console: File: https://localhost/assets/boot-ewb7vw_1.js - Line 2 - Msg: [ota] up to date (1.0.1792040782)
+10-15 05:34:01.341  6554  6554 I Capacitor/Console: File: https://localhost/assets/boot-ewb7vw_1.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-15 05:34:01.354  6554  6554 I Capacitor/Console: File: https://localhost/assets/boot-ewb7vw_1.js - Line 2 - Msg: [ota] running bundle 1.0.1792040782
+10-15 05:34:01.535  6554  6554 I Capacitor/Console: File: https://localhost/assets/boot-ewb7vw_1.js - Line 2 - Msg: [ota] up to date (1.0.1792040782)
+10-15 05:34:08.745  6554  6597 I RetroVisionMedia: 206 bytes 0-25327494/25327495
+10-15 05:34:08.754  6554  6597 I RetroVisionMedia: 206 bytes 0-25327494/25327495
+10-15 05:34:08.884  6554  6597 I RetroVisionMedia: 206 bytes 2883584-25327494/25327495
+10-15 05:34:33.980  6554  6554 I Capacitor/Console: File: https://localhost/assets/boot-ewb7vw_1.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-15 05:34:33.994  6554  6554 I Capacitor/Console: File: https://localhost/assets/boot-ewb7vw_1.js - Line 2 - Msg: [ota] running bundle 1.0.1792040782
+10-15 05:34:34.448  6554  6554 I Capacitor/Console: File: https://localhost/assets/boot-ewb7vw_1.js - Line 2 - Msg: [ota] up to date (1.0.1792040782)
+10-15 05:34:54.318  6894  6894 I Capacitor/Console: File: https://localhost/assets/boot-ewb7vw_1.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-15 05:34:59.449  6894  6894 I Capacitor/Console: File: https://localhost/assets/boot-ewb7vw_1.js - Line 2 - Msg: [ota] running bundle 1.0.1792040782
+10-15 05:34:59.506  6894  6894 W Capacitor/Console: File: https://localhost/assets/boot-ewb7vw_1.js - Line 2 - Msg: [ota] update check failed: Unable to resolve host "gorgeous-retro.base44.app": No address associated with hostname
+10-15 05:35:02.590  6894  6894 I Capacitor/Console: File: https://localhost/assets/boot-ewb7vw_1.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-15 05:35:03.174  6894  6894 I Capacitor/Console: File: https://localhost/assets/boot-ewb7vw_1.js - Line 2 - Msg: [ota] running bundle 1.0.1792040782
+10-15 05:35:03.349  6894  6894 W Capacitor/Console: File: https://localhost/assets/boot-ewb7vw_1.js - Line 2 - Msg: [ota] update check failed: Unable to resolve host "gorgeous-retro.base44.app": No address associated with hostname
+10-15 05:35:10.354  6894  6939 I RetroVisionMedia: 206 bytes 0-25327494/25327495
+10-15 05:35:10.362  6894  6940 I RetroVisionMedia: 206 bytes 0-25327494/25327495
+10-15 05:35:10.549  6894  6939 I RetroVisionMedia: 206 bytes 6455296-25327494/25327495
+10-15 05:35:10.607  6894  6941 I RetroVisionMedia: 206 bytes 458752-25327494/25327495
+10-15 05:35:11.452  6894  6939 I RetroVisionMedia: 206 bytes 7503872-25327494/25327495
+10-15 05:35:20.014  7237  7237 I Capacitor/Console: File: https://localhost/assets/boot-ewb7vw_1.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-15 05:35:20.032  7237  7237 I Capacitor/Console: File: https://localhost/assets/boot-ewb7vw_1.js - Line 2 - Msg: [ota] running bundle 1.0.1792040782
+10-15 05:35:33.788  7237  7237 I Capacitor/Console: File: https://localhost/assets/boot-ewb7vw_1.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-15 05:35:33.797  7237  7237 I Capacitor/Console: File: https://localhost/assets/boot-ewb7vw_1.js - Line 2 - Msg: [ota] running bundle 1.0.1792040782
+10-15 05:35:41.806  7237  7288 I RetroVisionMedia: 206 bytes 0-25327494/25327495
+10-15 05:35:41.877  7237  7288 I RetroVisionMedia: 206 bytes 0-25327494/25327495
+10-15 05:35:41.956  7237  7288 I RetroVisionMedia: 206 bytes 7077888-25327494/25327495

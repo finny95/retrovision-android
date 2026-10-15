@@ -1,0 +1,321 @@
+{
+  "files": [
+    {
+      "name": "Episode_1.mp4",
+      "rangeMid": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 100-199/25327495",
+        "length": "100",
+        "got": 25327395
+      },
+      "rangeTail": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 25327445-25327494/25327495",
+        "length": "50",
+        "got": 50
+      },
+      "probe": {
+        "duration": 240.023
+      },
+      "firstFrame": {
+        "ok": true,
+        "ms": 1062,
+        "readyState": 4
+      },
+      "duration": 240,
+      "seek": {
+        "ok": true,
+        "ms": 911,
+        "readyState": 4
+      },
+      "afterSeek": 216.000714,
+      "playingAfterSeek": true
+    },
+    {
+      "name": "Episode_2_moov-at-end.mp4",
+      "rangeMid": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 100-199/25327495",
+        "length": "100",
+        "got": 25327395
+      },
+      "rangeTail": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 25327445-25327494/25327495",
+        "length": "50",
+        "got": 50
+      },
+      "probe": {
+        "duration": 240.023
+      },
+      "firstFrame": {
+        "ok": true,
+        "ms": 1020,
+        "readyState": 4
+      },
+      "duration": 240,
+      "seek": {
+        "ok": true,
+        "ms": 945,
+        "readyState": 4
+      },
+      "afterSeek": 216.001865,
+      "playingAfterSeek": true
+    },
+    {
+      "name": "Episode_3_sparse-keyframes.mp4",
+      "rangeMid": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 100-199/24707050",
+        "length": "100",
+        "got": 24706950
+      },
+      "rangeTail": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 24707000-24707049/24707050",
+        "length": "50",
+        "got": 50
+      },
+      "probe": {
+        "duration": 240.023
+      },
+      "firstFrame": {
+        "ok": true,
+        "ms": 1084,
+        "readyState": 4
+      },
+      "duration": 240,
+      "seek": {
+        "ok": true,
+        "ms": 2527,
+        "readyState": 4
+      },
+      "afterSeek": 216.043371,
+      "playingAfterSeek": true
+    },
+    {
+      "name": "Episode_4_big.mp4",
+      "rangeMid": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 100-199/2304674875",
+        "length": "0",
+        "got": 100
+      },
+      "rangeTail": {
+        "status": 206,
+        "type": "video/mp4",
+        "range": "bytes 2304674825-2304674874/2304674875",
+        "length": "0",
+        "got": 50
+      },
+      "probe": {
+        "duration": 21840.156
+      },
+      "firstFrame": {
+        "ok": true,
+        "ms": 5860,
+        "readyState": 4
+      },
+      "duration": 21840.13265,
+      "seek": {
+        "ok": true,
+        "ms": 1978,
+        "readyState": 4
+      },
+      "afterSeek": 19656.120119,
+      "playingAfterSeek": true
+    }
+  ],
+  "channel": [
+    {
+      "ok": true,
+      "ms": 535,
+      "currentTime": 144.7808,
+      "duration": 240
+    },
+    {
+      "ok": true,
+      "ms": 638,
+      "currentTime": 151.5378,
+      "duration": 240
+    },
+    {
+      "ok": true,
+      "ms": 500,
+      "currentTime": 158.4958,
+      "duration": 240
+    }
+  ],
+  "audioPlatform": {
+    "stateAtStart": "running",
+    "stateAfter": "running",
+    "rms": 0.08836455388478381,
+    "ctxAdvanced": 2.997333333333333,
+    "videoTime": 2.725442,
+    "paused": false
+  },
+  "audioApp": {
+    "playing": true,
+    "ctxState": "running",
+    "diag": {
+      "state": "running",
+      "routed": true,
+      "boostDb": 9,
+      "gain": 2.818382978439331,
+      "level": {
+        "enabled": true,
+        "key": "Test Show",
+        "db": -21.6121837468394,
+        "samples": 5,
+        "applied": 1.6121837468393991
+      },
+      "issue": ""
+    },
+    "tapInstalled": true,
+    "pre": 0.08794411010352868,
+    "post": 0.3444865100256712,
+    "volume": 1,
+    "muted": false,
+    "text": "CATHODETUBE\n\nDIGITAL\n\nCH 07\nTEST CHANNEL\n07\n\nTest Show\n\nTEST CHANNEL · 0:53 LEFT · BOOST +9 DB\n\n3:07 / 4:00\n● LIVE\nMAIN MENU\nTHU, OCT 15\n5:31am\nGuide\nChannels\nLibrary\nPicture\nSound\nBroadcast\nSystem\nNew channel\n07\nTest Channel\nON NOW\n5:28am Test Show\n5:32am Test Show"
+  },
+  "bumper": {
+    "bumper": "next",
+    "item": "bumper"
+  },
+  "features": {
+    "capabilities": {
+      "features": [
+        "saveFile",
+        "rescanFolder",
+        "subtitles",
+        "pip"
+      ],
+      "pipEnabled": false
+    },
+    "srtFetch": {
+      "status": 200,
+      "type": "application/x-subrip",
+      "start": "1\n00:00:01,000 --> 00:02:00,000\nHello from the captions test"
+    },
+    "captions": {
+      "playing": true,
+      "bumper": null,
+      "item": "show",
+      "captions": "2",
+      "audio": {
+        "state": "running",
+        "routed": true,
+        "boostDb": 0,
+        "gain": 1,
+        "level": {
+          "enabled": true,
+          "key": "Test Show",
+          "db": -21.197253356201895,
+          "samples": 22,
+          "applied": 1.1972533562018945
+        },
+        "issue": ""
+      },
+      "hasStage": true
+    },
+    "closedown": {
+      "playing": false,
+      "bumper": "closedown",
+      "item": "bumper",
+      "captions": null,
+      "audio": {
+        "state": "running",
+        "routed": true,
+        "boostDb": 0,
+        "gain": 1,
+        "level": {
+          "enabled": true,
+          "key": null,
+          "db": null,
+          "samples": 0,
+          "applied": 0
+        },
+        "issue": ""
+      },
+      "hasStage": true
+    },
+    "pipSet": {
+      "features": [
+        "saveFile",
+        "rescanFolder",
+        "subtitles",
+        "pip"
+      ],
+      "pipEnabled": true
+    },
+    "pip": {
+      "playing": true,
+      "bumper": null,
+      "item": "show",
+      "captions": null,
+      "audio": {
+        "state": "running",
+        "routed": true,
+        "boostDb": 0,
+        "gain": 1,
+        "level": {
+          "enabled": true,
+          "key": "Test Show",
+          "db": -21.076590001751775,
+          "samples": 14,
+          "applied": 1.076590001751775
+        },
+        "issue": ""
+      },
+      "hasStage": true
+    },
+    "pipEvents": [
+      true
+    ],
+    "sleep": {
+      "playing": true,
+      "bumper": null,
+      "item": "show",
+      "captions": null,
+      "audio": {
+        "state": "running",
+        "routed": true,
+        "boostDb": 0,
+        "gain": 1,
+        "level": {
+          "enabled": true,
+          "key": "Test Show",
+          "db": -21.41188822162651,
+          "samples": 14,
+          "applied": 1.4118882216265085
+        },
+        "issue": ""
+      },
+      "hasStage": true
+    },
+    "sleepStarted": "sleeping in 4 s"
+  },
+  "offline": {
+    "ui": true,
+    "online": false,
+    "offlineBadge": true,
+    "playing": true,
+    "currentTime": 60.834999,
+    "onlineAfterReload": false
+  },
+  "stalled": {
+    "ui": true,
+    "online": true,
+    "offlineBadge": false,
+    "playing": true,
+    "currentTime": 66.426,
+    "onlineAfterReload": true
+  }
+}
