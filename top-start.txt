@@ -1,0 +1,20 @@
+Tasks: 317 total,   3 running, 314 sleeping,   0 stopped,   0 zombie
+  Mem:  2534552K total,  2438092K used,    96460K free,    22376K buffers
+ Swap:  1900908K total,   288768K used,  1612140K free,  1192080K cached
+200%cpu  93%user  28%nice 138%sys  69%idle   0%iow   7%irq   3%sirq   0%host
+  PID USER         PR  NI VIRT  RES  SHR S[%CPU] %MEM     TIME+ ARGS
+  525 system       18  -2  15G 308M 227M S 44.8  12.4   0:32.27 system_server
+ 2943 u0_a192      10 -10  29G 216M 140M S 24.1   8.7   0:05.97 com.retrovision.player
+ 1485 u0_a128      20   0  14G 277M 229M S 20.6  11.2   0:02.68 com.google.android.gms
+ 1429 u0_a128      20   0  13G 182M 135M S 20.6   7.3   0:04.18 com.google.android.gms.persistent
+ 1570 u0_a142      10 -10  13G 137M 100M S 10.3   5.5   0:02.71 com.google.android.inputmethod.latin
+ 4213 shell        20   0  10G 5.0M 4.2M R  6.8   0.2   0:00.02 top -b -n 1 -m 15
+ 3989 u0_a140      20   0  14G 134M 101M S  6.8   5.3   0:00.30 com.google.android.gm
+ 2905 u0_a128      20   0  14G 167M 118M S  6.8   6.7   0:01.09 com.google.android.gms.unstable
+ 1746 u0_a132      20   0  30G 257M 207M S  6.8  10.3   0:01.95 com.google.android.googlequicksearchbox:search
+ 1102 u0_a169      20   0  13G 151M 112M S  6.8   6.1   0:02.58 com.google.android.apps.nexuslauncher
+  846 u0_a168      20   0  14G 178M 119M R  6.8   7.2   0:03.91 com.android.systemui
+  461 logd         30  10  10G 3.1M 2.9M S  6.8   0.1   0:03.15 logcat -f /dev/hvc1 *:V
+ 4009 root          0 -20    0    0    0 I  3.4   0.0   0:00.15 [kworker/1:6H-kblockd]
+ 2149 u0_a121      20   0  13G  79M  50M S  3.4   3.1   0:00.11 com.google.android.as.oss
+ 1956 u0_a154      20   0  13G 102M  72M S  3.4   4.1   0:00.25 com.google.android.contacts

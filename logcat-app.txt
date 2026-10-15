@@ -1,0 +1,60 @@
+10-15 04:28:04.073  2943  3148 I RetroVisionMedia: 206 large bytes 2304736614-2304736663/2304736664
+10-15 04:28:04.350  2943  3148 I RetroVisionMedia: 206 large bytes 0-2304736663/2304736664
+10-15 04:28:04.392  2943  3148 I RetroVisionMedia: 206 large bytes 2287992832-2304736663/2304736664
+10-15 04:28:04.407  2943  3149 I RetroVisionMedia: 206 large bytes 2288058368-2304736663/2304736664
+10-15 04:28:04.407  2943  3148 I RetroVisionMedia: 206 large bytes 32768-2304736663/2304736664
+10-15 04:28:04.964  2943  3149 I RetroVisionMedia: 206 large bytes 32768-2304736663/2304736664
+10-15 04:28:05.350  2943  3148 I RetroVisionMedia: 206 large bytes 2058977280-2304736663/2304736664
+10-15 04:28:08.294  2943  3148 I RetroVisionMedia: 206 bytes 0-25328173/25328174
+10-15 04:28:08.917  2943  3149 I RetroVisionMedia: 206 bytes 4980736-25328173/25328174
+10-15 04:28:10.371  2943  3148 I RetroVisionMedia: 206 bytes 0-25328173/25328174
+10-15 04:28:10.395  2943  3149 I RetroVisionMedia: 206 bytes 25133056-25328173/25328174
+10-15 04:28:10.420  2943  3148 I RetroVisionMedia: 206 bytes 25296896-25328173/25328174
+10-15 04:28:10.464  2943  3148 I RetroVisionMedia: 206 bytes 65536-25328173/25328174
+10-15 04:28:10.935  2943  3148 I RetroVisionMedia: 206 bytes 7110656-25328173/25328174
+10-15 04:28:12.793  2943  3149 I RetroVisionMedia: 206 bytes 0-24707049/24707050
+10-15 04:28:13.864  2943  3149 I RetroVisionMedia: 206 bytes 9371648-24707049/24707050
+10-15 04:28:15.811  2943  3148 I RetroVisionMedia: 206 large bytes 0-2304736663/2304736664
+10-15 04:28:15.836  2943  3149 I RetroVisionMedia: 206 large bytes 2287992832-2304736663/2304736664
+10-15 04:28:15.854  2943  3158 I RetroVisionMedia: 206 large bytes 2288058368-2304736663/2304736664
+10-15 04:28:15.866  2943  3148 I RetroVisionMedia: 206 large bytes 32768-2304736663/2304736664
+10-15 04:28:17.228  2943  3148 I RetroVisionMedia: 206 large bytes 0-2304736663/2304736664
+10-15 04:28:18.498  2943  3149 I RetroVisionMedia: 206 large bytes 1075281920-2304736663/2304736664
+10-15 04:28:19.974  2943  3148 I RetroVisionMedia: 206 bytes 0-25328173/25328174
+10-15 04:28:21.014  2943  3148 I RetroVisionMedia: 206 bytes 14188544-25328173/25328174
+10-15 04:28:22.639  2943  3148 I RetroVisionMedia: 206 bytes 0-25328173/25328174
+10-15 04:28:22.760  2943  3158 I RetroVisionMedia: 206 bytes 25133056-25328173/25328174
+10-15 04:28:23.790  2943  3149 I RetroVisionMedia: 206 bytes 16121856-25328173/25328174
+10-15 04:28:26.053  2943  3148 I RetroVisionMedia: 206 bytes 0-24707049/24707050
+10-15 04:28:26.609  2943  3148 I RetroVisionMedia: 206 bytes 17530880-24707049/24707050
+10-15 04:28:30.516  2943  3149 I RetroVisionMedia: 206 large bytes 0-2304736663/2304736664
+10-15 04:28:30.739  2943  3148 I RetroVisionMedia: 206 large bytes 2287992832-2304736663/2304736664
+10-15 04:28:31.839  2943  3148 I RetroVisionMedia: 206 large bytes 0-2304736663/2304736664
+10-15 04:28:32.508  2943  3149 I RetroVisionMedia: 206 large bytes 1898905600-2304736663/2304736664
+10-15 04:29:16.226  6239  6239 I Capacitor/Console: File: https://localhost/assets/boot-FcZx6PCx.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-15 04:29:16.239  6239  6239 I Capacitor/Console: File: https://localhost/assets/boot-FcZx6PCx.js - Line 2 - Msg: [ota] running bundle 1.0.1792028114
+10-15 04:29:20.878  6239  6239 I Capacitor/Console: File: https://localhost/assets/boot-FcZx6PCx.js - Line 2 - Msg: [ota] up to date (1.0.1792028114)
+10-15 04:29:24.255  6239  6281 I RetroVisionMedia: 206 bytes 0-25328173/25328174
+10-15 04:29:28.045  6239  6239 I Capacitor/Console: File: https://localhost/assets/boot-FcZx6PCx.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-15 04:29:28.056  6239  6239 I Capacitor/Console: File: https://localhost/assets/boot-FcZx6PCx.js - Line 2 - Msg: [ota] running bundle 1.0.1792028114
+10-15 04:29:28.311  6239  6239 I Capacitor/Console: File: https://localhost/assets/boot-FcZx6PCx.js - Line 2 - Msg: [ota] up to date (1.0.1792028114)
+10-15 04:29:43.517  6239  6239 I Capacitor/Console: File: https://localhost/assets/boot-FcZx6PCx.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-15 04:29:43.528  6239  6239 I Capacitor/Console: File: https://localhost/assets/boot-FcZx6PCx.js - Line 2 - Msg: [ota] running bundle 1.0.1792028114
+10-15 04:29:43.813  6239  6239 I Capacitor/Console: File: https://localhost/assets/boot-FcZx6PCx.js - Line 2 - Msg: [ota] up to date (1.0.1792028114)
+10-15 04:30:04.125  6239  6281 I RetroVisionMedia: 206 bytes 0-25328173/25328174
+10-15 04:30:18.175  6561  6561 I Capacitor/Console: File: https://localhost/assets/boot-FcZx6PCx.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-15 04:30:18.606  6561  6561 I Capacitor/Console: File: https://localhost/assets/boot-FcZx6PCx.js - Line 2 - Msg: [ota] running bundle 1.0.1792028114
+10-15 04:30:18.653  6561  6561 W Capacitor/Console: File: https://localhost/assets/boot-FcZx6PCx.js - Line 2 - Msg: [ota] update check failed: Unable to resolve host "gorgeous-retro.base44.app": No address associated with hostname
+10-15 04:30:21.234  6561  6561 I Capacitor/Console: File: https://localhost/assets/boot-FcZx6PCx.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-15 04:30:21.252  6561  6561 I Capacitor/Console: File: https://localhost/assets/boot-FcZx6PCx.js - Line 2 - Msg: [ota] running bundle 1.0.1792028114
+10-15 04:30:21.379  6561  6561 W Capacitor/Console: File: https://localhost/assets/boot-FcZx6PCx.js - Line 2 - Msg: [ota] update check failed: Unable to resolve host "gorgeous-retro.base44.app": No address associated with hostname
+10-15 04:30:29.153  6561  6606 I RetroVisionMedia: 206 bytes 0-25328173/25328174
+10-15 04:30:29.182  6561  6607 I RetroVisionMedia: 206 bytes 0-25328173/25328174
+10-15 04:30:29.460  6561  6607 I RetroVisionMedia: 206 bytes 6455296-25328173/25328174
+10-15 04:30:38.821  6916  6916 I Capacitor/Console: File: https://localhost/assets/boot-FcZx6PCx.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-15 04:30:38.842  6916  6916 I Capacitor/Console: File: https://localhost/assets/boot-FcZx6PCx.js - Line 2 - Msg: [ota] running bundle 1.0.1792028114
+10-15 04:30:48.081  6916  6916 I Capacitor/Console: File: https://localhost/assets/boot-FcZx6PCx.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-15 04:30:48.094  6916  6916 I Capacitor/Console: File: https://localhost/assets/boot-FcZx6PCx.js - Line 2 - Msg: [ota] running bundle 1.0.1792028114
+10-15 04:30:55.550  6916  6970 I RetroVisionMedia: 206 bytes 0-25328173/25328174
+10-15 04:30:55.551  6916  6969 I RetroVisionMedia: 206 bytes 0-25328173/25328174
+10-15 04:30:55.833  6916  6969 I RetroVisionMedia: 206 bytes 6455296-25328173/25328174
