@@ -1,8 +1,8 @@
 {
-  "version": "1.0.1792012032",
-  "url": "bundle-1.0.1792012032.zip",
-  "checksum": "3dd796048f0c4967d325155546e4a9c7e6add94438c591161080f945660639c3",
+  "version": "1.0.1792023092",
+  "url": "bundle-1.0.1792023092.zip",
+  "checksum": "e0dcfb968660379d2469f2ce403222a13b27c86f64173838ee837125b7bb4e94",
   "minNativeBuild": 1,
   "apkUrl": "https://github.com/finny95/retrovision-android/releases/latest/download/RetroVision.apk",
-  "builtAt": "2026-10-14T21:07:14.597Z"
+  "builtAt": "2026-10-15T00:11:34.960Z"
 }
