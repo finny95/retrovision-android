@@ -13,12 +13,18 @@ adb install -r "$APK" 2>&1 | tail -2 | tee "$OUT/install.txt"
 adb shell am start -W -n "$PKG/.MainActivity"
 sleep 12
 # Early diagnostics, in case a later step hangs.
-adb shell getprop sys.boot_completed > "$OUT/boot.txt" 2>&1
-adb shell pidof "$PKG" >> "$OUT/boot.txt" 2>&1
-adb exec-out screencap -p > "$OUT/0-start.png"
-adb shell top -b -n 1 -m 15 > "$OUT/top-start.txt" 2>&1
-adb logcat -d -t 400 > "$OUT/logcat-start.txt" 2>&1
-git -C . status >/dev/null 2>&1 || true
+timeout 20 adb shell getprop sys.boot_completed > "$OUT/boot.txt" 2>&1
+timeout 20 adb shell pidof "$PKG" >> "$OUT/boot.txt" 2>&1
+timeout 30 adb exec-out screencap -p > "$OUT/0-start.png"
+timeout 20 adb shell top -b -n 1 -m 15 > "$OUT/top-start.txt" 2>&1
+timeout 30 adb logcat -d > "$OUT/logcat-start.txt" 2>&1
+timeout 20 adb devices -l >> "$OUT/boot.txt" 2>&1
+if ! timeout 20 adb shell pidof "$PKG" >/dev/null 2>&1; then
+  echo "App is not running after launch; stopping early" >> "$OUT/boot.txt"
+  grep -E "chromium|cr_|AndroidRuntime|FATAL|RetroVision|Capacitor|libc|DEBUG|gfxstream|EGL|GL" "$OUT/logcat-start.txt" | tail -150 > "$OUT/logcat-app.txt" || true
+  cp "$OUT/logcat-start.txt" "$OUT/logcat-full.txt"
+  exit 0
+fi
 
 # Copy samples into the app's own cache (debug build, so run-as works); the
 # app's FileProvider then hands out content:// URIs like the folder picker does.
