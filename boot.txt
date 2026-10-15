@@ -1,0 +1,4 @@
+error: closed
+List of devices attached
+
+App is not running after launch; stopping early
