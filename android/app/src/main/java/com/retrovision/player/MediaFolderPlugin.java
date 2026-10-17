@@ -13,6 +13,11 @@ import android.os.ParcelFileDescriptor;
 import android.provider.DocumentsContract;
 import android.provider.DocumentsContract.Document;
 import android.view.WindowManager;
+import android.app.NotificationManager;
+import android.provider.Settings;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import java.security.SecureRandom;
 import androidx.activity.result.ActivityResult;
 import com.getcapacitor.JSArray;
 import com.getcapacitor.JSObject;
@@ -50,7 +55,11 @@ public class MediaFolderPlugin extends Plugin {
     static volatile boolean pipEnabled = false;
     static volatile boolean playing = false;
 
+    /** Channel number to tune after the wake timer opened the app (-1 = none). */
+    static volatile int pendingWake = -1;
+
     private final ExecutorService walker = Executors.newSingleThreadExecutor();
+    private RemoteServer remote;
 
     @Override
     public void load() {
@@ -71,6 +80,8 @@ public class MediaFolderPlugin extends Plugin {
         boolean pip = Build.VERSION.SDK_INT >= Build.VERSION_CODES.O
             && getContext().getPackageManager().hasSystemFeature(PackageManager.FEATURE_PICTURE_IN_PICTURE);
         if (pip) list.put("pip");
+        list.put("wake");
+        list.put("remote");
         JSObject ret = new JSObject();
         ret.put("features", list);
         ret.put("pipEnabled", pipEnabled);
@@ -299,10 +310,146 @@ public class MediaFolderPlugin extends Plugin {
             });
     }
 
+    // --- Wake timer ---------------------------------------------------------------
+
+    private JSObject wakeStatus() {
+        SharedPreferences p = prefs();
+        JSObject ret = new JSObject();
+        ret.put("enabled", p.getBoolean("wake_on", false));
+        ret.put("hour", p.getInt("wake_h", 7));
+        ret.put("minute", p.getInt("wake_m", 0));
+        ret.put("days", p.getString("wake_days", "all"));
+        ret.put("channel", p.getInt("wake_channel", 0));
+        ret.put("next", WakeAlarm.nextTrigger(getContext()));
+        boolean overlay = Build.VERSION.SDK_INT < Build.VERSION_CODES.Q || Settings.canDrawOverlays(getContext());
+        ret.put("overlay", overlay);
+        NotificationManager nm = (NotificationManager) getContext().getSystemService(android.content.Context.NOTIFICATION_SERVICE);
+        ret.put("notifications", nm == null || nm.areNotificationsEnabled());
+        boolean fsi = Build.VERSION.SDK_INT < 34 || (nm != null && nm.canUseFullScreenIntent());
+        ret.put("fullScreen", fsi);
+        return ret;
+    }
+
+    @PluginMethod
+    public void setWake(PluginCall call) {
+        SharedPreferences.Editor e = prefs().edit();
+        boolean on = Boolean.TRUE.equals(call.getBoolean("enabled", false));
+        e.putBoolean("wake_on", on);
+        e.putInt("wake_h", call.getInt("hour", 7));
+        e.putInt("wake_m", call.getInt("minute", 0));
+        e.putString("wake_days", call.getString("days", "all"));
+        e.putInt("wake_channel", call.getInt("channel", 0));
+        e.commit();
+        boolean exact = WakeAlarm.schedule(getContext());
+        if (on && Build.VERSION.SDK_INT >= 33
+            && ContextCompat.checkSelfPermission(getContext(), "android.permission.POST_NOTIFICATIONS") != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(getActivity(), new String[] { "android.permission.POST_NOTIFICATIONS" }, 4402);
+        }
+        JSObject ret = wakeStatus();
+        ret.put("exact", exact);
+        call.resolve(ret);
+    }
+
+    @PluginMethod
+    public void getWake(PluginCall call) {
+        call.resolve(wakeStatus());
+    }
+
+    /** Settings screen for "display over other apps" (lets the wake timer open the app directly). */
+    @PluginMethod
+    public void openOverlaySettings(PluginCall call) {
+        try {
+            Intent i = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getContext().getPackageName()));
+            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            getContext().startActivity(i);
+            call.resolve();
+        } catch (Exception e) {
+            call.reject("This device has no setting for that", "UNAVAILABLE");
+        }
+    }
+
+    /** The channel the wake timer asked for, once. */
+    @PluginMethod
+    public void takeWake(PluginCall call) {
+        JSObject ret = new JSObject();
+        if (pendingWake >= 0) ret.put("channel", pendingWake);
+        pendingWake = -1;
+        call.resolve(ret);
+    }
+
+    // --- Phone remote ---------------------------------------------------------------
+
+    private String remoteCode() {
+        String code = prefs().getString("remote_code", "");
+        if (code.length() != 4) {
+            code = String.format(Locale.ROOT, "%04d", new SecureRandom().nextInt(10000));
+            prefs().edit().putString("remote_code", code).apply();
+        }
+        return code;
+    }
+
+    private JSObject remoteStatus() {
+        JSObject ret = new JSObject();
+        boolean on = remote != null && remote.running();
+        ret.put("running", on);
+        String ip = RemoteServer.localAddress();
+        ret.put("ip", ip);
+        if (on) {
+            ret.put("port", remote.port());
+            ret.put("url", ip != null ? "http://" + ip + ":" + remote.port() : null);
+        }
+        ret.put("code", remoteCode());
+        return ret;
+    }
+
+    @PluginMethod
+    public void startRemote(PluginCall call) {
+        try {
+            if (remote == null) {
+                remote = new RemoteServer((key) -> {
+                    if (bridge != null) bridge.triggerWindowJSEvent("rv-remote", "{ \"k\": \"" + key + "\" }");
+                });
+            }
+            String html = call.getString("html");
+            if (html != null) remote.page = html;
+            remote.code = remoteCode();
+            remote.start(8765);
+            call.resolve(remoteStatus());
+        } catch (Exception e) {
+            call.reject("Couldn't start the phone remote: " + e.getMessage(), e);
+        }
+    }
+
+    @PluginMethod
+    public void stopRemote(PluginCall call) {
+        if (remote != null) remote.stop();
+        call.resolve(remoteStatus());
+    }
+
+    /** A new pairing code (the old one stops working). */
+    @PluginMethod
+    public void newRemoteCode(PluginCall call) {
+        prefs().edit().remove("remote_code").apply();
+        if (remote != null) remote.code = remoteCode();
+        call.resolve(remoteStatus());
+    }
+
+    @PluginMethod
+    public void setRemoteState(PluginCall call) {
+        if (remote != null) remote.state = call.getString("json", "{}");
+        call.resolve();
+    }
+
+    @PluginMethod
+    public void getRemote(PluginCall call) {
+        call.resolve(remoteStatus());
+    }
+
     @Override
     protected void handleOnDestroy() {
         walker.shutdownNow();
         probes.shutdownNow();
+        if (remote != null) remote.stop();
     }
 
     private static boolean isMedia(String name, String mime) {

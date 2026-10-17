@@ -1,6 +1,10 @@
 package com.retrovision.player;
 
+import android.app.KeyguardManager;
+import android.app.NotificationManager;
 import android.app.PictureInPictureParams;
+import android.content.Intent;
+import android.view.WindowManager;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
@@ -23,6 +27,34 @@ public class MainActivity extends BridgeActivity {
         bridge.getWebView().setWebChromeClient(new FullscreenChromeClient(bridge));
 
         enterImmersiveMode();
+        handleWake(getIntent());
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        handleWake(intent);
+    }
+
+    /** Opened by the wake timer: show over the lock screen, switch the screen on, tune the channel. */
+    private void handleWake(Intent intent) {
+        if (intent == null || !intent.hasExtra(WakeAlarm.EXTRA_WAKE)) return;
+        int channel = intent.getIntExtra(WakeAlarm.EXTRA_WAKE, 0);
+        intent.removeExtra(WakeAlarm.EXTRA_WAKE);
+        MediaFolderPlugin.pendingWake = channel;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {
+            setShowWhenLocked(true);
+            setTurnScreenOn(true);
+        } else {
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED | WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            KeyguardManager km = (KeyguardManager) getSystemService(KEYGUARD_SERVICE);
+            if (km != null) km.requestDismissKeyguard(this, null);
+        }
+        NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        if (nm != null) nm.cancel(WakeAlarm.NOTIFY_ID);
+        if (bridge != null) bridge.triggerWindowJSEvent("rv-wake", "{ \"channel\": " + channel + " }");
     }
 
     @Override
