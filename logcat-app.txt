@@ -1,0 +1,60 @@
+10-17 12:24:54.966  5515  5622 I RetroVisionMedia: 200 application/x-subrip size=114
+10-17 12:24:55.185  5515  5515 I Capacitor/Console: File: https://localhost/assets/boot-3LoE8MJc.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-17 12:24:55.194  5515  5515 I Capacitor/Console: File: https://localhost/assets/boot-3LoE8MJc.js - Line 2 - Msg: [ota] running bundle 1.0.1792239394
+10-17 12:24:55.467  5515  5515 I Capacitor/Console: File: https://localhost/assets/boot-3LoE8MJc.js - Line 2 - Msg: [ota] up to date (1.0.1792239394)
+10-17 12:25:02.582  5515  5622 I RetroVisionMedia: 200 application/x-subrip size=114
+10-17 12:25:03.597  5515  5622 I RetroVisionMedia: 206 bytes 4194304-25327494/25327495
+10-17 12:25:24.163  5515  5515 I Capacitor/Console: File: https://localhost/assets/boot-3LoE8MJc.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-17 12:25:24.171  5515  5515 I Capacitor/Console: File: https://localhost/assets/boot-3LoE8MJc.js - Line 2 - Msg: [ota] running bundle 1.0.1792239394
+10-17 12:25:24.394  5515  5515 I Capacitor/Console: File: https://localhost/assets/boot-3LoE8MJc.js - Line 2 - Msg: [ota] up to date (1.0.1792239394)
+10-17 12:25:54.352  5515  5515 I Capacitor/Console: File: https://localhost/assets/boot-3LoE8MJc.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-17 12:25:54.363  5515  5515 I Capacitor/Console: File: https://localhost/assets/boot-3LoE8MJc.js - Line 2 - Msg: [ota] running bundle 1.0.1792239394
+10-17 12:25:54.659  5515  5515 I Capacitor/Console: File: https://localhost/assets/boot-3LoE8MJc.js - Line 2 - Msg: [ota] up to date (1.0.1792239394)
+10-17 12:26:16.044  6642  6642 I Capacitor/Console: File: https://localhost/assets/boot-3LoE8MJc.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-17 12:26:16.056  6642  6642 I Capacitor/Console: File: https://localhost/assets/boot-3LoE8MJc.js - Line 2 - Msg: [ota] running bundle 1.0.1792239394
+10-17 12:26:16.289  6642  6642 I Capacitor/Console: File: https://localhost/assets/boot-3LoE8MJc.js - Line 2 - Msg: [ota] up to date (1.0.1792239394)
+10-17 12:26:26.995  6642  6642 I Capacitor/Console: File: https://localhost/assets/boot-3LoE8MJc.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-17 12:26:27.003  6642  6642 I Capacitor/Console: File: https://localhost/assets/boot-3LoE8MJc.js - Line 2 - Msg: [ota] running bundle 1.0.1792239394
+10-17 12:26:28.344  6642  6642 I Capacitor/Console: File: https://localhost/assets/boot-3LoE8MJc.js - Line 2 - Msg: [ota] up to date (1.0.1792239394)
+10-17 12:26:34.568  6642  6677 I RetroVisionMedia: 206 bytes 0-25327494/25327495
+10-17 12:26:34.578  6642  6677 I RetroVisionMedia: 206 bytes 0-25327494/25327495
+10-17 12:26:34.710  6642  6678 I RetroVisionMedia: 206 bytes 2883584-25327494/25327495
+10-17 12:26:59.831  6642  6642 I Capacitor/Console: File: https://localhost/assets/boot-3LoE8MJc.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-17 12:26:59.843  6642  6642 I Capacitor/Console: File: https://localhost/assets/boot-3LoE8MJc.js - Line 2 - Msg: [ota] running bundle 1.0.1792239394
+10-17 12:27:00.322  6642  6642 I Capacitor/Console: File: https://localhost/assets/boot-3LoE8MJc.js - Line 2 - Msg: [ota] up to date (1.0.1792239394)
+10-17 12:27:15.886  6642  6642 I Capacitor/Console: File: https://localhost/assets/boot-3LoE8MJc.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-17 12:27:15.898  6642  6642 I Capacitor/Console: File: https://localhost/assets/boot-3LoE8MJc.js - Line 2 - Msg: [ota] running bundle 1.0.1792239394
+10-17 12:27:16.114  6642  6642 I Capacitor/Console: File: https://localhost/assets/boot-3LoE8MJc.js - Line 2 - Msg: [ota] up to date (1.0.1792239394)
+10-17 12:27:24.758  6642  6677 I RetroVisionMedia: 206 bytes 0-25327494/25327495
+10-17 12:27:24.902  6642  6678 I RetroVisionMedia: 206 bytes 3112960-25327494/25327495
+10-17 12:27:25.807  6642  6677 I RetroVisionMedia: 206 bytes 786432-25327494/25327495
+10-17 12:27:26.081  6642  6677 I RetroVisionMedia: 206 bytes 4161536-25327494/25327495
+10-17 12:27:40.775  6642  6642 I Capacitor/Console: File: https://localhost/assets/boot-3LoE8MJc.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-17 12:27:40.783  6642  6642 I Capacitor/Console: File: https://localhost/assets/boot-3LoE8MJc.js - Line 2 - Msg: [ota] running bundle 1.0.1792239394
+10-17 12:27:41.021  6642  6642 I Capacitor/Console: File: https://localhost/assets/boot-3LoE8MJc.js - Line 2 - Msg: [ota] up to date (1.0.1792239394)
+10-17 12:29:00.585  6642  6678 I RetroVisionMedia: 206 bytes 10420224-25327494/25327495
+10-17 12:30:17.040  7235  7235 I Capacitor/Console: File: https://localhost/assets/boot-3LoE8MJc.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-17 12:30:17.054  7235  7235 I Capacitor/Console: File: https://localhost/assets/boot-3LoE8MJc.js - Line 2 - Msg: [ota] running bundle 1.0.1792239394
+10-17 12:30:17.118  7235  7235 W Capacitor/Console: File: https://localhost/assets/boot-3LoE8MJc.js - Line 2 - Msg: [ota] update check failed: Unable to resolve host "gorgeous-retro.base44.app": No address associated with hostname
+10-17 12:30:25.128  7235  7235 I Capacitor/Console: File: https://localhost/assets/boot-3LoE8MJc.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-17 12:30:25.294  7235  7235 I Capacitor/Console: File: https://localhost/assets/boot-3LoE8MJc.js - Line 2 - Msg: [ota] running bundle 1.0.1792239394
+10-17 12:30:25.318  7235  7235 W Capacitor/Console: File: https://localhost/assets/boot-3LoE8MJc.js - Line 2 - Msg: [ota] update check failed: Unable to resolve host "gorgeous-retro.base44.app": No address associated with hostname
+10-17 12:30:33.156  7235  7279 I RetroVisionMedia: 206 bytes 0-25327494/25327495
+10-17 12:30:33.402  7235  7279 I RetroVisionMedia: 206 bytes 6455296-25327494/25327495
+10-17 12:30:34.198  7235  7279 I RetroVisionMedia: 206 bytes 7045120-25327494/25327495
+10-17 12:30:43.333  7570  7570 I Capacitor/Console: File: https://localhost/assets/boot-3LoE8MJc.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-17 12:30:43.354  7570  7570 I Capacitor/Console: File: https://localhost/assets/boot-3LoE8MJc.js - Line 2 - Msg: [ota] running bundle 1.0.1792239394
+10-17 12:30:57.410  7570  7570 I Capacitor/Console: File: https://localhost/assets/boot-3LoE8MJc.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-17 12:30:57.419  7570  7570 I Capacitor/Console: File: https://localhost/assets/boot-3LoE8MJc.js - Line 2 - Msg: [ota] running bundle 1.0.1792239394
+10-17 12:31:02.809  7570  7613 I RetroVisionMedia: 206 bytes 0-25327494/25327495
+10-17 12:31:02.825  7570  7615 I RetroVisionMedia: 206 bytes 0-25327494/25327495
+10-17 12:31:02.945  7570  7613 I RetroVisionMedia: 206 bytes 6651904-25327494/25327495
+10-17 12:31:07.325  7749  7749 I Capacitor/Console: File: https://localhost/assets/boot-3LoE8MJc.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-17 12:31:07.338  7749  7749 I Capacitor/Console: File: https://localhost/assets/boot-3LoE8MJc.js - Line 2 - Msg: [ota] running bundle 1.0.1792239394
+10-17 12:31:11.975  7749  7749 I Capacitor/Console: File: https://localhost/assets/boot-3LoE8MJc.js - Line 2 - Msg: [ota] up to date (1.0.1792239394)
+10-17 12:31:19.302  7749  7749 I Capacitor/Console: File: https://localhost/assets/boot-3LoE8MJc.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-17 12:31:19.314  7749  7749 I Capacitor/Console: File: https://localhost/assets/boot-3LoE8MJc.js - Line 2 - Msg: [ota] running bundle 1.0.1792239394
+10-17 12:31:20.093  7749  7749 I Capacitor/Console: File: https://localhost/assets/boot-3LoE8MJc.js - Line 2 - Msg: [ota] up to date (1.0.1792239394)
+10-17 12:31:26.732  7749  7781 I RetroVisionMedia: 206 bytes 0-25327494/25327495
+10-17 12:31:26.937  7749  7781 I RetroVisionMedia: 206 bytes 0-25327494/25327495
+10-17 12:31:27.081  7749  7781 I RetroVisionMedia: 206 bytes 2883584-25327494/25327495

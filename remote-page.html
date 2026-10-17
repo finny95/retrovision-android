@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#0b1a3d">
+<title>RetroVision remote</title>
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:#05070f;color:#fff;font-family:Arial,Helvetica,sans-serif;touch-action:manipulation;user-select:none}
+.wrap{max-width:420px;margin:0 auto;padding:14px 14px 28px}
+.body{background:linear-gradient(180deg,#2a2f3d 0%,#14171f 60%,#0d0f15 100%);border-radius:34px;padding:18px 16px 22px;box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 20px 40px rgba(0,0,0,.6)}
+.brand{text-align:center;font-weight:700;font-style:italic;letter-spacing:.06em;color:#ffd21f;font-size:15px;margin:2px 0 10px}
+.screen{background:#0b2a7a;border:1px solid #4a7bd4;border-radius:12px;padding:8px 10px;margin-bottom:14px;min-height:54px}
+.screen .ch{font-weight:700;font-size:13px;color:#ffe14d}
+.screen .now{font-size:15px;font-weight:700;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.screen .sub{font-size:11px;color:#a9c3ee;margin-top:2px}
+.row{display:flex;gap:10px;justify-content:space-between;margin:10px 0}
+button{flex:1;border:0;border-radius:14px;padding:14px 0;font-size:15px;font-weight:700;color:#fff;background:linear-gradient(180deg,#4a5064,#2b2f3c);box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 2px 4px rgba(0,0,0,.6)}
+button:active{transform:translateY(1px);filter:brightness(1.3)}
+.small{font-size:12px;padding:11px 0}
+.red{background:linear-gradient(180deg,#e04040,#9c1b1b)}
+.green{background:linear-gradient(180deg,#38c050,#1d7a2c)}
+.yellow{background:linear-gradient(180deg,#f0d030,#a88a00);color:#1a1a1a}
+.blue{background:linear-gradient(180deg,#3a70e0,#1b3d9c)}
+.dpad{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(3,64px);gap:8px;margin:14px 6px}
+.dpad button{border-radius:16px}
+.dpad .ok{border-radius:50%;background:linear-gradient(180deg,#ffe866,#f2b200);color:#06173f;font-size:18px}
+.rock{display:flex;flex-direction:column;gap:8px;flex:1}
+.rock button{padding:16px 0}
+.label{font-size:10px;color:#8b93a8;text-align:center;letter-spacing:.1em;margin-top:2px}
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+.nums button{padding:12px 0}
+.pair{background:#0b2a7a;border:1px solid #4a7bd4;border-radius:16px;padding:18px;text-align:center}
+.pair input{font-size:32px;letter-spacing:.4em;text-align:center;width:9ch;padding:8px;border-radius:10px;border:2px solid #ffd21f;background:#06173f;color:#fff}
+.err{color:#ff8a80;font-size:13px;min-height:18px;margin-top:8px}
+</style></head><body><div class="wrap">
+<div id="pair" class="pair" style="display:none">
+  <div class="brand">RETROVISION REMOTE</div>
+  <p style="font-size:14px;color:#cfe0ff">Type the 4-digit code shown on the TV<br>(System, Phone remote).</p>
+  <input id="code" inputmode="numeric" maxlength="4" autocomplete="off">
+  <div class="err" id="err"></div>
+  <div class="row"><button class="green" id="go">Connect</button></div>
+</div>
+<div id="remote" class="body" style="display:none">
+  <div class="brand">RETROVISION</div>
+  <div class="screen"><div class="ch" id="ch">Connecting…</div><div class="now" id="now"></div><div class="sub" id="sub"></div></div>
+  <div class="row"><button class="small" data-k="mute">Mute</button><button class="small" data-k="info">Info</button><button class="small" data-k="text">Text</button><button class="small" data-k="sleep">Sleep</button></div>
+  <div class="row">
+    <div class="rock"><button data-k="volup">VOL +</button><button data-k="voldown">VOL −</button><div class="label">VOLUME</div></div>
+    <div style="flex:1.2;display:flex;flex-direction:column;gap:8px"><button class="small" data-k="menu">Menu</button><button class="small" data-k="guide">Guide</button><button class="small" data-k="last">Last</button></div>
+    <div class="rock"><button data-k="chup">CH +</button><button data-k="chdown">CH −</button><div class="label">CHANNEL</div></div>
+  </div>
+  <div class="dpad">
+    <span></span><button data-k="up">▲</button><span></span>
+    <button data-k="left">◀</button><button class="ok" data-k="ok">OK</button><button data-k="right">▶</button>
+    <span></span><button data-k="down">▼</button><button class="small" data-k="back">Back</button>
+  </div>
+  <div class="row"><button class="small" data-k="startover">⏮ Start over</button><button class="small" data-k="play">⏯</button><button class="small" data-k="live">Live ⏭</button></div>
+  <div class="row"><button class="red small" data-k="red"> </button><button class="green small" data-k="green"> </button><button class="yellow small" data-k="yellow"> </button><button class="blue small" data-k="blue"> </button></div>
+  <div class="nums">
+    <button data-k="d1">1</button><button data-k="d2">2</button><button data-k="d3">3</button>
+    <button data-k="d4">4</button><button data-k="d5">5</button><button data-k="d6">6</button>
+    <button data-k="d7">7</button><button data-k="d8">8</button><button data-k="d9">9</button>
+    <button data-k="cc" class="small">CC</button><button data-k="d0">0</button><button data-k="forget" class="small">Unpair</button>
+  </div>
+</div>
+</div>
+<script>
+(function(){
+  var KEY='rv-remote-code';
+  var code=new URLSearchParams(location.search).get('code')||localStorage.getItem(KEY)||'';
+  var $=function(id){return document.getElementById(id)};
+  function show(paired){$('pair').style.display=paired?'none':'block';$('remote').style.display=paired?'block':'none';}
+  function render(s){
+    if(!s||!s.ok){return;}
+    $('ch').textContent=s.channel?('CH '+String(s.channel.number).padStart(2,'0')+'  '+s.channel.name):'No channel';
+    $('now').textContent=s.now||'';
+    $('sub').textContent=[s.next?('Next: '+s.next):'',s.muted?'Muted':('Volume '+s.volume+'%'),s.sleep?('Sleep '+s.sleep):''].filter(Boolean).join(' · ');
+  }
+  function call(path,k){
+    var u='/api/'+path+'?code='+encodeURIComponent(code)+(k?'&k='+k:'')+'&t='+Date.now();
+    return fetch(u,{cache:'no-store'}).then(function(r){
+      if(r.status===401){localStorage.removeItem(KEY);show(false);$('err').textContent='That code didn\'t work. Check the TV.';throw new Error('code');}
+      return r.json();
+    });
+  }
+  function pair(){
+    code=$('code').value.trim();
+    call('state').then(function(s){localStorage.setItem(KEY,code);show(true);render(s);}).catch(function(){});
+  }
+  $('go').onclick=pair;
+  $('code').addEventListener('input',function(){if(this.value.length===4)pair();});
+  document.querySelectorAll('[data-k]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var k=b.getAttribute('data-k');
+      if(k==='forget'){localStorage.removeItem(KEY);code='';show(false);return;}
+      if(navigator.vibrate)navigator.vibrate(12);
+      call('key',k).then(render).catch(function(){});
+    });
+  });
+  if(code){call('state').then(function(s){localStorage.setItem(KEY,code);show(true);render(s);}).catch(function(){show(false)});}else{show(false);}
+  setInterval(function(){if($('remote').style.display==='block')call('state').then(render).catch(function(){});},2500);
+})();
+</script></body></html>

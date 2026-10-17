@@ -1,0 +1,7 @@
+remote port=8765 code=8409
+page 200
+{"error":"code"} bad-code 401
+{"ok":true,"channel":null,"now":"Nothing loaded","next":"","volume":100,"muted":false,"sleep":""} key d2 200
+{"ok":true,"channel":null,"now":"Nothing loaded","next":"","volume":100,"muted":false,"sleep":""} key d1 200
+{"ok":true,"channel":{"number":21,"name":"Remote Test"},"now":"Test Show","next":"Test Show","volume":100,"muted":false,"sleep":""}
+app pid after menus: 6642

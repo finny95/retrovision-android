@@ -1,0 +1,20 @@
+Tasks: 316 total,   8 running, 308 sleeping,   0 stopped,   0 zombie
+  Mem:  2534548K total,  2394764K used,   139784K free,    23608K buffers
+ Swap:  1900904K total,   303104K used,  1597800K free,  1165636K cached
+200%cpu  37%user  22%nice 126%sys   4%idle   0%iow   0%irq   7%sirq  11%host
+  PID USER         PR  NI VIRT  RES  SHR S[%CPU] %MEM     TIME+ ARGS
+  522 system       18  -2  15G 322M 227M R 44.4  12.9   0:24.32 system_server
+ 2502 u0_a192      10 -10  29G 217M 141M S 25.9   8.7   0:04.67 com.retrovision.player
+ 1538 u0_a145      10 -10  13G 153M 114M S 14.8   6.1   0:01.54 com.google.android.inputmethod.latin
+ 3945 root          0 -20    0    0    0 I  7.4   0.0   0:00.03 [kworker/1:6H-kblockd]
+ 1612 u0_a126      20   0  14G 156M 106M R  7.4   6.2   0:01.12 com.google.android.as
+ 1431 u0_a131      20   0  13G 186M 139M S  7.4   7.5   0:02.94 com.google.android.gms.persistent
+ 1060 system       20   0  13G 124M  96M S  7.4   5.0   0:00.25 com.android.settings
+   41 root         20   0    0    0    0 S  7.4   0.0   0:01.58 [kswapd0]
+    1 root         20   0  10G 3.7M 2.8M D  7.4   0.1   0:04.57 init second_stage
+ 3955 shell        20   0  10G 4.8M 4.0M R  3.7   0.1   0:00.02 top -b -n 1 -m 15
+ 3650 u0_a125      20   0  13G  69M  42M S  3.7   2.7   0:00.01 com.google.android.onetimeinitializer
+ 3010 u0_a107      20   0  13G  71M  45M S  3.7   2.8   0:00.02 com.android.carrierdefaultapp
+ 2777 u0_i9000     10 -10 231G 169M 112M S  3.7   6.8   0:00.65 com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0
+ 1749 u0_a131      20   0  13G  76M  50M S  3.7   3.0   0:00.22 com.google.process.gservices
+ 1552 u0_a121      20   0  13G 140M  99M S  3.7   5.6   0:00.75 com.google.android.apps.wellbeing

@@ -1,0 +1,13 @@
+Tasks: 328 total,   3 running, 325 sleeping,   0 stopped,   0 zombie
+  Mem:  2534548K total,  2065092K used,   469456K free,     4780K buffers
+ Swap:  1900904K total,   520704K used,  1380200K free,   844572K cached
+200%cpu  48%user  15%nice 133%sys  15%idle   0%iow   0%irq   7%sirq  11%host
+  PID USER         PR  NI VIRT  RES  SHR S[%CPU] %MEM     TIME+ ARGS
+ 1103 u0_a169      20   0  13G 122M  87M S 55.5   4.9   0:02.16 com.google.android.apps.nexuslauncher
+  522 system       18  -2  15G 319M 214M S 25.9  12.8   0:41.15 system_server
+ 5465 u0_a131      20   0  14G  50M  27M S 14.8   2.0   0:00.00 <pre-initialized>
+ 1706 u0_a132      20   0  30G 249M 196M S 14.8  10.0   0:04.22 com.google.android.googlequicksearchbox:search
+ 2113 u0_a87       20   0  13G 104M  77M S  7.4   4.2   0:01.18 android.process.media
+  837 u0_a167      20   0  14G 160M 114M S  7.4   6.4   0:03.60 com.android.systemui
+  403 system       -3  -8  11G  11M 8.5M S  7.4   0.4   0:10.50 surfaceflinger
+  157 root         20   0    0    0    0 I  7.4   0.0   0:05.41 [kworker/1:3-virtio_vsock]

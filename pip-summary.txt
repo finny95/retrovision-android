@@ -1,0 +1,10 @@
+  * Task{d19b45e #9 type=standard A=10192:com.retrovision.player U=0 visible=true visibleRequested=true mode=pinned translucent=false sz=1}
+        mGlobalConfig={1.0 310mcc260mnc [en_US] ldltr sw108dp w192dp h108dp 160dpi smll land finger qwerty/v/v -nav/h winConfig={ mBounds=Rect(112, 329 - 304, 437) mAppBounds=Rect(112, 329 - 304, 437) mMaxBounds=Rect(0, 0 - 320, 640) mDisplayRotation=ROTATION_0 mWindowingMode=pinned mDisplayWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} as.2 s.53 fontWeightAdjustment=0}
+        mOverrideConfig={1.0 310mcc260mnc [en_US] ldltr sw108dp w192dp h108dp 160dpi smll land finger qwerty/v/v -nav/h winConfig={ mBounds=Rect(112, 329 - 304, 437) mAppBounds=Rect(112, 329 - 304, 437) mMaxBounds=Rect(0, 0 - 320, 640) mDisplayRotation=ROTATION_0 mWindowingMode=pinned mDisplayWindowingMode=fullscreen mActivityType=standard mAlwaysOnTop=undefined mRotation=ROTATION_0} as.2 s.6 fontWeightAdjustment=0}
+      CurrentConfiguration={1.0 310mcc260mnc [en_US] ldltr sw108dp w192dp h108dp 160dpi smll land finger qwerty/v/v -nav/h winConfig={ mBounds=Rect(112, 329 - 304, 437) mAppBounds=Rect(112, 329 - 304, 437) mMaxBounds=Rect(0, 0 - 320, 640) mDisplayRotation=ROTATION_0 mWindowingMode=pinned mDisplayWindowingMode=fullscreen mActivityType=standard mAlwaysOnTop=undefined mRotation=ROTATION_0} as.2 s.6 fontWeightAdjustment=0}
+      supportsEnterPipOnTaskSwitch: false
+      * Task{d19b45e #9 type=standard A=10192:com.retrovision.player U=0 visible=true visibleRequested=true mode=pinned translucent=false sz=1}
+  rootPinnedTask=Task=9
+  PinnedTaskController
+    name=pip_input_consumer pid=837 user=UserHandle{0}
+        (pinned) Task{d19b45e #9 type=standard A=10192:com.retrovision.player}
