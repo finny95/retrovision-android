@@ -169,6 +169,10 @@ adb shell am force-stop "$PKG"
 run_phase stalled
 adb exec-out screencap -p > "$OUT/stalled.png"
 adb shell settings put global http_proxy :0
+# Low power mode: plain video (compare top-lowpower.txt with top-captions.txt for CPU).
+adb shell am force-stop "$PKG"
+run_phase lowpower
+timeout 30 adb exec-out screencap -p > "$OUT/lowpower.png"
 adb logcat -d > "$OUT/logcat-full.txt"
 grep -E "RetroVisionMedia|\[ota\]|\[native\]|FATAL|chromium.*(Media|media)" "$OUT/logcat-full.txt" | tail -60 > "$OUT/logcat-app.txt" || true
 cp "$OUT/media-results.json" "$OUT/results.json" 2>/dev/null || true

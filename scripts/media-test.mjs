@@ -538,6 +538,33 @@ if (phase === "pip-check") {
   save();
 }
 
+// --- Low power mode: plain <video>, no WebGL, graphics layer over it -------------
+if (phase === "lowpower") {
+  const { sample, rel } = sampleFor();
+  await seedChannel(
+    testRecord(sample, rel),
+    { id: 9701, number: 22, name: "Low Power Test", shows: ["Test Show"], adShows: [], adsPerBreak: 0, blocks: [], lineup: [{ mediaId: 9001, kind: "show" }], epoch: Date.now() - 20000 },
+    { lowPower: "on", broadcast: { upNext: false, ident: false, ratingCard: "off" } }
+  );
+  await send("Page.reload");
+  await new Promise((r) => setTimeout(r, 7000));
+  results.features = results.features || {};
+  results.features.lowPower = await tuneTo("Low Power Test", 12000);
+  await new Promise((r) => setTimeout(r, 3000));
+  results.features.lowPowerState = await evaluate(() => {
+    const v = document.querySelector("video");
+    const cs = v && getComputedStyle(v);
+    return {
+      webgl: Boolean(document.querySelector("canvas[data-engine]")),
+      videoShown: Boolean(cs && cs.display !== "none" && cs.visibility !== "hidden"),
+      t: v ? v.currentTime : null,
+      paused: v ? v.paused : null,
+      gfx: Boolean(document.querySelector('canvas[width="1024"]')),
+    };
+  });
+  save();
+}
+
 // --- 7. Phone remote and wake timer ---------------------------------------------
 if (phase === "remote" || phase === "wake") {
   const { sample, rel } = sampleFor();
