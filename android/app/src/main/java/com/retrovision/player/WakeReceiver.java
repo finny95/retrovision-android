@@ -21,18 +21,14 @@ public class WakeReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context c, Intent intent) {
         if (!WakeAlarm.ACTION_WAKE.equals(intent.getAction())) return;
+        // Keep the CPU up while we start things. Don't switch the screen on here:
+        // the full-screen notification only opens the app while the screen is off
+        // (the app switches the screen on itself as it opens).
         try {
             PowerManager pm = (PowerManager) c.getSystemService(Context.POWER_SERVICE);
-            if (pm != null) {
-                @SuppressWarnings("deprecation")
-                PowerManager.WakeLock wl = pm.newWakeLock(
-                    PowerManager.SCREEN_BRIGHT_WAKE_LOCK | PowerManager.ACQUIRE_CAUSES_WAKEUP | PowerManager.ON_AFTER_RELEASE,
-                    "retrovision:wake"
-                );
-                wl.acquire(15000);
-            }
+            if (pm != null) pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "retrovision:wake").acquire(15000);
         } catch (Exception ignored) {
-            // screen stays as it is
+            // carry on
         }
 
         Intent launch = WakeAlarm.launchIntent(c);

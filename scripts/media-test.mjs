@@ -318,8 +318,13 @@ if (phase === "offline" || phase === "stalled") {
     ...loaded,
     ...(await evaluate(async () => {
       const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-      const btn = [...document.querySelectorAll("button")].find((b) => b.textContent.includes("Test Channel"));
-      if (!btn) return { error: "channel not listed", text: document.body.innerText.slice(0, 200) };
+      document.querySelector('[data-tab="channels"]')?.click();
+      let btn = null;
+      for (let i = 0; i < 30 && !btn; i++) {
+        btn = [...document.querySelectorAll("button")].find((b) => b.textContent.includes("Test Channel"));
+        if (!btn) await sleep(500);
+      }
+      if (!btn) return { error: "channel not listed", text: document.body.innerText.slice(0, 400), rows: document.querySelectorAll('[data-nav-key^="ch:"]').length };
       btn.click();
       const v = document.querySelector("video");
       const t1 = performance.now();
