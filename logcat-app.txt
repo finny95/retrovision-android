@@ -1,0 +1,248 @@
+10-17 07:05:37.919   523   551 I ActivityManager: Start proc 3485:com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0/u0ai9000 for  {com.retrovision.player/org.chromium.content.app.SandboxedProcessService0:0}
+10-17 07:05:38.113  3485  3485 I cr_WebViewApkApp: Launched version=113.0.5672.136 minSdkVersion=29 isBundle=false processName=com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0
+10-17 07:05:38.751  3348  3348 D Capacitor: Starting BridgeActivity
+10-17 07:05:38.814   523   551 I ActivityManager: Start proc 3599:com.google.android.webview:webview_apk/u0a133 for service {com.google.android.webview/org.chromium.android_webview.nonembedded.AwComponentUpdateService}
+10-17 07:05:38.918  3348  3348 D Capacitor: Registering plugin instance: CapacitorCookies
+10-17 07:05:38.926  3348  3348 D Capacitor: Registering plugin instance: WebView
+10-17 07:05:38.927  3348  3348 D Capacitor: Registering plugin instance: CapacitorHttp
+10-17 07:05:38.932  3348  3348 D Capacitor: Registering plugin instance: SystemBars
+10-17 07:05:38.933  3348  3348 D Capacitor: Registering plugin instance: MediaFolder
+10-17 07:05:39.070  3348  3348 D Capacitor: Registering plugin instance: App
+10-17 07:05:39.071  3348  3348 D Capacitor: Registering plugin instance: CapacitorUpdater
+10-17 07:05:39.385  3348  3348 W Capacitor: Unable to read file at path public/plugins
+10-17 07:05:39.388  3348  3348 D Capacitor: Loading app at https://localhost
+10-17 07:05:39.436  3348  3348 D Capacitor: App started
+10-17 07:05:39.492  3348  3348 D Capacitor/AppPlugin: Firing change: true
+10-17 07:05:39.492  3348  3348 V Capacitor/AppPlugin: Notifying listeners for event appStateChange
+10-17 07:05:39.492  3348  3348 D Capacitor/AppPlugin: No listeners found for event appStateChange
+10-17 07:05:39.492  3348  3348 D Capacitor: App resumed
+10-17 07:05:39.533  3348  3464 D Capacitor: Handling local request: https://localhost/
+10-17 07:05:40.076  3348  3348 V Capacitor/AppPlugin: Notifying listeners for event pause
+10-17 07:05:40.076  3348  3348 D Capacitor/AppPlugin: No listeners found for event pause
+10-17 07:05:40.077  3348  3348 D Capacitor: App paused
+10-17 07:05:40.079  3348  3348 D Capacitor/AppPlugin: Firing change: false
+10-17 07:05:40.079  3348  3348 V Capacitor/AppPlugin: Notifying listeners for event appStateChange
+10-17 07:05:40.080  3348  3348 D Capacitor/AppPlugin: No listeners found for event appStateChange
+10-17 07:05:40.081  3348  3348 D Capacitor: App stopped
+10-17 07:05:40.081  3348  3348 D Capacitor: Saving instance state!
+10-17 07:05:40.088  3348  3348 D Capacitor: App destroyed
+10-17 07:05:40.291  3348  3348 D Capacitor: Starting BridgeActivity
+10-17 07:05:40.368  3348  3348 D Capacitor: Registering plugin instance: CapacitorCookies
+10-17 07:05:40.369  3348  3348 D Capacitor: Registering plugin instance: WebView
+10-17 07:05:40.369  3348  3348 D Capacitor: Registering plugin instance: CapacitorHttp
+10-17 07:05:40.370  3348  3348 D Capacitor: Registering plugin instance: SystemBars
+10-17 07:05:40.370  3348  3348 D Capacitor: Registering plugin instance: MediaFolder
+10-17 07:05:40.370  3348  3348 D Capacitor: Registering plugin instance: App
+10-17 07:05:40.370  3348  3348 D Capacitor: Registering plugin instance: CapacitorUpdater
+10-17 07:05:40.430  3348  3348 V Capacitor/CapacitorUpdaterPlugin: Notifying listeners for event appReady
+10-17 07:05:40.430  3348  3348 D Capacitor/CapacitorUpdaterPlugin: No listeners found for event appReady
+10-17 07:05:40.447  3348  3348 W Capacitor: Unable to read file at path public/plugins
+10-17 07:05:40.448  3348  3348 D Capacitor: Loading app at https://localhost
+10-17 07:05:40.453  3348  3464 D Capacitor: Handling local request: https://localhost/
+10-17 07:05:40.454  3348  3348 D Capacitor: App started
+10-17 07:05:40.454  3348  3348 D Capacitor/AppPlugin: Firing change: true
+10-17 07:05:40.454  3348  3348 V Capacitor/AppPlugin: Notifying listeners for event appStateChange
+10-17 07:05:40.454  3348  3348 D Capacitor/AppPlugin: No listeners found for event appStateChange
+10-17 07:05:40.454  3348  3348 D Capacitor: App resumed
+10-17 07:05:40.577  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.m(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:10)
+10-17 07:05:40.577  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.h(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:2)
+10-17 07:05:40.577  3348  3348 W cr_AwContents: 	at com.android.webview.chromium.WebViewChromium.evaluateJavaScript(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:37)
+10-17 07:05:40.577  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.m(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:10)
+10-17 07:05:40.577  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.h(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:2)
+10-17 07:05:40.577  3348  3348 W cr_AwContents: 	at com.android.webview.chromium.WebViewChromium.evaluateJavaScript(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:37)
+10-17 07:05:40.577  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.m(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:10)
+10-17 07:05:40.577  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.h(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:2)
+10-17 07:05:40.577  3348  3348 W cr_AwContents: 	at com.android.webview.chromium.WebViewChromium.evaluateJavaScript(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:37)
+10-17 07:05:40.577  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.m(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:10)
+10-17 07:05:40.577  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.h(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:2)
+10-17 07:05:40.577  3348  3348 W cr_AwContents: 	at com.android.webview.chromium.WebViewChromium.evaluateJavaScript(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:37)
+10-17 07:05:40.577  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.m(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:10)
+10-17 07:05:40.577  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.h(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:2)
+10-17 07:05:40.577  3348  3348 W cr_AwContents: 	at com.android.webview.chromium.WebViewChromium.evaluateJavaScript(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:37)
+10-17 07:05:40.577  3348  3348 W cr_AwContents: 	at ee.forgr.capacitor_updater.CapacitorUpdaterPlugin.lambda$evaluateWebViewStatsReporterScript$13(CapacitorUpdaterPlugin.java:1745)
+10-17 07:05:40.577  3348  3348 W cr_AwContents: 	at ee.forgr.capacitor_updater.CapacitorUpdaterPlugin.$r8$lambda$qurQQ4znJsNLKOfSAQ7YsCQdAvk(Unknown Source:0)
+10-17 07:05:40.577  3348  3348 W cr_AwContents: 	at ee.forgr.capacitor_updater.CapacitorUpdaterPlugin$$ExternalSyntheticLambda38.run(D8$$SyntheticClass:0)
+10-17 07:05:40.577  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.m(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:10)
+10-17 07:05:40.577  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.h(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:2)
+10-17 07:05:40.577  3348  3348 W cr_AwContents: 	at com.android.webview.chromium.WebViewChromium.evaluateJavaScript(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:37)
+10-17 07:05:40.577  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.m(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:10)
+10-17 07:05:40.577  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.h(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:2)
+10-17 07:05:40.577  3348  3348 W cr_AwContents: 	at com.android.webview.chromium.WebViewChromium.evaluateJavaScript(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:37)
+10-17 07:05:40.577  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.m(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:10)
+10-17 07:05:40.577  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.h(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:2)
+10-17 07:05:40.577  3348  3348 W cr_AwContents: 	at com.android.webview.chromium.WebViewChromium.evaluateJavaScript(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:37)
+10-17 07:05:40.578  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.m(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:10)
+10-17 07:05:40.578  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.h(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:2)
+10-17 07:05:40.578  3348  3348 W cr_AwContents: 	at com.android.webview.chromium.WebViewChromium.evaluateJavaScript(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:37)
+10-17 07:05:40.578  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.m(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:10)
+10-17 07:05:40.578  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.h(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:2)
+10-17 07:05:40.578  3348  3348 W cr_AwContents: 	at com.android.webview.chromium.WebViewChromium.evaluateJavaScript(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:37)
+10-17 07:05:40.578  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.m(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:10)
+10-17 07:05:40.578  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.h(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:2)
+10-17 07:05:40.578  3348  3348 W cr_AwContents: 	at com.android.webview.chromium.WebViewChromium.evaluateJavaScript(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:37)
+10-17 07:05:40.578  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.m(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:10)
+10-17 07:05:40.578  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.h(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:2)
+10-17 07:05:40.578  3348  3348 W cr_AwContents: 	at com.android.webview.chromium.WebViewChromium.evaluateJavaScript(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:37)
+10-17 07:05:40.578  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.m(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:10)
+10-17 07:05:40.578  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.h(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:2)
+10-17 07:05:40.578  3348  3348 W cr_AwContents: 	at com.android.webview.chromium.WebViewChromium.evaluateJavaScript(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:37)
+10-17 07:05:40.578  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.m(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:10)
+10-17 07:05:40.578  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.h(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:2)
+10-17 07:05:40.578  3348  3348 W cr_AwContents: 	at com.android.webview.chromium.WebViewChromium.evaluateJavaScript(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:37)
+10-17 07:05:40.578  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.m(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:10)
+10-17 07:05:40.578  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.h(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:2)
+10-17 07:05:40.578  3348  3348 W cr_AwContents: 	at com.android.webview.chromium.WebViewChromium.evaluateJavaScript(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:37)
+10-17 07:05:40.578  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.m(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:10)
+10-17 07:05:40.578  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.h(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:2)
+10-17 07:05:40.578  3348  3348 W cr_AwContents: 	at com.android.webview.chromium.WebViewChromium.evaluateJavaScript(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:37)
+10-17 07:05:40.578  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.m(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:10)
+10-17 07:05:40.578  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.h(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:2)
+10-17 07:05:40.578  3348  3348 W cr_AwContents: 	at com.android.webview.chromium.WebViewChromium.evaluateJavaScript(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:37)
+10-17 07:05:40.578  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.m(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:10)
+10-17 07:05:40.578  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.h(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:2)
+10-17 07:05:40.578  3348  3348 W cr_AwContents: 	at com.android.webview.chromium.WebViewChromium.evaluateJavaScript(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:37)
+10-17 07:05:40.578  3348  3348 W cr_AwContents: 	at ee.forgr.capacitor_updater.CapacitorUpdaterPlugin.lambda$syncKeepUrlPathFlag$25(CapacitorUpdaterPlugin.java:2953)
+10-17 07:05:40.578  3348  3348 W cr_AwContents: 	at ee.forgr.capacitor_updater.CapacitorUpdaterPlugin.$r8$lambda$NlndgIJteR-k2M7xMTmXpEIR5OY(Unknown Source:0)
+10-17 07:05:40.578  3348  3348 W cr_AwContents: 	at ee.forgr.capacitor_updater.CapacitorUpdaterPlugin$$ExternalSyntheticLambda30.run(D8$$SyntheticClass:0)
+10-17 07:05:40.578  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.m(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:10)
+10-17 07:05:40.578  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.h(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:2)
+10-17 07:05:40.578  3348  3348 W cr_AwContents: 	at com.android.webview.chromium.WebViewChromium.evaluateJavaScript(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:37)
+10-17 07:05:40.602  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.m(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:10)
+10-17 07:05:40.602  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.h(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:2)
+10-17 07:05:40.602  3348  3348 W cr_AwContents: 	at com.android.webview.chromium.WebViewChromium.evaluateJavaScript(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:37)
+10-17 07:05:40.602  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.m(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:10)
+10-17 07:05:40.602  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.h(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:2)
+10-17 07:05:40.602  3348  3348 W cr_AwContents: 	at com.android.webview.chromium.WebViewChromium.evaluateJavaScript(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:37)
+10-17 07:05:40.602  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.m(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:10)
+10-17 07:05:40.602  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.h(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:2)
+10-17 07:05:40.602  3348  3348 W cr_AwContents: 	at com.android.webview.chromium.WebViewChromium.evaluateJavaScript(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:37)
+10-17 07:05:40.602  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.m(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:10)
+10-17 07:05:40.602  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.h(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:2)
+10-17 07:05:40.602  3348  3348 W cr_AwContents: 	at com.android.webview.chromium.WebViewChromium.evaluateJavaScript(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:37)
+10-17 07:05:40.602  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.m(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:10)
+10-17 07:05:40.602  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.h(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:2)
+10-17 07:05:40.602  3348  3348 W cr_AwContents: 	at com.android.webview.chromium.WebViewChromium.evaluateJavaScript(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:37)
+10-17 07:05:40.603  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.m(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:10)
+10-17 07:05:40.603  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.h(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:2)
+10-17 07:05:40.603  3348  3348 W cr_AwContents: 	at com.android.webview.chromium.WebViewChromium.evaluateJavaScript(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:37)
+10-17 07:05:40.603  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.m(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:10)
+10-17 07:05:40.603  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.h(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:2)
+10-17 07:05:40.603  3348  3348 W cr_AwContents: 	at com.android.webview.chromium.WebViewChromium.evaluateJavaScript(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:37)
+10-17 07:05:40.603  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.m(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:10)
+10-17 07:05:40.603  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.h(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:2)
+10-17 07:05:40.603  3348  3348 W cr_AwContents: 	at com.android.webview.chromium.WebViewChromium.evaluateJavaScript(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:37)
+10-17 07:05:40.665  3599  3784 W cr_AWNetworkFetcherTask: 	at org.chromium.android_webview.nonembedded.NetworkFetcherTask.download(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:48)
+10-17 07:05:40.678  3348  3348 I Capacitor/Console: File:  - Line 1 - Msg: [CapgoUpdater] 🟢 WebView set successfully for logging
+10-17 07:05:40.678  3348  3348 I Capacitor/Console: File:  - Line 1 - Msg: [CapgoUpdater] 🟢 appId: com.retrovision.player
+10-17 07:05:40.678  3348  3348 I Capacitor/Console: File:  - Line 1 - Msg: [CapgoUpdater] 🟢 init for device ded3649e-45af-4133-8def-36904882dd29
+10-17 07:05:40.678  3348  3348 I Capacitor/Console: File:  - Line 1 - Msg: [CapgoUpdater] 🟢 version native 1.0.9
+10-17 07:05:40.678  3348  3348 I Capacitor/Console: File:  - Line 1 - Msg: [CapgoUpdater] 🟢 All delays canceled from checkCancelDelay
+10-17 07:05:40.679  3348  3348 I Capacitor/Console: File:  - Line 1 - Msg: [CapgoUpdater] 🟢 ProcessLifecycleOwner: App moved to foreground
+10-17 07:05:40.679  3348  3348 I Capacitor/Console: File:  - Line 1 - Msg: [CapgoUpdater] 🟢 All delays canceled from checkCancelDelay
+10-17 07:05:40.679  3348  3348 I Capacitor/Console: File:  - Line 1 - Msg: [CapgoUpdater] 🟢 Cleanup complete
+10-17 07:05:40.679  3348  3348 I Capacitor/Console: File:  - Line 1 - Msg: [CapgoUpdater] 🟢 Background timestamp unset
+10-17 07:05:40.679  3348  3348 I Capacitor/Console: File:  - Line 1 - Msg: [CapgoUpdater] 🟢 Auto update is disabled
+10-17 07:05:40.679  3348  3348 I Capacitor/Console: File:  - Line 1 - Msg: [CapgoUpdater] 🟢 sendReadyToJs: disabled
+10-17 07:05:40.679  3348  3348 I Capacitor/Console: File:  - Line 1 - Msg: [CapgoUpdater] 🟢 Wait for 15000ms, then check for notifyAppReady
+10-17 07:05:40.679  3348  3348 I Capacitor/Console: File:  - Line 1 - Msg: [CapgoUpdater] 🟢 AppLifecycleObserver registered with ProcessLifecycleOwner
+10-17 07:05:40.679  3348  3348 I Capacitor/Console: File:  - Line 1 - Msg: [CapgoUpdater] 🟢 Using ProcessLifecycleOwner for foreground/background detection (Android 14+)
+10-17 07:05:40.679  3348  3348 I Capacitor/Console: File:  - Line 1 - Msg: [CapgoUpdater] 🟢 semaphoreUp
+10-17 07:05:40.679  3348  3348 I Capacitor/Console: File:  - Line 1 - Msg: [CapgoUpdater] 🟢 handleOnStart: onActivityStarted com.retrovision.player.MainActivity
+10-17 07:05:40.698  3348  3470 D Capacitor: Handling local request: https://localhost/assets/index-CtRFKeO0.js
+10-17 07:05:40.709  3348  3510 D Capacitor: Handling local request: https://localhost/assets/index-CRo9CTim.css
+10-17 07:05:40.765  3348  3348 E Capacitor/Console: File:  - Line 6 - Msg: Error injecting safe area CSS: TypeError: Cannot read properties of null (reading 'style')
+10-17 07:05:40.765  3348  3348 E Capacitor/Console: File:  - Line 6 - Msg: Error injecting safe area CSS: TypeError: Cannot read properties of null (reading 'style')
+10-17 07:05:40.765  3348  3348 E Capacitor/Console: File:  - Line 6 - Msg: Error injecting safe area CSS: TypeError: Cannot read properties of null (reading 'style')
+10-17 07:05:41.160  3348  3469 D Capacitor: Handling local request: https://localhost/api/app-logs/6ac7728a9741de53fe460747/log-user-in-app/home
+10-17 07:05:41.163  3348  3348 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+10-17 07:05:41.166  3348  3348 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 22795457, pluginId: CapacitorUpdater, methodName: reportWebViewError
+10-17 07:05:41.167  3348  3348 V Capacitor: callback: 22795457, pluginId: CapacitorUpdater, methodName: reportWebViewError, methodData: {"type":"webview_dom_content_loaded","message":"WebView DOM content loaded","duration_ms":"445","page_started_at":"1792220740718","href":"https:\/\/localhost\/","user_agent":"Mozilla\/5.0 (Linux; Android 14; sdk_gphone64_x86_64 Build\/UE1A.230829.050; wv) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/113.0.5672.136 Mobile Safari\/537.36 RetroVisionApp","session_id":"1792220740718-gnbranv268m"}
+10-17 07:05:41.284  3348  3470 D Capacitor: Handling local request: https://localhost/assets/boot-CIMxWv7t.js
+10-17 07:05:41.288  3348  3470 D Capacitor: Handling local request: https://localhost/assets/dist-DatRlWGw.js
+10-17 07:05:41.295  3348  3469 D Capacitor: Handling local request: https://localhost/assets/esm-DuDmUQdv.js
+10-17 07:05:41.297  3348  3469 D Capacitor: Handling local request: https://localhost/assets/definitions-BXfyEA5k.js
+10-17 07:05:41.301  3348  3469 D Capacitor: Handling local request: https://localhost/assets/mediaFolder-B5SkQi60.js
+10-17 07:05:41.327  3348  3348 I Capacitor/Console: File:  - Line 333 - Msg: undefined
+10-17 07:05:41.350  3348  3348 I Capacitor/Console: File: https://localhost/assets/boot-CIMxWv7t.js - Line 2 - Msg: [native] Chrome/113.0.5672.136, gamepad API: true
+10-17 07:05:41.358  3348  3348 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+10-17 07:05:41.359  3348  3348 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 22795458, pluginId: App, methodName: addListener
+10-17 07:05:41.360  3348  3348 V Capacitor: callback: 22795458, pluginId: App, methodName: addListener, methodData: {"eventName":"backButton"}
+10-17 07:05:41.361  3348  3348 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+10-17 07:05:41.362  3348  3348 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 22795459, pluginId: CapacitorUpdater, methodName: notifyAppReady
+10-17 07:05:41.362  3348  3348 V Capacitor: callback: 22795459, pluginId: CapacitorUpdater, methodName: notifyAppReady, methodData: {}
+10-17 07:05:41.365  3348  3348 I Capacitor/Console: File:  - Line 1 - Msg: [CapgoUpdater] 🟢 Version successfully loaded: 1.0.9
+10-17 07:05:41.375  3348  3348 I Capacitor/Console: File:  - Line 1 - Msg: [CapgoUpdater] 🟢 Current bundle loaded successfully. ['notifyAppReady()' was called] {"id":"builtin","version":"1.0.9","downloaded":"1970-01-01T00:00:00.000Z","checksum":"","status":"success"}
+10-17 07:05:41.376  3348  3348 I Capacitor/Console: File:  - Line 1 - Msg: [CapgoUpdater] 🟢 semaphoreReady countDown
+10-17 07:05:41.377  3348  3348 I Capacitor/Console: File:  - Line 1 - Msg: [CapgoUpdater] 🟢 semaphoreDown
+10-17 07:05:41.379  3348  3348 I Capacitor/Console: File:  - Line 1 - Msg: [CapgoUpdater] 🟢 semaphoreDown count 0
+10-17 07:05:41.379  3348  3348 I Capacitor/Console: File:  - Line 1 - Msg: [CapgoUpdater] 🟢 semaphoreReady countDown done
+10-17 07:05:41.380  3348  3348 I Capacitor/Console: File:  - Line 333 - Msg: {"bundle":{"checksum":"","id":"builtin","version":"1.0.9","downloaded":"1970-01-01T00:00:00.000Z","status":"success"}}
+10-17 07:05:41.380  3348  3348 I Capacitor/Console: File: https://localhost/assets/boot-CIMxWv7t.js - Line 2 - Msg: [ota] running bundle 1.0.1792220516
+10-17 07:05:41.381  3348  3348 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+10-17 07:05:41.388  3348  3348 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 22795460, pluginId: CapacitorHttp, methodName: get
+10-17 07:05:41.388  3348  3348 V Capacitor: callback: 22795460, pluginId: CapacitorHttp, methodName: get, methodData: {"url":"https:\/\/gorgeous-retro.base44.app\/ota\/manifest.json?t=1792220741381","headers":{"Cache-Control":"no-cache"},"responseType":"json"}
+10-17 07:05:41.389  3348  3348 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+10-17 07:05:41.390  3348  3348 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 22795461, pluginId: App, methodName: addListener
+10-17 07:05:41.390  3348  3348 V Capacitor: callback: 22795461, pluginId: App, methodName: addListener, methodData: {"eventName":"resume"}
+10-17 07:05:41.391  3348  3890 I CapacitorCookies: Getting cookies at: 'https://gorgeous-retro.base44.app/ota/manifest.json?t=1792220741381'
+10-17 07:05:42.201  3348  3348 I Capacitor/Console: File:  - Line 333 - Msg: {"status":200,"headers":{"alt-svc":"h3=\":443\"; ma=86400","Cache-Control":"public, max-age=3600","cf-cache-status":"DYNAMIC","CF-RAY":"a4bd74d47bf8f859-ORD","Connection":"keep-alive","Content-Type":"application/json","Date":"Sat, 17 Oct 2026 07:05:42 GMT","referrer-policy":"strict-origin-when-cross-origin","rndr-id":"744131e6-0512-4c91","Server":"cloudflare","strict-transport-security":"max-age=31536000","Transfer-Encoding":"chunked","vary":"Accept-Encoding","via":"1.1 Caddy","X-Android-Received-Millis":"1792220741924","X-Android-Response-Source":"NETWORK 200","X-Android-Selected-Protocol":"http/1.1","X-Android-Sent-Millis":"1792220741635","x-render-origin-server":"uvicorn","x-request-id":"45f6cc13-5068-437a-8af7-78c4fa3d8ca6"},"url":"https://gorgeous-retro.base44.app/ota/manifest.json?t=1792220741381","data":{"version":"1.0.1792220516","url":"bundle-1.0.1792220516.zip","checksum":"a2c4fa3d9cade31e0d28f157ac19f4168aacf8094d0cda2781677eec9457423f","minNativeBuild":1,"apkUrl":"https://github.com/finny95/retrovision-android/releases/latest/download/RetroVision.apk","builtAt":"2026-10-17T07:01:58.280Z"}}
+10-17 07:05:42.202  3348  3348 I Capacitor/Console: File: https://localhost/assets/boot-CIMxWv7t.js - Line 2 - Msg: [ota] up to date (1.0.1792220516)
+10-17 07:05:42.628  3348  3464 D Capacitor: Handling local request: https://localhost/assets/arimo-latin-700-italic-B1UitvUd.woff2
+10-17 07:05:42.635  3348  3464 D Capacitor: Handling local request: https://localhost/assets/arimo-latin-700-normal-DhEW593l.woff2
+10-17 07:05:42.637  3348  3464 D Capacitor: Handling local request: https://localhost/assets/vt323-latin-400-normal-wDgJuOC9.woff2
+10-17 07:05:42.638  3348  3464 D Capacitor: Handling local request: https://localhost/assets/arimo-latin-400-normal-Bqnq6eT5.woff2
+10-17 07:05:50.171  3485  3554 I chromium: [INFO:audio_latency.cc(179)] audioHardwareBufferSize = 4360
+10-17 07:05:52.197  3348  3348 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+10-17 07:05:52.200  3348  3348 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 22795462, pluginId: MediaFolder, methodName: capabilities
+10-17 07:05:52.200  3348  3348 V Capacitor: callback: 22795462, pluginId: MediaFolder, methodName: capabilities, methodData: {}
+10-17 07:05:52.408  3348  3348 I Capacitor/Console: File:  - Line 333 - Msg: {"features":["saveFile","rescanFolder","subtitles","pip","wake","remote"],"pipEnabled":false}
+10-17 07:05:52.409  3348  3348 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+10-17 07:05:52.409  3348  3348 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 22795463, pluginId: MediaFolder, methodName: stopRemote
+10-17 07:05:52.410  3348  3348 V Capacitor: callback: 22795463, pluginId: MediaFolder, methodName: stopRemote, methodData: {}
+10-17 07:05:52.507  3348  3348 I Capacitor/Console: File:  - Line 333 - Msg: {"running":false,"ip":"10.0.2.15","code":"6353"}
+10-17 07:05:54.494  3348  3696 V Capacitor/CapacitorUpdaterPlugin: Notifying listeners for event appReady
+10-17 07:05:54.494  3348  3696 D Capacitor/CapacitorUpdaterPlugin: No listeners found for event appReady
+10-17 07:05:54.512  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.m(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:10)
+10-17 07:05:54.512  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.h(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:2)
+10-17 07:05:54.512  3348  3348 W cr_AwContents: 	at com.android.webview.chromium.WebViewChromium.evaluateJavaScript(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:37)
+10-17 07:05:54.512  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.m(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:10)
+10-17 07:05:54.512  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.h(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:2)
+10-17 07:05:54.512  3348  3348 W cr_AwContents: 	at com.android.webview.chromium.WebViewChromium.evaluateJavaScript(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:37)
+10-17 07:05:54.512  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.m(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:10)
+10-17 07:05:54.512  3348  3348 W cr_AwContents: 	at org.chromium.android_webview.AwContents.h(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:2)
+10-17 07:05:54.512  3348  3348 W cr_AwContents: 	at com.android.webview.chromium.WebViewChromium.evaluateJavaScript(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:37)
+10-17 07:05:55.445  3348  3348 I Capacitor/Console: File:  - Line 1 - Msg: [CapgoUpdater] 🟢 Built-in bundle is active. We skip the check for notifyAppReady.
+10-17 07:06:16.283  3348  3348 V Capacitor/AppPlugin: Notifying listeners for event pause
+10-17 07:06:16.283  3348  3348 D Capacitor/AppPlugin: No listeners found for event pause
+10-17 07:06:16.283  3348  3348 D Capacitor: App paused
+10-17 07:06:17.131  3348  3348 D Capacitor/AppPlugin: Firing change: false
+10-17 07:06:17.131  3348  3348 V Capacitor/AppPlugin: Notifying listeners for event appStateChange
+10-17 07:06:17.131  3348  3348 D Capacitor/AppPlugin: No listeners found for event appStateChange
+10-17 07:06:17.132  3348  3348 D Capacitor: App stopped
+10-17 07:06:17.132  3348  3348 D Capacitor: Saving instance state!
+10-17 07:06:17.180  3348  3348 I Capacitor/Console: File:  - Line 1 - Msg: [CapgoUpdater] 🟢 handleOnStop: onActivityStopped
+10-17 07:06:17.180  3348  3348 I Capacitor/Console: File:  - Line 1 - Msg: [CapgoUpdater] 🟢 ProcessLifecycleOwner: App moved to background
+10-17 07:06:17.180  3348  3348 I Capacitor/Console: File:  - Line 1 - Msg: [CapgoUpdater] 🟢 Checking for pending update
+10-17 07:06:17.181  3348  3348 I Capacitor/Console: File:  - Line 1 - Msg: [CapgoUpdater] 🟢 Background timestamp set
+10-17 07:06:17.181  3348  3348 I Capacitor/Console: File:  - Line 1 - Msg: [CapgoUpdater] 🟢 All delays canceled from checkCancelDelay
+10-17 07:06:26.179  3348  3348 D Capacitor: App restarted
+10-17 07:06:26.184  3348  3348 D Capacitor: App started
+10-17 07:06:26.188  3348  3348 D Capacitor/AppPlugin: Firing change: true
+10-17 07:06:26.188  3348  3348 V Capacitor/AppPlugin: Notifying listeners for event appStateChange
+10-17 07:06:26.188  3348  3348 D Capacitor/AppPlugin: No listeners found for event appStateChange
+10-17 07:06:26.188  3348  3348 V Capacitor/AppPlugin: Notifying listeners for event resume
+10-17 07:06:26.192  3348  3348 D Capacitor: App resumed
+10-17 07:06:26.193  3348  3348 I Capacitor/Console: File:  - Line 333 - Msg: undefined
+10-17 07:06:26.199  3348  5064 V Capacitor/CapacitorUpdaterPlugin: Notifying listeners for event appReady
+10-17 07:06:26.199  3348  5064 D Capacitor/CapacitorUpdaterPlugin: No listeners found for event appReady
+10-17 07:06:26.386  3348  3348 I Capacitor/Console: File:  - Line 1 - Msg: [CapgoUpdater] 🟢 handleOnStart: onActivityStarted com.retrovision.player.MainActivity
+10-17 07:06:26.386  3348  3348 I Capacitor/Console: File:  - Line 1 - Msg: [CapgoUpdater] 🟢 ProcessLifecycleOwner: App moved to foreground
+10-17 07:06:26.386  3348  3348 I Capacitor/Console: File:  - Line 1 - Msg: [CapgoUpdater] 🟢 All delays canceled from checkCancelDelay
+10-17 07:06:26.386  3348  3348 I Capacitor/Console: File:  - Line 1 - Msg: [CapgoUpdater] 🟢 Background timestamp unset
+10-17 07:06:26.386  3348  3348 I Capacitor/Console: File:  - Line 1 - Msg: [CapgoUpdater] 🟢 Auto update is disabled
+10-17 07:06:26.387  3348  3348 I Capacitor/Console: File:  - Line 1 - Msg: [CapgoUpdater] 🟢 sendReadyToJs: disabled
+10-17 07:06:26.387  3348  3348 I Capacitor/Console: File:  - Line 1 - Msg: [CapgoUpdater] 🟢 Wait for 15000ms, then check for notifyAppReady
+10-17 07:06:26.387  3348  3348 I Capacitor/Console: File:  - Line 1 - Msg: [CapgoUpdater] 🟢 semaphoreReady count 1
+10-17 07:06:32.670  4659  5170 I cr_CronetUrlRequestContext: destroyNativeStreamLocked org.chromium.net.impl.CronetBidirectionalStream@2a2b9cb
+10-17 07:06:41.193  3348  3348 I Capacitor/Console: File:  - Line 1 - Msg: [CapgoUpdater] 🟢 Built-in bundle is active. We skip the check for notifyAppReady.
+10-17 07:06:41.795   523   594 I ActivityManager: Killing 3485:com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0/u0a192i0 (adj 0): isolated not needed
