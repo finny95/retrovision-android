@@ -142,6 +142,18 @@ adb shell input keyevent KEYCODE_DPAD_RIGHT
 adb shell input keyevent KEYCODE_DPAD_RIGHT
 sleep 1
 adb exec-out screencap -p > "$OUT/ui-landscape-menu2.png"
+# Guide: the picture drawn into its corner box, menus on the tube.
+adb shell input keyevent KEYCODE_BACK
+sleep 1
+adb shell input keyevent KEYCODE_GUIDE
+sleep 3
+adb exec-out screencap -p > "$OUT/ui-landscape-guide.png"
+adb shell input keyevent KEYCODE_DPAD_DOWN
+adb shell input keyevent KEYCODE_DPAD_DOWN
+sleep 2
+adb exec-out screencap -p > "$OUT/ui-landscape-guide2.png"
+echo "app pid after menus: $(adb shell pidof "$PKG" | tr -d '\r')" >> "$OUT/remote.txt"
+adb shell input keyevent KEYCODE_BACK
 adb shell settings put system user_rotation 0
 
 # No internet at all (airplane mode), then a connection that never answers.
