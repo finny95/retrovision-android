@@ -86,6 +86,46 @@ timeout 20 adb shell dumpsys activity activities | grep -E "ResumedActivity|topR
 echo "pid after sleep: $(adb shell pidof "$PKG" | tr -d '\r')" >> "$OUT/after-sleep.txt"
 adb shell am start -W -n "$PKG/.MainActivity" >/dev/null
 sleep 8
+
+# Phone remote: the box serves a page and takes button presses on the home network.
+run_phase remote
+REMOTE_PORT=$(python3 -c "import json;print(json.load(open('$OUT/remote.json')).get('port',''))" 2>/dev/null)
+REMOTE_CODE=$(python3 -c "import json;print(json.load(open('$OUT/remote.json')).get('code',''))" 2>/dev/null)
+echo "remote port=$REMOTE_PORT code=$REMOTE_CODE" > "$OUT/remote.txt"
+if [ -n "$REMOTE_PORT" ]; then
+  adb forward tcp:18765 tcp:$REMOTE_PORT
+  curl -s -m 5 -o "$OUT/remote-page.html" -w "page %{http_code}\n" "http://127.0.0.1:18765/" >> "$OUT/remote.txt"
+  curl -s -m 5 -w " bad-code %{http_code}\n" "http://127.0.0.1:18765/api/state?code=0000x" >> "$OUT/remote.txt"
+  for k in d2 d1; do curl -s -m 5 -w " key $k %{http_code}\n" "http://127.0.0.1:18765/api/key?code=$REMOTE_CODE&k=$k" >> "$OUT/remote.txt"; sleep 0.4; done
+  sleep 4
+  curl -s -m 5 "http://127.0.0.1:18765/api/state?code=$REMOTE_CODE" >> "$OUT/remote.txt"
+  echo >> "$OUT/remote.txt"
+  PID=$(adb shell pidof "$PKG" | tr -d '\r')
+  adb forward tcp:9222 "localabstract:webview_devtools_remote_$PID"
+  timeout 60 node scripts/media-test.mjs 9222 "$OUT/media-results.json" remote-check "${FILES[@]}" >> "$OUT/node.log" 2>&1
+  timeout 30 adb exec-out screencap -p > "$OUT/remote.png"
+fi
+
+# Wake timer: set it a minute ahead, switch the screen off, see the app come back on channel 21.
+adb shell pm grant "$PKG" android.permission.POST_NOTIFICATIONS 2>/dev/null || true
+run_phase wake
+adb shell input keyevent KEYCODE_HOME
+sleep 2
+adb shell input keyevent KEYCODE_SLEEP
+sleep 3
+timeout 20 adb shell dumpsys power | grep -E "mWakefulness=" > "$OUT/wake.txt" 2>&1
+echo "-- waiting for the alarm" >> "$OUT/wake.txt"
+sleep 110
+timeout 20 adb shell dumpsys power | grep -E "mWakefulness=" >> "$OUT/wake.txt" 2>&1
+timeout 20 adb shell dumpsys activity activities | grep -E "topResumedActivity" >> "$OUT/wake.txt" 2>&1
+timeout 30 adb exec-out screencap -p > "$OUT/wake.png"
+PID=$(adb shell pidof "$PKG" | tr -d '\r')
+adb forward tcp:9222 "localabstract:webview_devtools_remote_$PID"
+timeout 60 node scripts/media-test.mjs 9222 "$OUT/media-results.json" wake-check "${FILES[@]}" >> "$OUT/node.log" 2>&1
+adb logcat -d | grep -iE "WakeReceiver|Background activity launch|retrovision:wake|full.?screen" | tail -20 >> "$OUT/wake.txt"
+adb shell input keyevent KEYCODE_WAKEUP
+adb shell am start -W -n "$PKG/.MainActivity" >/dev/null
+sleep 6
 adb exec-out screencap -p > "$OUT/ui-portrait.png"
 # Sideways, like a handheld: the full-screen TV layout.
 adb shell settings put system accelerometer_rotation 0

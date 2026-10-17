@@ -533,6 +533,57 @@ if (phase === "pip-check") {
   save();
 }
 
+// --- 7. Phone remote and wake timer ---------------------------------------------
+if (phase === "remote" || phase === "wake") {
+  const { sample, rel } = sampleFor();
+  await seedChannel(
+    testRecord(sample, rel),
+    { id: 9601, number: 21, name: "Remote Test", shows: ["Test Show"], adShows: [], adsPerBreak: 0, blocks: [], lineup: [{ mediaId: 9001, kind: "show" }], epoch: Date.now() - 20000 },
+    { remoteOn: phase === "remote", broadcast: { upNext: false, ident: false, ratingCard: "off" } }
+  );
+  await send("Page.reload");
+  await new Promise((r) => setTimeout(r, 8000));
+  results.features = results.features || {};
+  if (phase === "remote") {
+    results.features.remote = await evaluate(async () => {
+      try {
+        return await window.Capacitor.Plugins.MediaFolder.getRemote();
+      } catch (e) {
+        return { error: String(e) };
+      }
+    });
+    writeFileSync(outFile.replace(/[^/]+$/, "remote.json"), JSON.stringify(results.features.remote));
+  } else {
+    // Wake in 60-120 s, on channel 21.
+    results.features.wakeSet = await evaluate(async () => {
+      const at = new Date(Date.now() + 75000);
+      try {
+        return await window.Capacitor.Plugins.MediaFolder.setWake({ enabled: true, hour: at.getHours(), minute: at.getMinutes(), days: "all", channel: 21 });
+      } catch (e) {
+        return { error: String(e) };
+      }
+    });
+  }
+  save();
+}
+
+if (phase === "remote-check" || phase === "wake-check") {
+  results.features = results.features || {};
+  results.features[phase] = await evaluate(async () => {
+    const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+    await sleep(2500);
+    const v = document.querySelector("video");
+    return {
+      channel: document.querySelector('[data-testid="osd-channel"]')?.textContent || null,
+      menu: Boolean(document.querySelector("[data-menu-panel]")),
+      playing: Boolean(v && v.currentTime > 0.5 && !v.paused),
+      item: document.querySelector("[data-item]")?.dataset.item || null,
+      text: document.body.innerText.slice(0, 160),
+    };
+  });
+  save();
+}
+
 save();
 console.log(JSON.stringify(results, null, 2));
 ws.close();
